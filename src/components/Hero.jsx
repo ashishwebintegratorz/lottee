@@ -12,12 +12,12 @@ export default function Hero() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover"
                 >
-                    <source src="/hero expo vedio.mp4" type="video/mp4" />
+                    <source src="/expo-new-hero.mp4" type="video/mp4" />
                 </video>
                 {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/20"></div>
             </div>
 
             {/* Content */}
