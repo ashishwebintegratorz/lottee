@@ -23,22 +23,22 @@ export default function WhatWeOffer() {
 
     const services = [
         {
-            title: "Exhibitions",
+            title: "Projects",
             description: "Consectetur adipiscing",
             image: "https://images.unsplash.com/photo-1554941068-a252680d25d9?q=80&w=2070&auto=format&fit=crop"
         },
         {
-            title: "Workshops",
+            title: "Schedule",
             description: "Consectetur adipiscing",
             image: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop"
         },
         {
-            title: "Contests",
+            title: "About",
             description: "Consectetur adipiscing",
             image: "https://images.unsplash.com/photo-1492037766660-2a56f9eb3fcb?q=80&w=2070&auto=format&fit=crop"
         },
         {
-            title: "Events",
+            title: "Contact",
             description: "Consectetur adipiscing",
             image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop"
         }
@@ -70,32 +70,7 @@ export default function WhatWeOffer() {
                     ></span>.
                 </h2>
 
-                <div className="space-y-1">
-                    <p
-                        className="mb-1"
-                        style={{
-                            fontFamily: "' sans-serif', Roc Grotesk",
-                            fontSize: '15px',
-                            fontWeight: '500',
-                            color: 'rgb(25, 25, 25)',
-                            letterSpacing: '0.1em'
-                        }}
-                    >
-                        Piter Bowman
-                    </p>
-                    <p
-                        style={{
-                            fontFamily: "' sans-serif', Roc Grotesk",
-                            fontSize: '12px',
-                            fontWeight: '500',
-                            color: 'rgb(121, 124, 127)',
-                            letterSpacing: '0.2em',
-                            textTransform: 'uppercase'
-                        }}
-                    >
-                        Creative Director
-                    </p>
-                </div>
+
             </div>
 
             {/* Services Grid */}

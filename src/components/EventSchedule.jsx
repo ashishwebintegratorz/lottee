@@ -57,7 +57,7 @@ export default function EventSchedule() {
                             color: 'rgb(255, 255, 255)'
                         }}
                     >
-                        Event Schedule
+                        Agenda
                     </h2>
                     <Link
                         href="#"
@@ -72,14 +72,14 @@ export default function EventSchedule() {
 
                 {/* Date Tabs */}
                 <div className="flex gap-8 mb-8 border-b border-white/20 pb-4">
-                    <button className="text-[#7a8208] text-sm font-medium tracking-wide pb-2">
-                        Day #1 - may 01.2021
+                    <button className="text-white/60 text-sm font-medium tracking-wide ">
+                        2026
                     </button>
                     <button className="text-white/60 text-sm font-medium tracking-wide hover:text-white transition-colors">
-                        Day #2 - may 02.2021
+                        2025
                     </button>
                     <button className="text-white/60 text-sm font-medium tracking-wide hover:text-white transition-colors">
-                        Day #3 - may 03.2021
+                        2024
                     </button>
                 </div>
 

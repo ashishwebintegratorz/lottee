@@ -6,20 +6,20 @@ import { useState, useEffect } from 'react';
 export default function UrbanAtmosphere() {
     const slides = [
         {
-            category: "Black and White",
-            title: "Urban Atmosphere",
+            category: "Lotte & Ciela",
+            title: "About",
             description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
             image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
         },
         {
-            category: "Black and White",
-            title: "Contemplating Art",
+            category: "Lotte & Ciela",
+            title: "About",
             description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
             image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070&auto=format&fit=crop"
         },
         {
-            category: "Black and White",
-            title: "Moment of Tranquility",
+            category: "Lotte & Ciela",
+            title: "About",
             description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
             image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=2070&auto=format&fit=crop"
         }

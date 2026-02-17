@@ -8,7 +8,7 @@ export default function LatestNews() {
     const newsItems = [
         {
             title: "Why using scale in nature photography is so important",
-            image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1000&auto=format&fit=crop",
+            image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg",
             date: "March 30, 2020",
             comments: "0 Comments"
         },
@@ -20,7 +20,7 @@ export default function LatestNews() {
         },
         {
             title: "When to use black & white photography",
-            image: "https://images.unsplash.com/photo-1595111756586-b481f1857c5a?q=80&w=1000&auto=format&fit=crop",
+            image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg",
             date: "March 30, 2020",
             comments: "0 Comments"
         },

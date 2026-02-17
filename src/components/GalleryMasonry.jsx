@@ -20,12 +20,13 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1000&auto=format&fit=crop',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.48 (2).jpeg',
             alt: 'Abstract',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'video',
+            src: '/hero expo vedio.mp4',
             text: 'Play Clip',
             span: 'col-span-1 row-span-1'
         },
@@ -86,11 +87,14 @@ export default function GalleryMasonry() {
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-300"></div>
                                 </>
                             ) : (
-                                <div className="w-full h-full flex items-center justify-center bg-black border-2 border-dashed border-white/30">
-                                    <span className="text-white text-sm font-bold tracking-wider uppercase">
-                                        {item.text}
-                                    </span>
-                                </div>
+                                <video
+                                    src={item.src}
+                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                />
                             )}
                         </div>
                     ))}
