@@ -1,184 +1,438 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Typed from 'typed.js';
+
+const cards = [
+    {
+        title: "Art Storage",
+        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.48.jpeg"
+    },
+    {
+        title: "Art Shipping",
+        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg"
+    },
+    {
+        title: "Space for Events",
+        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.50.jpeg"
+    },
+    {
+        title: "Customized Estimate",
+        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.48 (1).jpeg"
+    }
+];
+
+const staff = [
+    {
+        name: "Harry Wooster",
+        position: "Guide",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.49 (1).jpeg"
+    },
+    {
+        name: "Helen Marson",
+        position: "Art Expert",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.49 (2).jpeg"
+    },
+    {
+        name: "Brian Long",
+        position: "Coordinator",
+        image: "/WhatsApp Image 2026-02-15 at 18.08.50 (1).jpeg"
+    }
+];
 
 export default function AboutPage() {
-    // Animation variants
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    // WhoWeAre Logic
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+    const [showCursor, setShowCursor] = useState(false);
+    const typedElement = useRef(null);
+
+    useEffect(() => {
+        if (!typedElement.current) return;
+
+        const typed = new Typed(typedElement.current, {
+            strings: ['pride', 'care', 'style'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 2000,
+            loop: true,
+            showCursor: false
+        });
+
+        return () => typed.destroy();
+    }, []);
+
+    const handlePrev = () => {
+        setCurrentSlide((prev) => Math.max(0, prev - 1));
     };
 
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2
-            }
+    const handleNext = () => {
+        setCurrentSlide((prev) => Math.min(cards.length - 2, prev + 1));
+    };
+
+    const handleInteraction = (e) => {
+        const clickX = e.clientX;
+        const windowWidth = window.innerWidth;
+        if (clickX < windowWidth / 2) {
+            handlePrev();
+        } else {
+            handleNext();
         }
     };
 
-    return (
-        <main className="bg-white min-h-screen w-full">
-            {/* Add padding-top to account for the absolute navbar */}
-            <section className="pt-36 pb-24 px-6 lg:px-12 relative overflow-hidden">
-                <div className="max-w-[1400px] mx-auto w-full">
+    const handleMouseMove = (e) => {
+        setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
 
-                    {/* Intro Section */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
-                        className="mb-20 max-w-4xl"
+    return (
+        <main className="bg-[#111111] min-h-screen w-full flex flex-col items-center pt-48 pb-20 relative text-white">
+            {/* Page Title */}
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-16 tracking-wide text-white"
+                style={{
+                    fontFamily: "'Roc Grotesk', sans-serif",
+                    fontSize: '57px',
+                    lineHeight: '57px',
+                    fontWeight: '500'
+                }}
+            >
+                About Us
+            </motion.h1>
+
+            <div className="w-full max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden mb-10">
+                {/* Left Side - Image */}
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative w-full h-[500px] lg:h-[700px]"
+                >
+                    <img
+                        src="/abouttop.jpeg"
+                        alt="Classic Art Gallery"
+                        className="w-full h-full object-cover"
+                    />
+                </motion.div>
+
+                {/* Right Side - Content */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="flex flex-col justify-center px-8 lg:px-20 py-12 bg-[#111111] relative z-10"
+                >
+                    <h2
+                        className="text-white mb-14 z-10 lg:-ml-43"
+                        style={{
+                            fontFamily: "'Roc Grotesk', sans-serif",
+                            fontSize: '57px',
+                            lineHeight: '61px',
+                            fontWeight: '500'
+                        }}
                     >
-                        <motion.span
-                            variants={fadeInUp}
-                            className="text-sm font-bold tracking-[0.2em] text-black uppercase mb-4 block"
-                        >
-                            About
-                        </motion.span>
-                        <motion.h2
-                            variants={fadeInUp}
-                            className="text-4xl md:text-6xl font-medium leading-[1.1] mb-8 text-[#191919]"
+                        Welcome to Classic and<br />Modern Art Gallery
+                    </h2>
+
+                    <p className="text-gray-400 text-lg leading-relaxed mb-14 max-w-lg lg:pl-12">
+                        Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+
+                    <div className="space-y-2 mb-10 text-gray-400 font-medium tracking-wide lg:pl-12">
+                        <p>MON-FRI: 9 AM – 22 PM</p>
+                        <p>SATURDAY: 9 AM – 20 PM</p>
+                    </div>
+
+                    <div className="lg:pl-12">
+                        <button className="bg-[#7a8208] hover:bg-[#6b7207] text-white font-semibold py-4 px-10 rounded-full w-fit transition-colors duration-300 shadow-lg">
+                            About Us
+                        </button>
+                    </div>
+                </motion.div>
+            </div>
+
+            {/* Who We Are Section (Inlined) */}
+            <section className="w-full pt-16 pb-16 relative overflow-hidden">
+                {/* Custom Cursor */}
+                {showCursor && (
+                    <div
+                        className="custom-cursor fixed pointer-events-none z-[9999]"
+                        style={{
+                            left: `${cursorPosition.x}px`,
+                            top: `${cursorPosition.y}px`,
+                            opacity: showCursor ? 1 : 0,
+                            transform: 'translate(-50%, -50%)',
+                            backgroundColor: 'white',
+                            color: 'black'
+                        }}
+                    />
+                )}
+
+                <div className="max-w-[1700px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    {/* Left Side - Title */}
+                    <div className="lg:col-span-4 flex flex-col justify-start min-h-[400px] pl-6 lg:pl-12">
+                        <h2
+                            className="text-sm font-bold tracking-[0.2em] uppercase text-white"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
-                            Lotte Aimée de Weert
-                        </motion.h2>
-                        <motion.div variants={fadeInUp} className="space-y-6 text-[#797c7f] text-lg leading-relaxed font-light">
-                            <p>
-                                Born in 1996 in the Netherlands, Lotte Aimée de Weert embarked on her artistic journey at the prestigious ArtEZ University of the Arts in Arnhem. Seeking to broaden her horizons and refine her craft, she moved to Paris, a city that would become the crucible for her evolving artistic identity. There, she immersed herself in a rigorous study of classical ballet, contemporary dance, and the Graham technique, building a technical foundation that is both robust and versatile. This period of intense training was not merely physical but intellectual, fostering a deep appreciation for the history and evolution of movement.
-                            </p>
-                            <p>
-                                Her education did not stop at movement. Recognizing the intricate link between physical expression and emotional truth, she expanded her interpretative range through the study of Method Acting with Jack Waltzer, a lifetime member of the Actors Studio in New York. This dual foundation—merging rigorous physicality with profound dramatic depth—has shaped her distinctive presence, allowing her to inhabit characters and concepts with a rare intensity. It allows her to approach dance not just as a series of steps, but as a continuous, living monologue of the body.
-                            </p>
-                            <p>
-                                Her career has since blossomed into a dynamic exploration of performance, leading her to stages and screens alike. She cultivates a refined sensitivity to the camera's gaze and the stage's demand, constantly exploring the dialogue between dance, theatre, and visual arts to create moments of resonant beauty. whether in the intimacy of a studio or the grandeur of a theatre, her work remains grounded in a relentless pursuit of honest expression.
-                            </p>
-                        </motion.div>
-                    </motion.div>
+                            WHO WE ARE
+                        </h2>
+                    </div>
 
-                    {/* Divider */}
-                    <motion.div
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
-                        className="w-full h-[1px] bg-gray-200 mb-20 origin-left"
-                    />
-
-                    {/* Biography & Language Section */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-20"
+                    {/* Right Side - Carousel */}
+                    <div
+                        className="lg:col-span-8 cursor-none relative"
+                        onMouseMove={handleMouseMove}
+                        onMouseEnter={() => setShowCursor(true)}
+                        onMouseLeave={() => setShowCursor(false)}
+                        onClick={(e) => {
+                            // Only trigger click navigation if wasn't dragging
+                            if (Math.abs(e.movementX) < 2) handleInteraction(e);
+                        }}
                     >
-                        {/* Biography */}
-                        <motion.div variants={fadeInUp}>
-                            <h3
-                                className="text-3xl font-medium mb-6 text-[#191919]"
-                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                        <div className="overflow-hidden w-full">
+                            <motion.div
+                                className="flex gap-16 cursor-grab active:cursor-grabbing"
+                                drag="x"
+                                dragConstraints={{
+                                    right: 0,
+                                    left: -((cards.length - 2) * 484) // 420px card + 64px gap
+                                }}
+                                dragElastic={0.1}
+                                onDragEnd={(e, info) => {
+                                    const threshold = 50;
+                                    if (info.offset.x < -threshold) {
+                                        handleNext();
+                                    } else if (info.offset.x > threshold) {
+                                        handlePrev();
+                                    }
+                                }}
+                                animate={{ x: `-${currentSlide * 52}%` }}
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
-                                Her Biography
-                            </h3>
-                            <div className="space-y-6 text-[#797c7f] text-lg leading-relaxed font-light">
-                                <p>
-                                    Rooted in the grounded pragmatism of her Dutch origins and artistically sculpted by the poetic nuances of Paris, Lotte Aimée de Weert possesses a cosmopolitan perspective that informs every aspect of her work. She has developed a movement language that seamlessly bridges physical intensity with emotional precision, creating work that is felt as much as it is seen. Her approach is holistic, informed by theatrical depth, cinematic awareness, and an unyielding commitment to technical clarity.
-                                </p>
-                                <p>
-                                    A versatile chameleon of a performer, she navigates the worlds of dance, theatre, and high fashion with equal grace. She has graced shows, performances, and exclusive presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda. These experiences have not only expanded her portfolio but have further sharpened her understanding of presence, image construction, and the subtle art of narrative embodiment within the constraints of high-stakes visual environments. She understands that in these spaces, the body becomes a vessel for the brand's story, requiring a precision and elegance that she effortlessly delivers.
-                                </p>
-                                <p>
-                                    Furthermore, her ability to adapt to different artistic directions while maintaining her unique signature has made her a trusted collaborator for directors and photographers. She brings a proactive creative energy to every project, offering solutions and interpretations that elevate the initial concept.
-                                </p>
-                            </div>
-                        </motion.div>
+                                {cards.map((card, index) => (
+                                    <div
+                                        key={index}
+                                        className="min-w-[85%] md:min-w-[420px] flex-shrink-0 flex flex-col group select-none"
+                                    >
+                                        {/* Text Content */}
+                                        <div className="mb-10 pr-6">
+                                            <h3
+                                                className="text-3xl font-semibold mb-4 tracking-tight"
+                                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                                            >
+                                                {card.title}
+                                            </h3>
+                                            <p className="text-gray-400 leading-relaxed mb-6 text-base font-light max-w-[380px]">
+                                                {card.description}
+                                            </p>
 
-                        {/* Choreographic Language */}
-                        <motion.div variants={fadeInUp}>
-                            <h3
-                                className="text-3xl font-medium mb-6 text-[#191919]"
-                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
-                            >
-                                Her Choreographic Language
-                            </h3>
-                            <div className="space-y-6 text-[#797c7f] text-lg leading-relaxed font-light">
-                                <p>
-                                    Her choreographic research is a deep dive into the primal relationship between body, space, and storytelling. It travels fluidly from the introspection of intimate solos to the complex dynamics of collaborative stage works. At the core of her practice is a relentless search for authenticity—she seeks the tension that exists before movement resolves, the embodied truth that emerges when the performer strips away affectation.
-                                </p>
-                                <p>
-                                    She employs a vocabulary that is both sculptural and fluid, often using the body to carve space in unexpected ways. Her work invites the audience to witness an unfolding internal dialogue, made visible through precise gesture and committed action. It is a language of resilience and vulnerability, demanding both the performer and the viewer to be fully present in the moment. She is particularly interested in the "in-between" moments—the transitions, the pauses, the stillness that speaks louder than motion.
-                                </p>
-                                <p>
-                                    Technical precision is paramount in her work, yet it never overshadows the emotional core. She believes that technique should serve the expression, acting as the invisible framework that supports the raw, human story being told. This balance results in performances that are visually stunning yet deeply moving.
-                                </p>
-                            </div>
-                        </motion.div>
-                    </motion.div>
+                                            {/* Read More & Small Arrow - Unified Slide Animation */}
+                                            <div className="relative flex items-center h-8 cursor-pointer group/btn overflow-hidden">
+                                                <div className="flex items-center transition-transform duration-500 ease-in-out -translate-x-[90px] group-hover:translate-x-0">
+                                                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white pr-4">
+                                                        Read More
+                                                    </span>
+                                                    <svg
+                                                        width="24"
+                                                        height="8"
+                                                        viewBox="0 0 24 8"
+                                                        fill="none"
+                                                        className="text-white"
+                                                    >
+                                                        <path
+                                                            d="M0 4H22M22 4L18 1M22 4L18 7"
+                                                            stroke="currentColor"
+                                                            strokeWidth="1.2"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                    {/* Divider */}
-                    <motion.div
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
-                        className="w-full h-[1px] bg-gray-200 mb-20 origin-left"
-                    />
+                                        {/* Image */}
+                                        <div className="aspect-[4/3] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                                            <Image
+                                                src={card.image}
+                                                alt={card.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                sizes="(max-width: 768px) 85vw, 420px"
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                    {/* Creations & Projects Section */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24"
+            {/* What We Offer Section */}
+            <section className="relative bg-[#121212] pt-10 pb-32 w-full text-white">
+                <div className="max-w-[1000px] mx-auto text-center px-6">
+                    <span className="text-xs font-bold tracking-[0.3em] text-white uppercase block mb-8">
+                        What We Offer
+                    </span>
+
+                    <h2
+                        className="mb-10 text-white"
+                        style={{
+                            fontFamily: "'Roc Grotesk', sans-serif",
+                            fontWeight: '500',
+                            fontSize: '57px',
+                            lineHeight: '61px',
+                        }}
                     >
-                        {/* Her Creations */}
-                        <motion.div variants={fadeInUp}>
-                            <h3
-                                className="text-3xl font-medium mb-6 text-[#191919]"
+                        Exhibitions, events and digital art experiences,
+                        crafted with brilliance, love, precision and{" "}
+                        <span
+                            className="underline decoration-1 underline-offset-[12px]"
+                            ref={typedElement}
+                        ></span>.
+                    </h2>
+
+                    {/* Author Signature */}
+                    <div className="mt-16 flex flex-col items-center">
+                        <span className="text-white font-bold text-lg tracking-wide mb-1" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
+                            Piter Bowman
+                        </span>
+                        <span className="text-gray-400 text-sm tracking-widest uppercase font-medium">
+                            Creative Director
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Staff Section */}
+            <section className="w-full bg-[#0f0f0f] py-32 px-6 lg:px-12 text-white">
+                <div className="max-w-[1240px] mx-auto">
+                    {/* Section Header */}
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-end mb-20">
+                        <div className="lg:col-span-1">
+                            <h2
+                                className="text-6xl font-semibold tracking-tight"
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
-                                Her Creations
-                            </h3>
-                            <div className="space-y-6 text-[#797c7f] text-lg leading-relaxed font-light">
-                                <p>
-                                    Through her association CIE.LA, Lotte develops her own choreographic projects and pursues long-term artistic research. Her work has garnered specialized support from prestigious institutions such as the Centre National de la Danse and La Ménagerie de Verre in Paris. These residencies and supports act as incubators for her vision, allowing her to experiment with form and content in a protected, creative environment.
-                                </p>
-                                <p>
-                                    Her creations often blur the lines between performance art and traditional dance, creating immersive environments where the physical and the psychological intersect. By prioritizing the "felt experience," she constructs pieces that resonate on a visceral level, inviting audiences to question their own perceptions of the body in motion. Each piece is a unique ecosystem, governed by its own internal logic and aesthetic rules.
-                                </p>
-                                <p>
-                                    Whether creating a solo piece that explores themes of isolation and identity, or a large-scale group work investigating collective memory, her directorial voice remains consistent: clear, provocative, and deeply human.
-                                </p>
+                                Our Staff
+                            </h2>
+                        </div>
+                        <div className="lg:col-span-2 lg:pl-12">
+                            <p className="text-gray-400 text-lg leading-relaxed max-w-2xl font-light">
+                                Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+                            </p>
+                        </div>
+                        <div className="lg:col-span-1 flex justify-end items-center">
+                            <div className="flex items-center group cursor-pointer">
+                                <span className="text-sm font-bold tracking-widest uppercase mr-3">View More</span>
+                                <div className="relative overflow-hidden w-6 h-4">
+                                    {/* Primary Arrow */}
+                                    <svg
+                                        width="24"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        className="absolute left-0 transition-transform duration-500 ease-in-out group-hover:translate-x-8 text-white"
+                                    >
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                    {/* New Incoming Arrow */}
+                                    <svg
+                                        width="24"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        className="absolute -left-8 transition-transform duration-500 ease-in-out group-hover:translate-x-8 text-white"
+                                    >
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
                             </div>
-                        </motion.div>
+                        </div>
+                    </div>
 
-                        {/* Multidisciplinary Projects */}
-                        <motion.div variants={fadeInUp}>
-                            <h3
-                                className="text-3xl font-medium mb-6 text-[#191919]"
-                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                    {/* Staff Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        {staff.map((member, index) => (
+                            <motion.div
+                                key={index}
+                                className="flex flex-col group w-full cursor-pointer"
+                                initial="initial"
+                                whileHover="hover"
                             >
-                                Multidisciplinary Projects
-                            </h3>
-                            <div className="space-y-6 text-[#797c7f] text-lg leading-relaxed font-light">
-                                <p>
-                                    A multifaceted creator, Lotte works interchangeably as choreographer, performer, and conceptual collaborator. She thrives in the intersection of disciplines, drawing on cinema, fashion, and visual art to explore varied formats. Her portfolio ranges from experimental short films and site-specific performances to full-scale stage productions and video installations. She sees no hierarchy between these forms, only different avenues for expression.
+                                {/* Image Container */}
+                                <div className="aspect-[3.8/4.6] overflow-hidden relative mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        sizes="(max-width: 768px) 100vw, 380px"
+                                    />
+                                </div>
+                                {/* Text Info */}
+                                <h3
+                                    className="text-2xl font-semibold mb-2"
+                                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                                >
+                                    {member.name}
+                                </h3>
+                                <p className="text-gray-400 uppercase tracking-widest text-xs font-medium mb-6">
+                                    {member.position}
                                 </p>
-                                <p>
-                                    Today, she continues to work as an independent artist, collaborating on diverse dance and theatre productions while developing her own original repertoire. Her ability to translate abstract concepts into tangible physical realities makes her a sought-after collaborator for projects that demand a sophisticated and layered understanding of the human form.
-                                </p>
-                                <p>
-                                    Her openness to collaboration extends beyond the arts; she is constantly seeking dialogue with other fields, believing that true innovation lies at the boundaries of what is known. This curiosity drives her to constantly evolve, ensuring her work remains fresh, relevant, and engaging.
-                                </p>
-                            </div>
-                        </motion.div>
-                    </motion.div>
 
+                                {/* Social Icons - Staggered Motion */}
+                                <motion.div
+                                    className="flex gap-5"
+                                    variants={{
+                                        hover: { transition: { staggerChildren: 0.1 } }
+                                    }}
+                                >
+                                    {[
+                                        { name: 'facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
+                                        { name: 'twitter', path: 'M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' },
+                                        { name: 'globe', path: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z' },
+                                        { name: 'instagram', path: 'rect:2:2:20:20:5:5:M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01' }
+                                    ].map((social, i) => (
+                                        <motion.a
+                                            key={i}
+                                            href="#"
+                                            variants={{
+                                                initial: { opacity: 0, y: 15 },
+                                                hover: { opacity: 1, y: 0 }
+                                            }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
+                                            className="text-white hover:text-gray-400 transition-colors"
+                                        >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 24 24"
+                                                fill="currentColor"
+                                                className="text-white hover:text-gray-300 transition-colors"
+                                            >
+                                                {social.name === 'instagram' ? (
+                                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                                ) : (
+                                                    <path d={social.path}></path>
+                                                )}
+                                            </svg>
+                                        </motion.a>
+                                    ))}
+                                </motion.div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
         </main>

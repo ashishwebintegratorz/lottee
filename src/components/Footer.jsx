@@ -1,10 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathname = usePathname();
+    const isContactPage = pathname === '/contact';
+
     return (
-        <footer className="bg-black text-white pt-20 pb-8 px-6 lg:px-12 border-t border-gray-800">
+        <footer className={`text-white pt-20 pb-8 px-6 lg:px-12 border-t border-white/5 ${isContactPage ? 'bg-[#0f0f0f]' : 'bg-black'}`}>
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
 
@@ -58,10 +62,16 @@ export default function Footer() {
                             Links
                         </h4>
                         <ul className="space-y-4 text-[15px]">
-                            {['Home', 'Services', 'About Us', 'Features', 'Contacts'].map((link) => (
-                                <li key={link}>
-                                    <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                                        {link}
+                            {[
+                                { name: 'Home', href: '/' },
+                                { name: 'Projects', href: '/projects' },
+                                { name: 'About Us', href: '/about' },
+                                { name: 'Schedule', href: '/schedule' },
+                                { name: 'Contacts', href: '/contact' }
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                                        {link.name}
                                     </Link>
                                 </li>
                             ))}
@@ -90,21 +100,11 @@ export default function Footer() {
                                 </div>
                             </div>
                             <label className="flex items-start gap-3 cursor-pointer group select-none">
-                                <div className="relative mt-1 w-4 h-4">
-                                    <input type="checkbox" className="peer sr-only" />
-                                    <div className="absolute inset-0 border border-gray-700 rounded-sm peer-checked:bg-white transition-all"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="4"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="absolute inset-0 m-auto w-3 h-3 text-black opacity-0 peer-checked:opacity-100 transition-opacity"
-                                    >
-                                        <polyline points="20 6 9 17 4 12"></polyline>
-                                    </svg>
+                                <div className="relative mt-1">
+                                    <input
+                                        type="checkbox"
+                                        className="appearance-none w-5 h-5 rounded border border-gray-700 bg-transparent checked:bg-[#7a8208] checked:border-[#7a8208] transition-all cursor-pointer relative checked:after:content-['✓'] checked:after:absolute checked:after:inset-0 checked:after:flex checked:after:items-center checked:after:justify-center checked:after:text-white checked:after:font-bold checked:after:text-[10px]"
+                                    />
                                 </div>
                                 <span className="text-gray-500 text-[13px] leading-tight">
                                     I agree to the <Link href="#" className="underline underline-offset-2 hover:text-gray-300">Privacy Policy</Link>.

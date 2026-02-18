@@ -4,9 +4,18 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const navLinks = [
         { name: 'Home', href: '/' },
@@ -35,9 +44,29 @@ export default function Navbar() {
         };
     }, [isMenuOpen]);
 
+    const pathname = usePathname();
+    const isDarkPage = pathname === '/about';
+    const isHomePage = pathname === '/';
+    const isContactPage = pathname === '/contact';
+    const isProjectsPage = pathname === '/projects';
+    const isSchedulePage = pathname === '/schedule';
+
+    const contactNavLinks = [
+        { name: 'Home', href: '/' },
+        { name: 'Projects', href: '/projects' },
+        { name: 'Schedule', href: '/schedule' },
+        { name: 'About', href: '/about' },
+        { name: 'Contact', href: '/contact' },
+    ];
+
+    const currentNavLinks = isContactPage ? contactNavLinks : navLinks;
+
     return (
         <>
-            <nav className="absolute top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+            <nav className={`absolute top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${(isProjectsPage || isSchedulePage) ? 'bg-[#1a1a1a] border-transparent' :
+                (isDarkPage || isContactPage) ? 'bg-[#111111] border-transparent' :
+                    'bg-white border-gray-200'
+                }`}>
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                     <div className="flex items-center justify-between h-28">
                         {/* Logo */}
@@ -47,57 +76,91 @@ export default function Navbar() {
                                 alt="Expo Logo"
                                 width={120}
                                 height={48}
-                                className="h-12 w-auto object-contain"
+                                className={`h-12 w-auto object-contain transition-filter duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'brightness-0 invert' : ''}`}
                                 priority
                             />
                         </Link>
 
                         {/* Centered Navigation */}
                         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center gap-8">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="relative transition-colors duration-200 group"
-                                    style={{
-                                        fontFamily: "'Roc Grotesk', sans-serif",
-                                        fontSize: '19px',
-                                        fontWeight: '500',
-                                        color: 'rgb(25, 25, 25)',
-                                        lineHeight: '29px'
-                                    }}
-                                >
-                                    {link.name}
-                                    <span className="absolute left-0 bottom-[-8px] w-0 h-[2px] bg-[#191919] transition-all duration-300 group-hover:w-full"></span>
-                                </Link>
-                            ))}
+                            <div className="flex items-center gap-8">
+                                {currentNavLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        className="relative transition-colors duration-200 group"
+                                        style={{
+                                            fontFamily: "'Roc Grotesk', sans-serif",
+                                            fontSize: '19px',
+                                            fontWeight: '500',
+                                            color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
+                                            lineHeight: '29px'
+                                        }}
+                                    >
+                                        {link.name}
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Projects' && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
+                                    </Link>
+                                ))}
+                            </div>
+
+                            {/* Icons (Search & Cart) - Hidden on Home */}
+                            {!isHomePage && (
+                                <div className={`flex items-center gap-4 ml-6 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-[#191919]'}`}>
+                                    <button className="hover:opacity-70 transition-opacity relative">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                        {isContactPage && (
+                                            <span className="absolute -top-1 -right-2 bg-[#7a8208] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                                        )}
+                                    </button>
+                                    <button className="hover:opacity-70 transition-opacity">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            )}
                         </div>
 
-                        {/* Hamburger Menu Button */}
-                        <button
-                            onClick={() => setIsMenuOpen(true)}
-                            className="flex flex-col gap-[6px] w-8 h-8 justify-center items-center cursor-pointer"
-                            aria-label="Open menu"
-                        >
-                            <span className="w-6 h-[2px] bg-black"></span>
-                            <span className="w-6 h-[2px] bg-black"></span>
-                            <span className="w-6 h-[2px] bg-black"></span>
-                        </button>
+                        {/* Right Side Actions */}
+                        <div className="flex items-center gap-4">
+                            {/* Let's Talk Button - Hidden on Home */}
+                            {!isHomePage && (
+                                <Link
+                                    href="/contact"
+                                    className="hidden md:flex items-center justify-center bg-[#7a8208] text-white font-bold px-8 py-3 rounded-full hover:bg-[#6b7207] transition-all text-sm tracking-wide"
+                                >
+                                    {isContactPage ? 'Plan a Visit' : "Let's Talk"}
+                                </Link>
+                            )}
+
+                            {/* Hamburger Menu Button - Shown on Home Right per image, Mobile only on others */}
+                            <button
+                                onClick={() => setIsMenuOpen(true)}
+                                className={`${isHomePage ? 'flex' : 'md:hidden'} flex flex-col gap-[7px] w-10 h-10 justify-center items-center cursor-pointer group`}
+                                aria-label="Open menu"
+                            >
+                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-4 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>
 
             {/* Slide-out Menu Overlay */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
                         key="menu-overlay"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{
-                            opacity: 0,
-                            transition: { duration: 2.0, ease: "easeInOut" }
-                        }}
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                         className="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm"
                     >
@@ -109,14 +172,11 @@ export default function Navbar() {
 
                         {/* Sidebar Drawer */}
                         <motion.div
-                            initial={{ y: '-100%' }}
-                            animate={{ y: 0 }}
-                            exit={{
-                                y: '-100%',
-                                transition: { duration: 2.0, ease: "easeInOut" }
-                            }}
-                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                            className="absolute right-0 top-0 bottom-0 w-full max-w-[400px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
+                            initial={isMobile ? { y: '-100%' } : { x: '100%' }}
+                            animate={isMobile ? { y: 0 } : { x: 0 }}
+                            exit={isMobile ? { y: '-100%' } : { x: '100%' }}
+                            transition={{ duration: 0.6, ease: [0.32, 1, 0.23, 1] }}
+                            className="absolute right-0 top-0 bottom-0 w-full md:max-w-[400px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
                         >
                             {/* Menu Header with Close Button */}
                             <div className="flex justify-between items-center px-8 pt-8 pb-4">
@@ -129,12 +189,12 @@ export default function Navbar() {
                                     priority
                                 />
                                 <motion.button
-                                    initial={{ rotate: -180, opacity: 0, scale: 0.5 }}
-                                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                                    exit={{ rotate: 360, opacity: 0, scale: 0.5 }}
-                                    whileHover={{ rotate: 180, scale: 1.1 }}
-                                    whileTap={{ rotate: 360, scale: 0.9 }}
-                                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                                    initial={{ rotate: -90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: 90, opacity: 0 }}
+                                    whileHover={{ rotate: 180 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
                                     onClick={() => setIsMenuOpen(false)}
                                     className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
                                 >
@@ -170,7 +230,7 @@ export default function Navbar() {
                                         closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
                                     }}
                                 >
-                                    {navLinks.map((link) => (
+                                    {currentNavLinks.map((link) => (
                                         <motion.div
                                             key={link.name}
                                             variants={{
