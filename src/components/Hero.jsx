@@ -29,19 +29,19 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-[14vw] sm:text-[12vw] md:text-[130px] lg:text-[146px] font-medium leading-[0.9] tracking-tight ml-[2vw] md:ml-[140px]"
+                            className="text-[14vw] sm:text-[11vw] md:text-[100px] lg:text-[146px] font-medium leading-[0.9] tracking-tight ml-[2vw] md:ml-[10%]"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
                             Unique
                         </motion.h1>
 
                         {/* Middle Row: Arrows + Exhibition */}
-                        <div className="flex items-center gap-4 sm:gap-8 md:gap-[60px] lg:gap-[100px] ml-[8vw] md:ml-[180px] lg:ml-[280px] mt-2 md:mt-0">
+                        <div className="flex items-center gap-4 sm:gap-6 md:gap-[40px] lg:gap-[100px] ml-[8vw] md:ml-[15%] lg:ml-[280px] mt-2 md:mt-0">
                             {/* Animated Arrows */}
-                            <div className="flex flex-col -space-y-3 sm:-space-y-4 md:-space-y-[30px] leading-none shrink-0 pt-2">
+                            <div className="flex flex-col -space-y-3 sm:-space-y-4 md:-space-y-[20px] lg:-space-y-[30px] leading-none shrink-0 pt-2 text-white">
                                 <motion.span
-                                    className="text-[9vw] sm:text-[50px] md:text-[80px] lg:text-[100px] leading-[0.6] text-white"
-                                    animate={{ x: [0, 30, 30, 0, 0] }}
+                                    className="text-[9vw] sm:text-[40px] md:text-[60px] lg:text-[100px] leading-[0.6]"
+                                    animate={{ x: [0, 20, 20, 0, 0] }}
                                     transition={{
                                         duration: 4,
                                         times: [0, 0.3, 0.5, 0.8, 1],
@@ -50,8 +50,8 @@ export default function Hero() {
                                     }}
                                 >→</motion.span>
                                 <motion.span
-                                    className="text-[9vw] sm:text-[50px] md:text-[80px] lg:text-[100px] leading-[0.6] ml-3 md:ml-[5px] text-white"
-                                    animate={{ x: [30, 0, 0, 30, 30] }}
+                                    className="text-[9vw] sm:text-[40px] md:text-[60px] lg:text-[100px] leading-[0.6] ml-3 md:ml-[5px]"
+                                    animate={{ x: [20, 0, 0, 20, 20] }}
                                     transition={{
                                         duration: 4,
                                         times: [0, 0.3, 0.5, 0.8, 1],
@@ -65,7 +65,7 @@ export default function Hero() {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                                className="text-[14vw] sm:text-[12vw] md:text-[130px] lg:text-[146px] font-medium leading-[0.9] tracking-tight"
+                                className="text-[14vw] sm:text-[11vw] md:text-[100px] lg:text-[146px] font-medium leading-[0.9] tracking-tight"
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 Exhibition
@@ -77,7 +77,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                            className="text-[14vw] sm:text-[12vw] md:text-[130px] lg:text-[146px] font-medium leading-[0.9] tracking-tight ml-[12vw] md:ml-[150px] mt-2 md:mt-0"
+                            className="text-[14vw] sm:text-[11vw] md:text-[100px] lg:text-[146px] font-medium leading-[0.9] tracking-tight ml-[12vw] md:ml-[20%] mt-2 md:mt-0"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
                             Photography
@@ -92,11 +92,11 @@ export default function Hero() {
                         className="hidden lg:block text-white absolute right-12 top-0 mt-8"
                         style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                     >
-                        <p className="text-[23px] font-medium tracking-wide mb-2">
-                            8 JUNE – 15 AUGUST 2022
+                        <p className="text-[23px] font-medium tracking-wide mb-2 opacity-80">
+                            Paris, France
                         </p>
-                        <p className="text-[23px] font-bold tracking-wide text-right">
-                            LONDON, UK
+                        <p className="text-[18px] font-bold tracking-[0.2em] text-right uppercase">
+                            Available for 2026
                         </p>
                     </motion.div>
                 </div>
@@ -107,14 +107,14 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="lg:hidden absolute bottom-24 left-6 z-10 text-white"
+                className="lg:hidden absolute bottom-24 left-6 sm:left-12 z-10 text-white"
             >
-                <div className="w-12 h-[2px] bg-white/50 mb-4"></div>
+                <div className="w-12 h-[2px] bg-white mb-4"></div>
                 <p className="text-[16px] font-medium tracking-wide mb-1 opacity-90">
-                    8 JUNE – 15 AUGUST 2022
+                    Paris, France
                 </p>
-                <p className="text-[18px] font-bold tracking-wide">
-                    LONDON, UK
+                <p className="text-[18px] font-bold tracking-[0.1em] uppercase">
+                    Available for 2026
                 </p>
             </motion.div>
         </section>

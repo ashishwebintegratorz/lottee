@@ -3,27 +3,28 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import Typed from 'typed.js';
 
 const cards = [
     {
-        title: "Art Storage",
-        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        title: "Her Choreographic Language",
+        description: "Rooted in her Dutch origins and artistically shaped by Paris, Lotte desenvolves a movement language that bridges physical intensity with emotional precision. Her work is informed by theatrical depth, cinematic awareness, and a refined technical clarity.",
         image: "/WhatsApp Image 2026-02-15 at 18.08.48.jpeg"
     },
     {
-        title: "Art Shipping",
-        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        title: "Fashion & Narrative",
+        description: "A versatile performer, she moves seamlessly between dance, theatre, and fashion. She has performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment.",
         image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg"
     },
     {
-        title: "Space for Events",
-        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        title: "Choreographic Research",
+        description: "Her research explores the relationship between body, space, and storytelling — moving fluidly from intimate solos to collaborative stage works — always guided by a search for authenticity, tension, and embodied truth.",
         image: "/WhatsApp Image 2026-02-15 at 18.08.50.jpeg"
     },
     {
-        title: "Customized Estimate",
-        description: "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        title: "Artistic Presence",
+        description: "The dual foundation of rigorous physicality combined with dramatic depth has shaped her distinctive artistic presence, cultivation a refined sensitivity to the impact of movement within the frame.",
         image: "/WhatsApp Image 2026-02-15 at 18.08.48 (1).jpeg"
     }
 ];
@@ -51,13 +52,21 @@ export default function AboutPage() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [showCursor, setShowCursor] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const typedElement = useRef(null);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         if (!typedElement.current) return;
 
         const typed = new Typed(typedElement.current, {
-            strings: ['pride', 'care', 'style'],
+            strings: ['Atmosphere', 'Air', 'Sky'],
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 2000,
@@ -91,21 +100,19 @@ export default function AboutPage() {
     };
 
     return (
-        <main className="bg-[#111111] min-h-screen w-full flex flex-col items-center pt-48 pb-20 relative text-white">
+        <main className="bg-[#111111] min-h-screen w-full flex flex-col items-center pt-32 md:pt-40 lg:pt-48 pb-20 relative text-white">
             {/* Page Title */}
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-center mb-16 tracking-wide text-white"
+                className="text-center mb-16 tracking-wide text-white text-4xl md:text-5xl lg:text-[57px] font-medium"
                 style={{
                     fontFamily: "'Roc Grotesk', sans-serif",
-                    fontSize: '57px',
-                    lineHeight: '57px',
-                    fontWeight: '500'
+                    lineHeight: '1.1',
                 }}
             >
-                About Us
+                About
             </motion.h1>
 
             <div className="w-full max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden mb-10">
@@ -115,12 +122,12 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative w-full h-[500px] lg:h-[700px]"
+                    className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-[700px] overflow-hidden"
                 >
                     <img
                         src="/abouttop.jpeg"
                         alt="Classic Art Gallery"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                     />
                 </motion.div>
 
@@ -130,33 +137,42 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="flex flex-col justify-center px-8 lg:px-20 py-12 bg-[#111111] relative z-10"
+                    className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 bg-[#111111] relative z-10"
                 >
                     <h2
-                        className="text-white mb-14 z-10 lg:-ml-43"
+                        className="text-white mb-8 lg:mb-14 z-10 lg:-ml-43 text-4xl md:text-5xl lg:text-[57px] font-medium"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
-                            fontSize: '57px',
-                            lineHeight: '61px',
-                            fontWeight: '500'
+                            lineHeight: '1.1',
                         }}
                     >
-                        Welcome to Classic and<br />Modern Art Gallery
+                        Lotte Aimée de Weert
                     </h2>
 
-                    <p className="text-gray-400 text-lg leading-relaxed mb-14 max-w-lg lg:pl-12">
-                        Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">
+                        Born in 1996 in the Netherlands, Lotte Aimée de Weert trained at ArtEZ University of the Arts in Arnhem before moving to Paris to further develop her artistic language. There, she deepened her practice in classical ballet, contemporary dance, and the Graham technique, building a strong and versatile technical foundation.
                     </p>
-
-                    <div className="space-y-2 mb-10 text-gray-400 font-medium tracking-wide lg:pl-12">
-                        <p>MON-FRI: 9 AM – 22 PM</p>
-                        <p>SATURDAY: 9 AM – 20 PM</p>
+                    <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 lg:mb-14 max-w-lg lg:pl-12 font-light">
+                        Alongside her physical training, she expanded her interpretative range through the study of Method Acting with Jack Waltzer, a long-standing member of the Actors Studio in New York. This dual foundation — rigorous physicality combined with dramatic depth — has shaped her distinctive artistic presence.
+                    </p>
+                    <div className="space-y-4 mb-10 text-gray-400 font-medium tracking-wide lg:pl-12 text-sm md:text-base">
+                        <p className="flex items-center gap-4">
+                            <span className="w-12 h-[1px] bg-white/10 block"></span>
+                            MON-FRI: 9 AM – 22 PM
+                        </p>
+                        <p className="flex items-center gap-4">
+                            <span className="w-12 h-[1px] bg-white/10 block"></span>
+                            SATURDAY: 9 AM – 20 PM
+                        </p>
                     </div>
 
                     <div className="lg:pl-12">
-                        <button className="bg-[#7a8208] hover:bg-[#6b7207] text-white font-semibold py-4 px-10 rounded-full w-fit transition-colors duration-300 shadow-lg">
+                        <Link
+                            href="/about/biography"
+                            className="inline-block bg-[#7a8208] hover:bg-[#6b7207] text-white font-semibold py-4 px-10 rounded-full transition-colors duration-300 shadow-lg"
+                        >
                             About Us
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>
@@ -180,24 +196,23 @@ export default function AboutPage() {
 
                 <div className="max-w-[1700px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-0">
                     {/* Left Side - Title */}
-                    <div className="lg:col-span-4 flex flex-col justify-start min-h-[400px] pl-6 lg:pl-12">
+                    <div className="lg:col-span-4 flex flex-col justify-start min-h-[100px] lg:min-h-[400px] px-6 lg:pl-12 mb-12 lg:mb-0">
                         <h2
-                            className="text-sm font-bold tracking-[0.2em] uppercase text-white"
+                            className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
-                            WHO WE ARE
+                            HER BIOGRAPHY
                         </h2>
                     </div>
 
                     {/* Right Side - Carousel */}
                     <div
-                        className="lg:col-span-8 cursor-none relative"
+                        className="lg:col-span-8 md:cursor-none relative"
                         onMouseMove={handleMouseMove}
-                        onMouseEnter={() => setShowCursor(true)}
+                        onMouseEnter={() => !isMobile && setShowCursor(true)}
                         onMouseLeave={() => setShowCursor(false)}
                         onClick={(e) => {
-                            // Only trigger click navigation if wasn't dragging
-                            if (Math.abs(e.movementX) < 2) handleInteraction(e);
+                            if (!isMobile && Math.abs(e.movementX) < 2) handleInteraction(e);
                         }}
                     >
                         <div className="overflow-hidden w-full">
@@ -217,7 +232,7 @@ export default function AboutPage() {
                                         handlePrev();
                                     }
                                 }}
-                                animate={{ x: `-${currentSlide * 52}%` }}
+                                animate={{ x: isMobile ? `-${currentSlide * 85}%` : `-${currentSlide * 52}%` }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
                                 {cards.map((card, index) => (
@@ -261,12 +276,12 @@ export default function AboutPage() {
                                         </div>
 
                                         {/* Image */}
-                                        <div className="aspect-[4/3] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                                        <div className="aspect-square md:aspect-[4/3] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
                                             <Image
                                                 src={card.image}
                                                 alt={card.title}
                                                 fill
-                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                                 sizes="(max-width: 768px) 85vw, 420px"
                                             />
                                         </div>
@@ -282,20 +297,18 @@ export default function AboutPage() {
             <section className="relative bg-[#121212] pt-10 pb-32 w-full text-white">
                 <div className="max-w-[1000px] mx-auto text-center px-6">
                     <span className="text-xs font-bold tracking-[0.3em] text-white uppercase block mb-8">
-                        What We Offer
+                        Her Creations
                     </span>
 
                     <h2
-                        className="mb-10 text-white"
+                        className="mb-10 text-white text-3xl md:text-5xl lg:text-[57px] font-medium"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
-                            fontWeight: '500',
-                            fontSize: '57px',
-                            lineHeight: '61px',
+                            lineHeight: '1.1',
                         }}
                     >
-                        Exhibitions, events and digital art experiences,
-                        crafted with brilliance, love, precision and{" "}
+                        Multidisciplinary Projects through her association CIE.LA,
+                        where choreography meets conceptual research and{" "}
                         <span
                             className="underline decoration-1 underline-offset-[12px]"
                             ref={typedElement}
@@ -305,10 +318,10 @@ export default function AboutPage() {
                     {/* Author Signature */}
                     <div className="mt-16 flex flex-col items-center">
                         <span className="text-white font-bold text-lg tracking-wide mb-1" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
-                            Piter Bowman
+                            Lotte Aimée de Weert
                         </span>
                         <span className="text-gray-400 text-sm tracking-widest uppercase font-medium">
-                            Creative Director
+                            Artist & Choreographer
                         </span>
                     </div>
                 </div>
@@ -318,18 +331,18 @@ export default function AboutPage() {
             <section className="w-full bg-[#0f0f0f] py-32 px-6 lg:px-12 text-white">
                 <div className="max-w-[1240px] mx-auto">
                     {/* Section Header */}
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-end mb-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 md:gap-12 items-end mb-20">
                         <div className="lg:col-span-1">
                             <h2
-                                className="text-6xl font-semibold tracking-tight"
+                                className="text-4xl md:text-6xl font-semibold tracking-tight"
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 Our Staff
                             </h2>
                         </div>
                         <div className="lg:col-span-2 lg:pl-12">
-                            <p className="text-gray-400 text-lg leading-relaxed max-w-2xl font-light">
-                                Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+                            <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl font-light">
+                                Today, she works as a freelance artist, collaborating on dance and theatre productions while continuing to choreograph and develop her own original pieces.
                             </p>
                         </div>
                         <div className="lg:col-span-1 flex justify-end items-center">
@@ -371,12 +384,12 @@ export default function AboutPage() {
                                 whileHover="hover"
                             >
                                 {/* Image Container */}
-                                <div className="aspect-[3.8/4.6] overflow-hidden relative mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
+                                <div className="aspect-[4/5] md:aspect-[3.8/4.6] overflow-hidden relative mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
                                     <Image
                                         src={member.image}
                                         alt={member.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                         sizes="(max-width: 768px) 100vw, 380px"
                                     />
                                 </div>
@@ -393,7 +406,7 @@ export default function AboutPage() {
 
                                 {/* Social Icons - Staggered Motion */}
                                 <motion.div
-                                    className="flex gap-5"
+                                    className="flex gap-5 opacity-100 lg:opacity-0 group-hover:opacity-100 transform translate-y-0 lg:translate-y-4 group-hover:translate-y-0 transition-all duration-300"
                                     variants={{
                                         hover: { transition: { staggerChildren: 0.1 } }
                                     }}
@@ -407,10 +420,10 @@ export default function AboutPage() {
                                         <motion.a
                                             key={i}
                                             href="#"
-                                            variants={{
+                                            variants={!isMobile ? {
                                                 initial: { opacity: 0, y: 15 },
                                                 hover: { opacity: 1, y: 0 }
-                                            }}
+                                            } : {}}
                                             transition={{ duration: 0.4, ease: "easeOut" }}
                                             className="text-white hover:text-gray-400 transition-colors"
                                         >

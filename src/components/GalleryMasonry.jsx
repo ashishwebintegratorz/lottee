@@ -62,10 +62,16 @@ export default function GalleryMasonry() {
                 {/* Expo Header */}
                 <div className="px-6 lg:px-12 mb-40 flex items-end justify-between">
                     <h2
-                        className="text-[180px] lg:text-[260px] font-black text-black leading-none tracking-tighter"
-                        style={{ fontFamily: "' sans-serif', Roc Grotesk" }}
+                        className="text-[100px] font-bold text-black leading-none"
+                        style={{
+                            fontFamily: "'  sans-serif', Roc Grotesk",
+                            letterSpacing: "0.05em",
+                            transform: "scaleY(1.50)",
+                            transformOrigin: "bottom",
+                            display: "inline-block"
+                        }}
                     >
-                        Expo
+                        LOTTE & CIE.LA
                     </h2>
                 </div>
 

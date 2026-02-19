@@ -23,9 +23,9 @@ export default function ProjectsPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-white text-5xl md:text-6xl font-bold tracking-tight mb-6"
-                        style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                        style={{ fontFamily: "' sans-serif', Roc Grotesk" }}
                     >
-                        Projects
+                        Multidisciplinary Projects
                     </motion.h1>
                 </div>
 
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
 
                             {/* Centered Details below image */}
                             <div className="text-center space-y-2">
-                                <h3 className="text-white text-2xl font-bold tracking-tight transition-colors" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
+                                <h3 className="text-white text-2xl font-bold tracking-tight transition-colors" style={{ fontFamily: "' sans-serif', Roc Grotesk" }}>
                                     {project.title}
                                 </h3>
                                 <p className="text-gray-500 text-sm font-medium">

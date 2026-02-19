@@ -11,7 +11,7 @@ export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        const checkMobile = () => setIsMobile(window.innerWidth < 1100);
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -45,7 +45,7 @@ export default function Navbar() {
     }, [isMenuOpen]);
 
     const pathname = usePathname();
-    const isDarkPage = pathname === '/about';
+    const isDarkPage = pathname.startsWith('/about');
     const isHomePage = pathname === '/';
     const isContactPage = pathname === '/contact';
     const isProjectsPage = pathname === '/projects';
@@ -71,18 +71,16 @@ export default function Navbar() {
                     <div className="flex items-center justify-between h-28">
                         {/* Logo */}
                         <Link href="/" className="flex items-center">
-                            <Image
-                                src="/expo%20logo.webp"
-                                alt="Expo Logo"
-                                width={120}
-                                height={48}
-                                className={`h-12 w-auto object-contain transition-filter duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'brightness-0 invert' : ''}`}
-                                priority
-                            />
+                            <span
+                                className={`text-[36px] font-bold tracking-tight transition-colors duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
+                                style={{ fontFamily: "'  sans-serif', Roc Grotesk" }}
+                            >
+                                LOTTE & CIE.LA
+                            </span>
                         </Link>
 
                         {/* Centered Navigation */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center gap-8">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex items-center gap-8">
                             <div className="flex items-center gap-8">
                                 {currentNavLinks.map((link) => (
                                     <Link
@@ -90,7 +88,7 @@ export default function Navbar() {
                                         href={link.href}
                                         className="relative transition-colors duration-200 group"
                                         style={{
-                                            fontFamily: "'Roc Grotesk', sans-serif",
+                                            fontFamily: "'  Roc Grotesk ', sans-serif",
                                             fontSize: '19px',
                                             fontWeight: '500',
                                             color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
@@ -132,7 +130,7 @@ export default function Navbar() {
                             {!isHomePage && (
                                 <Link
                                     href="/contact"
-                                    className="hidden md:flex items-center justify-center bg-[#7a8208] text-white font-bold px-8 py-3 rounded-full hover:bg-[#6b7207] transition-all text-sm tracking-wide"
+                                    className="hidden lg:flex items-center justify-center bg-[#7a8208] text-white font-bold px-8 py-3 rounded-full hover:bg-[#6b7207] transition-all text-sm tracking-wide"
                                 >
                                     {isContactPage ? 'Plan a Visit' : "Let's Talk"}
                                 </Link>
@@ -141,7 +139,7 @@ export default function Navbar() {
                             {/* Hamburger Menu Button - Shown on Home Right per image, Mobile only on others */}
                             <button
                                 onClick={() => setIsMenuOpen(true)}
-                                className={`${isHomePage ? 'flex' : 'md:hidden'} flex flex-col gap-[7px] w-10 h-10 justify-center items-center cursor-pointer group`}
+                                className={`${isHomePage ? 'flex' : 'lg:hidden'} flex flex-col gap-[7px] w-10 h-10 justify-center items-center cursor-pointer group`}
                                 aria-label="Open menu"
                             >
                                 <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
@@ -172,22 +170,20 @@ export default function Navbar() {
 
                         {/* Sidebar Drawer */}
                         <motion.div
-                            initial={isMobile ? { y: '-100%' } : { x: '100%' }}
-                            animate={isMobile ? { y: 0 } : { x: 0 }}
-                            exit={isMobile ? { y: '-100%' } : { x: '100%' }}
+                            initial={isMobile ? { x: '100%' } : { x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
                             transition={{ duration: 0.6, ease: [0.32, 1, 0.23, 1] }}
-                            className="absolute right-0 top-0 bottom-0 w-full md:max-w-[400px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
+                            className="absolute right-0 top-0 bottom-0 w-full sm:max-w-[480px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
                         >
                             {/* Menu Header with Close Button */}
                             <div className="flex justify-between items-center px-8 pt-8 pb-4">
-                                <Image
-                                    src="/expo%20logo.webp"
-                                    alt="Expo Logo"
-                                    width={120}
-                                    height={48}
-                                    className="h-10 w-auto object-contain brightness-0 invert"
-                                    priority
-                                />
+                                <span
+                                    className="text-[32px] md:text-[36px] font-bold tracking-tight text-white"
+                                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                                >
+                                    LOTTE & CIE.LA
+                                </span>
                                 <motion.button
                                     initial={{ rotate: -90, opacity: 0 }}
                                     animate={{ rotate: 0, opacity: 1 }}
@@ -230,7 +226,7 @@ export default function Navbar() {
                                         closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
                                     }}
                                 >
-                                    {currentNavLinks.map((link) => (
+                                    {currentNavLinks.map((link, idx) => (
                                         <motion.div
                                             key={link.name}
                                             variants={{
@@ -242,16 +238,20 @@ export default function Navbar() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group flex items-center justify-start gap-4 text-white text-[32px] font-bold tracking-tight transition-colors hover:text-gray-300"
+                                                className="group flex items-center justify-start gap-6 text-white text-[42px] md:text-[52px] font-bold tracking-tight transition-all hover:pl-4"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                             >
-                                                <span>{link.name}</span>
+                                                <span className="text-sm font-bold text-[#7a8208] mb-8 tracking-[0.2em] opacity-80 font-mono">
+                                                    0{idx + 1}
+                                                </span>
+                                                <span className="relative">
+                                                    {link.name}
+                                                    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full"></span>
+                                                </span>
                                                 <motion.span
-                                                    initial={{ opacity: 0, x: -10 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    className="text-white/50 text-2xl group-hover:text-white transition-colors group-hover:translate-x-2 duration-300"
+                                                    className="text-white/20 text-3xl group-hover:text-[#7a8208] transition-colors duration-300"
                                                 >
-                                                    →
+                                                    ↗
                                                 </motion.span>
                                             </Link>
                                         </motion.div>
@@ -263,20 +263,36 @@ export default function Navbar() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
-                                    className="pt-10 mt-8"
+                                    className="pt-12 mt-auto border-t border-white/10"
                                 >
+                                    <div className="mb-10">
+                                        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-500 block mb-4">
+                                            Based in
+                                        </span>
+                                        <p className="text-white text-lg font-medium">Paris, France</p>
+                                    </div>
+
+                                    <div className="mb-10">
+                                        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-500 block mb-4">
+                                            Get in Touch
+                                        </span>
+                                        <a href="mailto:contact@lotteciela.com" className="text-white text-lg font-medium hover:text-[#7a8208] transition-colors">
+                                            contact@lotteciela.com
+                                        </a>
+                                    </div>
+
                                     {/* Social Icons */}
-                                    <div className="flex items-center gap-6">
-                                        <a href="#" className="flex items-center justify-center text-white hover:text-gray-400 transition-all">
+                                    <div className="flex items-center gap-8">
+                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
                                             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
                                         </a>
-                                        <a href="#" className="flex items-center justify-center text-white hover:text-gray-400 transition-all">
+                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
                                             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                                         </a>
-                                        <a href="#" className="flex items-center justify-center text-white hover:text-gray-400 transition-all">
+                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
                                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                                         </a>
-                                        <a href="#" className="flex items-center justify-center text-white hover:text-gray-400 transition-all">
+                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
                                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                                         </a>
                                     </div>

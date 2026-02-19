@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 
@@ -10,7 +11,7 @@ export default function WhatWeOffer() {
         if (!typedElement.current) return;
 
         const typed = new Typed(typedElement.current, {
-            strings: ['pride', 'care', 'style'],
+            strings: ['atmosphere', 'Air', 'Sky'],
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 2000,
@@ -24,22 +25,26 @@ export default function WhatWeOffer() {
     const services = [
         {
             title: "Projects",
-            description: "Consectetur adipiscing",
+            href: "/projects",
+            description: "Multidisciplinary Performances",
             image: "https://images.unsplash.com/photo-1554941068-a252680d25d9?q=80&w=2070&auto=format&fit=crop"
         },
         {
             title: "Schedule",
-            description: "Consectetur adipiscing",
+            href: "/schedule",
+            description: "Artistic Agenda",
             image: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop"
         },
         {
-            title: "About",
-            description: "Consectetur adipiscing",
+            title: "About me",
+            href: "/about",
+            description: "Choreographic Language",
             image: "https://images.unsplash.com/photo-1492037766660-2a56f9eb3fcb?q=80&w=2070&auto=format&fit=crop"
         },
         {
             title: "Contact",
-            description: "Consectetur adipiscing",
+            href: "/contact",
+            description: "Work Together",
             image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop"
         }
     ];
@@ -49,7 +54,7 @@ export default function WhatWeOffer() {
             {/* Top Content */}
             <div className="max-w-[1000px] mx-auto text-center px-6 mb-20">
                 <span className="text-xs font-bold tracking-[0.3em] text-black uppercase block mb-8">
-                    What We Offer
+                    What I offer
                 </span>
 
                 <h2
@@ -62,8 +67,9 @@ export default function WhatWeOffer() {
                         color: 'rgb(25, 25, 25)'
                     }}
                 >
-                    Exhibitions, events and digital art experiences,
-                    crafted with brilliance, love, precision and{" "}
+                    I offer movement as language —
+                    where precision meets emotion,
+                    and each performance becomes{" "}
                     <span
                         className="underline decoration-1 underline-offset-8"
                         ref={typedElement}
@@ -76,9 +82,10 @@ export default function WhatWeOffer() {
             {/* Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
                 {services.map((service) => (
-                    <div
+                    <Link
                         key={service.title}
-                        className="relative h-[480px] overflow-hidden group cursor-pointer border-r border-white/20 last:border-r-0"
+                        href={service.href}
+                        className="relative h-[480px] overflow-hidden group cursor-pointer border-r border-white/20 last:border-r-0 block"
                     >
                         <img
                             src={service.image}
@@ -107,7 +114,7 @@ export default function WhatWeOffer() {
                                 </svg>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </section>

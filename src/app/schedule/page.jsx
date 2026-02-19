@@ -8,48 +8,48 @@ export default function SchedulePage() {
     const events = [
         {
             id: 1,
-            date: '05 - 10 SEPT',
-            title: 'Autumn Whispers Exhibition',
-            location: 'Soho Gallery, London',
-            description: 'A curated collection of atmospheric street photography capturing the first breath of autumn in London\'s most vibrant district.',
-            type: 'Exhibition',
-            time: '10:00 AM - 08:00 PM'
+            date: '12 MAR',
+            title: 'Embodied Silence',
+            location: 'La Ménagerie de Verre, Paris',
+            description: 'A contemporary solo exploring tension, breath, and suspended physicality through a cinematic choreographic language.',
+            type: 'Performance',
+            time: '8:00 PM'
         },
         {
             id: 2,
-            date: '15 SEPT',
-            title: 'Private Portraits Session',
-            location: 'Kensington Gardens, London',
-            description: 'One-on-one editorial portrait sessions amidst the timeless beauty of Kensington\'s royal landscape.',
-            type: 'Private Event',
-            time: '02:00 PM - 06:00 PM'
+            date: '25 - 28 APR',
+            title: 'Movement & Frame Residency',
+            location: 'Centre National de la Danse, Pantin',
+            description: 'Research residency focusing on the dialogue between body, camera, and architectural space.',
+            type: 'Residency',
+            time: 'Closed Sessions'
         },
         {
             id: 3,
-            date: '22 - 25 SEPT',
-            title: 'Urban Elegance Workshop',
-            location: 'Canary Wharf, London',
-            description: 'An advanced masterclass focusing on architectural lines, light play, and modern urban composition.',
-            type: 'Workshop',
-            time: '09:00 AM - 05:00 PM'
+            date: '10 MAY',
+            title: 'Fashion Movement Collaboration',
+            location: 'Paris Fashion Week',
+            description: 'Live performance collaboration integrating choreographic presence within a couture runway presentation.',
+            type: 'Collaboration',
+            time: 'Private Event'
         },
         {
             id: 4,
-            date: '02 OCT',
-            title: 'Royal Parks Sunset Shoot',
-            location: 'Hyde Park, London',
-            description: 'A community shoot focusing on golden hour transitions and natural light portraiture.',
-            type: 'Workshop',
-            time: '04:30 PM - 07:00 PM'
+            date: '18 JUN',
+            title: 'Intimate Duet Study',
+            location: 'Studio Micadanses, Paris',
+            description: 'A new duet work examining proximity, emotional restraint, and embodied narrative.',
+            type: 'Work in Progress',
+            time: '7:30 PM'
         },
         {
             id: 5,
-            date: '12 - 18 OCT',
-            title: 'Thames Reflections Solo Gallery',
-            location: 'Southbank Center, London',
-            description: 'A week-long showcase of my latest series exploring the relationship between the Thames and the city\'s evolving skyline.',
-            type: 'Exhibition',
-            time: '11:00 AM - 09:00 PM'
+            date: '02 - 05 OCT',
+            title: 'CIE.LA Annual Creation',
+            location: 'Paris',
+            description: 'Premiere of the company’s latest multidisciplinary production blending dance, theatre, and visual storytelling.',
+            type: 'Premiere',
+            time: 'To Be Announced'
         }
     ];
 
@@ -190,7 +190,8 @@ export default function SchedulePage() {
                         href="/contact"
                         className="bg-[#7a8208] text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-[#6b7207] transition-all inline-block hover:scale-105 active:scale-95 shadow-xl"
                     >
-                        Book a Private Session
+                        Inquire & Collaborate
+
                     </Link>
                 </motion.div>
             </div>

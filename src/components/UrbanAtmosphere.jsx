@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function UrbanAtmosphere() {
@@ -8,19 +9,19 @@ export default function UrbanAtmosphere() {
         {
             category: "Lotte & Ciela",
             title: "About",
-            description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
+            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
             image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
-            description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
+            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
             image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070&auto=format&fit=crop"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
-            description: "Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.",
+            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
             image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=2070&auto=format&fit=crop"
         }
     ];
@@ -149,7 +150,11 @@ export default function UrbanAtmosphere() {
                                 </p>
 
                                 <div className="flex items-center space-x-12 pt-8">
-                                    <button className="group flex items-center space-x-3 text-black font-bold text-lg transition-colors">
+                                    <Link
+                                        href="/about"
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="group flex items-center space-x-3 text-black font-bold text-lg transition-colors"
+                                    >
                                         <span className="transition-all">Read More</span>
 
                                         {/* Clean Arrow with Hover Animation */}
@@ -183,7 +188,7 @@ export default function UrbanAtmosphere() {
                                                 className="transition-all duration-300 text-black group-hover:text-[#802a2a] group-hover:translate-x-3"
                                             />
                                         </svg>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
