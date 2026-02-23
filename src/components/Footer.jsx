@@ -117,7 +117,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-gray-600 text-[13px] tracking-wide text-center md:text-left">
-                        AncoraThemes © 2026. All Rights Reserved.
+                        LOTTE & CIE.LA © 2026. All Rights Reserved.
                     </p>
                 </div>
             </div>

@@ -221,7 +221,7 @@ export default function AboutPage() {
                                 drag="x"
                                 dragConstraints={{
                                     right: 0,
-                                    left: -((cards.length - 2) * 484) // 420px card + 64px gap
+                                    left: -((cards.length - 2) * 424) // 360px card + 64px gap
                                 }}
                                 dragElastic={0.1}
                                 onDragEnd={(e, info) => {
@@ -232,7 +232,7 @@ export default function AboutPage() {
                                         handlePrev();
                                     }
                                 }}
-                                animate={{ x: isMobile ? `-${currentSlide * 85}%` : `-${currentSlide * 52}%` }}
+                                animate={{ x: isMobile ? `-${currentSlide * 85}%` : `-${currentSlide * 424}px` }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
                                 {cards.map((card, index) => (
@@ -241,14 +241,14 @@ export default function AboutPage() {
                                         className="min-w-[85%] md:min-w-[420px] flex-shrink-0 flex flex-col group select-none"
                                     >
                                         {/* Text Content */}
-                                        <div className="mb-10 pr-6">
+                                        <div className="mb-8">
                                             <h3
-                                                className="text-3xl font-semibold mb-4 tracking-tight"
+                                                className="text-2xl font-semibold mb-4 tracking-tight"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                             >
                                                 {card.title}
                                             </h3>
-                                            <p className="text-gray-400 leading-relaxed mb-6 text-base font-light max-w-[380px]">
+                                            <p className="text-gray-400 leading-relaxed mb-6 text-base font-light max-w-[360px]">
                                                 {card.description}
                                             </p>
 
@@ -276,13 +276,13 @@ export default function AboutPage() {
                                         </div>
 
                                         {/* Image */}
-                                        <div className="aspect-square md:aspect-[4/3] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                                        <div className="aspect-[3/2] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
                                             <Image
                                                 src={card.image}
                                                 alt={card.title}
                                                 fill
                                                 className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                                                sizes="(max-width: 768px) 85vw, 420px"
+                                                sizes="(max-width: 768px) 85vw, 360px"
                                             />
                                         </div>
                                     </div>

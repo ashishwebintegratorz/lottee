@@ -1,14 +1,44 @@
-@import url('https://use.typekit.net/af/4838bd/00000000000000007735a1bd/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3');
+@import "tailwindcss";
 
 @font-face {
   font-family: 'Roc Grotesk';
-  src: url('https://use.typekit.net/af/4838bd/00000000000000007735a1bd/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3') format('woff2');
-  font-weight: 100 900;
+  src: url('/fonts/fonnts.com-Roc_Grotesk_Light.otf') format('opentype');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
-@import "tailwindcss";
+@font-face {
+  font-family: 'Roc Grotesk';
+  src: url('/fonts/fonnts.com-Roc_Grotesk_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roc Grotesk';
+  src: url('/fonts/fonnts.com-Roc_Grotesk_Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roc Grotesk';
+  src: url('/fonts/fonnts.com-Roc_Grotesk_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roc Grotesk';
+  src: url('/fonts/fonnts.com-Roc_Grotesk_Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ============================= */
 /* THEME VARIABLES */
@@ -41,7 +71,7 @@ html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roc Grotesk', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -80,4 +110,23 @@ body {
 .custom-cursor::before {
   content: '‹  ›';
   letter-spacing: 8px;
+}
+
+/* User-provided Distortion Styles */
+.distortion {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+}
+
+.intro {
+  align-self: center;
+}
+
+.intro h2 {
+  font-size: 50px;
+}
+
+.intro p {
+  font-size: 25px;
 }

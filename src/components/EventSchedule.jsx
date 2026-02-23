@@ -50,7 +50,7 @@ export default function EventSchedule() {
                     <h2
                         className="mb-0"
                         style={{
-                            fontFamily: "'sans-serif', 'Roc Grotesk'",
+                            fontFamily: "'Roc Grotesk', sans-serif",
                             fontWeight: '500',
                             fontSize: '57px',
                             lineHeight: '61px',

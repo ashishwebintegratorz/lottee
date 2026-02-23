@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import HoverEffect from './HoverEffect';
 
 export default function UrbanAtmosphere() {
     const slides = [
@@ -10,19 +11,22 @@ export default function UrbanAtmosphere() {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+            hoverImage: "/project1.jpg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070&auto=format&fit=crop"
+            image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070&auto=format&fit=crop",
+            hoverImage: "/project2.jpg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=2070&auto=format&fit=crop"
+            image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=2070&auto=format&fit=crop",
+            hoverImage: "/project3.jpg"
         }
     ];
 
@@ -107,29 +111,30 @@ export default function UrbanAtmosphere() {
                         >
                             {/* Left Side - Image */}
                             <div className="relative group overflow-hidden">
-                                <div className="aspect-[4/3] relative w-full overflow-hidden bg-gray-100">
-                                    <img
-                                        src={slide.image}
-                                        alt={slide.title}
-                                        className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:scale-105"
+                                <div className="aspect-[4/3] relative w-full overflow-hidden bg-gray-100 distortion">
+                                    <HoverEffect
+                                        image1={slide.image}
+                                        image2={slide.hoverImage}
+                                        displacementImage="/dis.png/diss.png"
+                                        intensity={0.3}
+                                        speedIn={1.2}
+                                        className="w-full h-full transition-all duration-700"
                                     />
                                 </div>
                             </div>
 
                             {/* Right Side - Content */}
-                            <div className="flex flex-col space-y-8">
+                            <div className="flex flex-col space-y-8 intro">
                                 <div className="space-y-4">
                                     <span className="text-sm font-bold tracking-[0.2em] text-black uppercase mb-8 block">
                                         {slide.category}
                                     </span>
                                     <h2
-                                        className=""
                                         style={{
                                             fontFamily: "'Roc Grotesk', sans-serif",
                                             fontWeight: '500',
-                                            fontSize: '47px',
-                                            lineHeight: '48px',
-                                            color: 'rgb(25, 25, 25)'
+                                            color: 'rgb(25, 25, 25)',
+                                            lineHeight: '1.1'
                                         }}
                                     >
                                         {slide.title}
@@ -141,9 +146,8 @@ export default function UrbanAtmosphere() {
                                     style={{
                                         fontFamily: "'Kumbh Sans', sans-serif",
                                         fontWeight: '400',
-                                        fontSize: '16px',
-                                        lineHeight: '28px',
-                                        color: 'rgb(121, 124, 127)'
+                                        color: 'rgb(121, 124, 127)',
+                                        lineHeight: '1.6'
                                     }}
                                 >
                                     {slide.description}

@@ -109,7 +109,6 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="lg:hidden absolute bottom-24 left-6 sm:left-12 z-10 text-white"
             >
-                <div className="w-12 h-[2px] bg-white mb-4"></div>
                 <p className="text-[16px] font-medium tracking-wide mb-1 opacity-90">
                     Paris, France
                 </p>

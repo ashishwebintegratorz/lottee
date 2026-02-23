@@ -60,7 +60,7 @@ export default function WhatWeOffer() {
                 <h2
                     className="mb-10"
                     style={{
-                        fontFamily: "'sans-serif', Roc Grotesk",
+                        fontFamily: "'Roc Grotesk', sans-serif",
                         fontWeight: '500',
                         fontSize: '57px',
                         lineHeight: '61px',
@@ -98,7 +98,7 @@ export default function WhatWeOffer() {
                         <div className="absolute bottom-6 left-10 text-white z-20 transition-transform duration-300 group-hover:-translate-y-4">
                             <h3
                                 className="text-[32px] font-bold mb-2 leading-tight"
-                                style={{ fontFamily: "' sans-serif', Roc Grotesk " }}
+                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 {service.title}
                             </h3>

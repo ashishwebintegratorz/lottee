@@ -65,7 +65,7 @@ export default function LatestNews() {
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
                 <h2
                     className="text-[45px] md:text-[70px] font-bold text-center mb-12 tracking-tight text-black"
-                    style={{ fontFamily: "' sans-serif', Roc Grotesk" }}
+                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                 >
                     Latest News
                 </h2>
@@ -97,7 +97,7 @@ export default function LatestNews() {
                                     </div>
                                     <h3
                                         className="text-[18px] leading-[1.3] font-bold text-black group-hover:text-gray-600 transition-colors"
-                                        style={{ fontFamily: "' sans-serif', Roc Grotesk" }}
+                                        style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                     >
                                         {item.title}
                                     </h3>

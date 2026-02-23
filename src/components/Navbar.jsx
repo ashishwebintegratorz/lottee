@@ -67,13 +67,13 @@ export default function Navbar() {
                 (isDarkPage || isContactPage) ? 'bg-[#111111] border-transparent' :
                     'bg-white border-gray-200'
                 }`}>
-                <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-                    <div className="flex items-center justify-between h-28">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12">
+                    <div className="flex items-center justify-between h-20 md:h-24 lg:h-28">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center">
+                        <Link href="/" className="flex items-center lg:-ml-10">
                             <span
-                                className={`text-[36px] font-bold tracking-tight transition-colors duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
-                                style={{ fontFamily: "'  sans-serif', Roc Grotesk" }}
+                                className={`text-[20px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight transition-colors duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
+                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 LOTTE & CIE.LA
                             </span>
@@ -88,7 +88,7 @@ export default function Navbar() {
                                         href={link.href}
                                         className="relative transition-colors duration-200 group"
                                         style={{
-                                            fontFamily: "'  Roc Grotesk ', sans-serif",
+                                            fontFamily: "'Roc Grotesk', sans-serif",
                                             fontSize: '19px',
                                             fontWeight: '500',
                                             color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
@@ -159,8 +159,8 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm"
+                        transition={{ duration: 2.0, ease: "easeInOut" }} // Match total exit time
+                        className="fixed inset-0 z-[90] bg-black/60"
                     >
                         {/* Transparent Layer for click-outside */}
                         <div
@@ -170,33 +170,39 @@ export default function Navbar() {
 
                         {/* Sidebar Drawer */}
                         <motion.div
-                            initial={isMobile ? { x: '100%' } : { x: '100%' }}
+                            initial={{ x: '100%' }}
                             animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ duration: 0.6, ease: [0.32, 1, 0.23, 1] }}
-                            className="absolute right-0 top-0 bottom-0 w-full sm:max-w-[480px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
+                            exit={isMobile ? { y: '-100%', x: 0 } : { x: '100%' }}
+                            transition={{
+                                duration: 2.0, // Extremely slow exit
+                                ease: [0.16, 1, 0.3, 1]
+                            }}
+                            className="absolute right-0 top-0 bottom-0 w-full sm:max-w-[360px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
                         >
                             {/* Menu Header with Close Button */}
                             <div className="flex justify-between items-center px-8 pt-8 pb-4">
                                 <span
-                                    className="text-[32px] md:text-[36px] font-bold tracking-tight text-white"
+                                    className="text-[20px] md:text-[24px] font-bold tracking-tight text-white"
                                     style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                 >
                                     LOTTE & CIE.LA
                                 </span>
                                 <motion.button
-                                    initial={{ rotate: -90, opacity: 0 }}
-                                    animate={{ rotate: 0, opacity: 1 }}
-                                    exit={{ rotate: 90, opacity: 0 }}
-                                    whileHover={{ rotate: 180 }}
+                                    initial={{ rotate: -180, opacity: 0, scale: 0.5 }}
+                                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                                    exit={{ rotate: 540, scale: 0, opacity: 0 }}
+                                    whileHover={{ rotate: 90, scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    transition={{
+                                        duration: 1.5, // Slow down button animation
+                                        ease: "easeInOut"
+                                    }}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
                                 >
                                     <svg
-                                        width="24"
-                                        height="24"
+                                        width="20"
+                                        height="20"
                                         viewBox="0 0 24 24"
                                         fill="none"
                                         stroke="currentColor"
@@ -217,12 +223,12 @@ export default function Navbar() {
                             >
                                 {/* Nav Links */}
                                 <motion.div
-                                    className="space-y-6 flex flex-col text-left mt-4"
+                                    className="space-y-4 flex flex-col text-left mt-4"
                                     initial="closed"
                                     animate="open"
                                     exit="closed"
                                     variants={{
-                                        open: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+                                        open: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
                                         closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
                                     }}
                                 >
@@ -231,25 +237,22 @@ export default function Navbar() {
                                             key={link.name}
                                             variants={{
                                                 open: { x: 0, opacity: 1 },
-                                                closed: { x: 50, opacity: 0 }
+                                                closed: { x: 30, opacity: 0 }
                                             }}
                                             transition={{ type: "spring", stiffness: 300, damping: 24 }}
                                         >
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group flex items-center justify-start gap-6 text-white text-[42px] md:text-[52px] font-bold tracking-tight transition-all hover:pl-4"
+                                                className="group flex items-center justify-start gap-4 text-white text-[28px] md:text-[32px] font-bold tracking-tight transition-all hover:pl-2"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                             >
-                                                <span className="text-sm font-bold text-[#7a8208] mb-8 tracking-[0.2em] opacity-80 font-mono">
-                                                    0{idx + 1}
-                                                </span>
                                                 <span className="relative">
                                                     {link.name}
                                                     <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full"></span>
                                                 </span>
                                                 <motion.span
-                                                    className="text-white/20 text-3xl group-hover:text-[#7a8208] transition-colors duration-300"
+                                                    className="text-white/20 text-xl group-hover:text-[#7a8208] transition-all duration-300 transform group-hover:translate-x-1"
                                                 >
                                                     ↗
                                                 </motion.span>
