@@ -1,8 +1,18 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function EventSchedule() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const events = [
         {
             time: '10:00 - 12:00',
@@ -52,8 +62,8 @@ export default function EventSchedule() {
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
                             fontWeight: '500',
-                            fontSize: '57px',
-                            lineHeight: '61px',
+                            fontSize: isMobile ? '26px' : '57px',
+                            lineHeight: isMobile ? '30px' : '61px',
                             color: 'rgb(255, 255, 255)'
                         }}
                     >

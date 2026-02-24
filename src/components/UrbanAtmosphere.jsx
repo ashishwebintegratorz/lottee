@@ -11,22 +11,22 @@ export default function UrbanAtmosphere() {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-            hoverImage: "/project1.jpg"
+            image: "aboutimg.jpeg",
+            hoverImage: "/gallery2.jpeg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2070&auto=format&fit=crop",
-            hoverImage: "/project2.jpg"
+            image: "gallery1.jpeg",
+            hoverImage: "/gallery.3.jpeg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=2070&auto=format&fit=crop",
-            hoverImage: "/project3.jpg"
+            image: "gallery6.jpeg",
+            hoverImage: "/gallery5.jpeg"
         }
     ];
 
@@ -77,7 +77,7 @@ export default function UrbanAtmosphere() {
     }, [currentSlide]);
 
     return (
-        <section className="py-24 px-6 lg:px-12 bg-white flex flex-col items-center justify-center min-h-screen relative overflow-hidden">
+        <section className="py-12 md:py-16 px-6 lg:px-12 bg-white flex flex-col items-center justify-center lg:min-h-screen relative overflow-hidden">
             {/* Custom Cursor */}
             {showCursor && (
                 <div
@@ -107,7 +107,7 @@ export default function UrbanAtmosphere() {
                     {slides.map((slide, index) => (
                         <div
                             key={index}
-                            className="min-w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                            className="min-w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
                         >
                             {/* Left Side - Image */}
                             <div className="relative group overflow-hidden">
@@ -124,9 +124,9 @@ export default function UrbanAtmosphere() {
                             </div>
 
                             {/* Right Side - Content */}
-                            <div className="flex flex-col space-y-8 intro">
-                                <div className="space-y-4">
-                                    <span className="text-sm font-bold tracking-[0.2em] text-black uppercase mb-8 block">
+                            <div className="flex flex-col space-y-5 md:space-y-6 intro">
+                                <div className="space-y-2 md:space-y-3">
+                                    <span className="text-sm font-bold tracking-[0.2em] text-black uppercase mb-3 md:mb-5 block">
                                         {slide.category}
                                     </span>
                                     <h2
@@ -147,13 +147,14 @@ export default function UrbanAtmosphere() {
                                         fontFamily: "'Kumbh Sans', sans-serif",
                                         fontWeight: '400',
                                         color: 'rgb(121, 124, 127)',
-                                        lineHeight: '1.6'
+                                        fontSize: '16px',
+                                        lineHeight: '28px'
                                     }}
                                 >
                                     {slide.description}
                                 </p>
 
-                                <div className="flex items-center space-x-12 pt-8">
+                                <div className="flex items-center space-x-12 pt-4 md:pt-6">
                                     <Link
                                         href="/about"
                                         onClick={(e) => e.stopPropagation()}

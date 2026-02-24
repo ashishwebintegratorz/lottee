@@ -19,7 +19,7 @@ export default function Navbar() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Projects', href: '/projects' },
+        { name: 'Choreographies', href: '/projects' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -53,7 +53,7 @@ export default function Navbar() {
 
     const contactNavLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Projects', href: '/projects' },
+        { name: 'Choreographies', href: '/projects' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -70,9 +70,9 @@ export default function Navbar() {
                 <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12">
                     <div className="flex items-center justify-between h-20 md:h-24 lg:h-28">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center lg:-ml-10">
+                        <Link href="/" className="flex items-center lg:-ml-10 group cursor-pointer">
                             <span
-                                className={`text-[20px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight transition-colors duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
+                                className={`text-[20px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 LOTTE & CIE.LA
@@ -96,32 +96,12 @@ export default function Navbar() {
                                         }}
                                     >
                                         {link.name}
-                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Projects' && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Choreographies' && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
                                     </Link>
                                 ))}
                             </div>
 
-                            {/* Icons (Search & Cart) - Hidden on Home */}
-                            {!isHomePage && (
-                                <div className={`flex items-center gap-4 ml-6 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-[#191919]'}`}>
-                                    <button className="hover:opacity-70 transition-opacity relative">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                                        </svg>
-                                        {isContactPage && (
-                                            <span className="absolute -top-1 -right-2 bg-[#7a8208] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-                                        )}
-                                    </button>
-                                    <button className="hover:opacity-70 transition-opacity">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <circle cx="11" cy="11" r="8"></circle>
-                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                        </svg>
-                                    </button>
-                                </div>
-                            )}
+
                         </div>
 
                         {/* Right Side Actions */}
@@ -194,11 +174,11 @@ export default function Navbar() {
                                     whileHover={{ rotate: 90, scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     transition={{
-                                        duration: 1.5, // Slow down button animation
+                                        duration: 0.4, // Faster rotation
                                         ease: "easeInOut"
                                     }}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors cursor-pointer"
                                 >
                                     <svg
                                         width="20"
@@ -251,11 +231,6 @@ export default function Navbar() {
                                                     {link.name}
                                                     <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full"></span>
                                                 </span>
-                                                <motion.span
-                                                    className="text-white/20 text-xl group-hover:text-[#7a8208] transition-all duration-300 transform group-hover:translate-x-1"
-                                                >
-                                                    ↗
-                                                </motion.span>
                                             </Link>
                                         </motion.div>
                                     ))}
@@ -275,29 +250,31 @@ export default function Navbar() {
                                         <p className="text-white text-lg font-medium">Paris, France</p>
                                     </div>
 
-                                    <div className="mb-10">
-                                        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-500 block mb-4">
-                                            Get in Touch
-                                        </span>
-                                        <a href="mailto:contact@lotteciela.com" className="text-white text-lg font-medium hover:text-[#7a8208] transition-colors">
-                                            contact@lotteciela.com
-                                        </a>
-                                    </div>
+                                    <div className="flex flex-col space-y-4">
 
-                                    {/* Social Icons */}
-                                    <div className="flex items-center gap-8">
-                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
-                                            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
-                                        </a>
-                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
-                                            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                                        </a>
-                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
-                                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                        </a>
-                                        <a href="#" className="text-white hover:text-[#7a8208] transition-all transform hover:scale-110">
-                                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                        </a>
+                                        <div className="flex items-center gap-4">
+                                            <a
+                                                href="https://instagram.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all group"
+                                            >
+                                                <svg
+                                                    width="18"
+                                                    height="18"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                >
+                                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </motion.div>
                             </div>

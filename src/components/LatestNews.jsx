@@ -1,10 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function LatestNews() {
+    const [isMobile, setIsMobile] = useState(false);
     const scrollRef = useRef(null);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const newsItems = [
         {
             title: "Why using scale in nature photography is so important",
@@ -64,8 +72,15 @@ export default function LatestNews() {
         <section className="py-20 bg-white overflow-hidden">
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
                 <h2
-                    className="text-[45px] md:text-[70px] font-bold text-center mb-12 tracking-tight text-black"
-                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                    className="text-center mb-12 md:mb-20 tracking-tight"
+                    style={{
+                        fontFamily: "'Roc Grotesk', sans-serif",
+                        fontWeight: 500,
+                        fontSize: isMobile ? '26px' : '57px',
+                        lineHeight: isMobile ? '30px' : '61px',
+                        color: 'rgb(25, 25, 25)',
+                        fontStyle: 'normal'
+                    }}
                 >
                     Latest News
                 </h2>

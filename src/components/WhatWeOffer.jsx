@@ -24,46 +24,44 @@ export default function WhatWeOffer() {
 
     const services = [
         {
-            title: "Projects",
+            title: "Choreographies",
             href: "/projects",
             description: "Multidisciplinary Performances",
-            image: "https://images.unsplash.com/photo-1554941068-a252680d25d9?q=80&w=2070&auto=format&fit=crop"
+            image: "ioffer1.jpeg"
         },
         {
             title: "Schedule",
             href: "/schedule",
             description: "Artistic Agenda",
-            image: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070&auto=format&fit=crop"
+            image: "offer2.jpeg"
         },
         {
             title: "About me",
             href: "/about",
             description: "Choreographic Language",
-            image: "https://images.unsplash.com/photo-1492037766660-2a56f9eb3fcb?q=80&w=2070&auto=format&fit=crop"
+            image: "offer3.jpeg"
         },
         {
             title: "Contact",
             href: "/contact",
             description: "Work Together",
-            image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop"
+            image: "offer4.jpeg"
         }
     ];
 
     return (
-        <section className="relative bg-white pt-24 pb-0">
+        <section className="relative z-10 -mt-[1px] bg-white pt-12 md:pt-16 pb-0">
             {/* Top Content */}
-            <div className="max-w-[1000px] mx-auto text-center px-6 mb-20">
-                <span className="text-xs font-bold tracking-[0.3em] text-black uppercase block mb-8">
+            <div className="max-w-[1000px] mx-auto text-center px-6 mb-10 md:mb-12">
+                <span className="text-xs font-bold tracking-[0.3em] text-black uppercase block mb-4 md:mb-6">
                     What I offer
                 </span>
 
                 <h2
-                    className="mb-10"
+                    className="mb-6 md:mb-8 text-[26px] leading-[30px] md:text-[57px] md:leading-[61px]"
                     style={{
                         fontFamily: "'Roc Grotesk', sans-serif",
                         fontWeight: '500',
-                        fontSize: '57px',
-                        lineHeight: '61px',
                         color: 'rgb(25, 25, 25)'
                     }}
                 >

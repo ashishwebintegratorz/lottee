@@ -23,25 +23,25 @@ export default function Hero() {
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-center">
                 <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
-                    <div className="flex flex-col relative text-white">
-                        {/* Unique */}
+                    <div className="flex flex-col relative text-white space-y-4 sm:space-y-6 md:space-y-8">
+                        {/* Performances */}
                         <motion.h1
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-[14vw] sm:text-[11vw] md:text-[100px] lg:text-[146px] font-medium leading-[0.9] tracking-tight ml-[2vw] md:ml-[10%]"
+                            className="text-[11vw] sm:text-[10vw] md:text-[90px] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight ml-[3vw] sm:ml-[4vw] md:ml-[8%] lg:ml-[10%] mt-4 md:mt-8"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
-                            Unique
+                            Performances
                         </motion.h1>
 
-                        {/* Middle Row: Arrows + Exhibition */}
-                        <div className="flex items-center gap-4 sm:gap-6 md:gap-[40px] lg:gap-[100px] ml-[8vw] md:ml-[15%] lg:ml-[280px] mt-2 md:mt-0">
+                        {/* Middle Row: Arrows + Choreography */}
+                        <div className="flex items-center gap-[4vw] sm:gap-[3vw] md:gap-[30px] lg:gap-[60px] xl:gap-[100px] ml-[1vw] sm:ml-[10vw] md:ml-[12%] lg:ml-[18%] xl:ml-[280px]">
                             {/* Animated Arrows */}
-                            <div className="flex flex-col -space-y-3 sm:-space-y-4 md:-space-y-[20px] lg:-space-y-[30px] leading-none shrink-0 pt-2 text-white">
+                            <div className="flex flex-col -space-y-2 sm:-space-y-3 md:-space-y-[18px] lg:-space-y-[26px] leading-none shrink-0 pt-1 text-white">
                                 <motion.span
-                                    className="text-[9vw] sm:text-[40px] md:text-[60px] lg:text-[100px] leading-[0.6]"
-                                    animate={{ x: [0, 20, 20, 0, 0] }}
+                                    className="text-[7vw] sm:text-[6vw] md:text-[50px] lg:text-[80px] xl:text-[100px] leading-[0.6]"
+                                    animate={{ x: [0, 10, 10, 0, 0] }}
                                     transition={{
                                         duration: 4,
                                         times: [0, 0.3, 0.5, 0.8, 1],
@@ -50,8 +50,8 @@ export default function Hero() {
                                     }}
                                 >→</motion.span>
                                 <motion.span
-                                    className="text-[9vw] sm:text-[40px] md:text-[60px] lg:text-[100px] leading-[0.6] ml-3 md:ml-[5px]"
-                                    animate={{ x: [20, 0, 0, 20, 20] }}
+                                    className="text-[7vw] sm:text-[6vw] md:text-[50px] lg:text-[80px] xl:text-[100px] leading-[0.6] ml-[1.3vw] md:ml-[5px]"
+                                    animate={{ x: [10, 0, 0, 10, 10] }}
                                     transition={{
                                         duration: 4,
                                         times: [0, 0.3, 0.5, 0.8, 1],
@@ -65,22 +65,22 @@ export default function Hero() {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                                className="text-[14vw] sm:text-[11vw] md:text-[100px] lg:text-[146px] font-medium leading-[0.9] tracking-tight"
+                                className="text-[11vw] sm:text-[10vw] md:text-[90px] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight"
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
-                                Exhibition
+                                Choreography
                             </motion.h1>
                         </div>
 
-                        {/* Photography */}
+                        {/* Projects */}
                         <motion.h1
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                            className="text-[14vw] sm:text-[11vw] md:text-[100px] lg:text-[146px] font-medium leading-[0.9] tracking-tight ml-[12vw] md:ml-[20%] mt-2 md:mt-0"
+                            className="text-[11vw] sm:text-[10vw] md:text-[90px] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight ml-[10vw] sm:ml-[16vw] md:ml-[18%] lg:ml-[22%] xl:ml-[24%]"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
-                            Photography
+                            Projects
                         </motion.h1>
                     </div>
 

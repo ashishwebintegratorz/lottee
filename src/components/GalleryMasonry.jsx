@@ -16,15 +16,23 @@ export default function GalleryMasonry() {
     const galleryItems = [
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop',
-            alt: 'Water droplets',
-            title: 'Water Droplets',
-            category: 'Nature',
+            src: '/gallery1.jpeg',
+            alt: 'Studio session',
+            title: 'Studio session',
+            category: 'Performance',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.47.jpeg',
+            alt: 'Artistic details',
+            title: 'Artistic details',
+            category: 'Experimental',
+            span: 'col-span-1 row-span-1'
+        },
+        {
+            type: 'image',
+            src: '/gallery2.jpeg',
             alt: 'Portrait',
             title: 'Portrait of a Girl',
             category: 'Art of Photography',
@@ -32,31 +40,31 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.48 (2).jpeg',
-            alt: 'Abstract',
+            src: '/gallery.3.jpeg',
+            alt: 'Abstract texture',
             title: 'Modern Abstract',
             category: 'Experimental',
             span: 'col-span-1 row-span-1'
         },
         {
-            type: 'video',
-            src: '/hero expo vedio.mp4',
-            text: 'Play Clip',
-            title: 'Cinematic Motion',
-            category: 'Visual Arts',
+            type: 'image',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.48 (1).jpeg',
+            alt: 'Performance space',
+            title: 'Stage Presence',
+            category: 'Dance',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop',
-            alt: 'Moon',
-            title: 'Lunar Surface',
-            category: 'Astro',
+            src: '/gallery4.jpeg',
+            alt: 'Atmospheric shot',
+            title: 'Light and Shadow',
+            category: 'Atmosphere',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1509023464722-18d996393ca8?q=80&w=1000&auto=format&fit=crop',
+            src: '/gallery5.jpeg',
             alt: 'Architecture',
             title: 'Urban Lines',
             category: 'Architecture',
@@ -64,34 +72,58 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1000&auto=format&fit=crop',
-            alt: 'Birds',
-            title: 'Flying High',
-            category: 'Wildlife',
+            src: '/gallery6.jpeg',
+            alt: 'Nature in motion',
+            title: 'Movement',
+            category: 'Art',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'image',
-            src: 'https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=1000&auto=format&fit=crop',
-            alt: 'Gallery wall',
-            title: 'Museum Walls',
-            category: 'Exhibition',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.49 (1).jpeg',
+            alt: 'Behind the scenes',
+            title: 'Process',
+            category: 'Choreography',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.50.jpeg',
-            alt: 'Abstract Texture',
+            src: '/offer2.jpeg',
+            alt: 'Gallery context',
+            title: 'Exhibition',
+            category: 'Space',
+            span: 'col-span-1 row-span-1'
+        },
+        {
+            type: 'image',
+            src: '/offer3.jpeg',
+            alt: 'Textured art',
             title: 'Deep Textures',
             category: 'Experimental',
             span: 'col-span-1 row-span-1'
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.49 (2).jpeg',
-            alt: 'Shadow Play',
-            title: 'Contrasting Shadows',
+            src: '/offer4.jpeg',
+            alt: 'Contrast and light',
+            title: 'Visual Study',
             category: 'Photography',
+            span: 'col-span-1 row-span-1'
+        },
+        {
+            type: 'image',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.50.jpeg',
+            alt: 'Abstract composition',
+            title: 'Composition',
+            category: 'Art',
+            span: 'col-span-1 row-span-1'
+        },
+        {
+            type: 'image',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.49.jpeg',
+            alt: 'Shadow and form',
+            title: 'Contrast',
+            category: 'Study',
             span: 'col-span-1 row-span-1'
         }
     ];
@@ -116,17 +148,17 @@ export default function GalleryMasonry() {
                 </div>
 
                 {/* Masonry Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-1 px-6 lg:px-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense gap-1 px-1 lg:px-12">
                     {galleryItems.map((item, index) => (
                         <div
                             key={index}
-                            className={`w-full ${item.span} md:block relative overflow-hidden group cursor-pointer bg-black`}
+                            className={`w-full ${item.span} relative overflow-hidden group cursor-pointer bg-[#121212]`}
                             style={{
-                                minHeight: isMobile ? '0' : (item.span.includes('row-span-2') ? '500px' : '250px'),
-                                height: isMobile ? 'auto' : '100%'
+                                minHeight: isMobile ? '160px' : (item.span.includes('row-span-2') ? '500px' : '250px'),
+                                height: '100%'
                             }}
                         >
-                            <div className="aspect-[3/2] md:h-full w-full relative">
+                            <div className={`${isMobile ? 'aspect-square' : 'md:h-full'} w-full h-full relative`}>
                                 {item.type === 'image' ? (
                                     <>
                                         <img
@@ -146,17 +178,17 @@ export default function GalleryMasonry() {
                                         playsInline
                                     />
                                 )}
-                            </div>
 
-                            {/* Hover Overlay - Coming from bottom with border */}
-                            <div className="absolute inset-0 p-4 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                                <div className="w-full h-full bg-[#121212] flex flex-col items-center justify-center text-center p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                    <h3 className="text-white text-xl md:text-2xl font-bold mb-2 tracking-wide uppercase" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-gray-400 text-sm md:text-base italic" style={{ fontFamily: "Arial, sans-serif" }}>
-                                        {item.category}
-                                    </p>
+                                {/* Hover Overlay */}
+                                <div className="absolute inset-0 p-4 transition-all duration-500 opacity-0 group-hover:opacity-100">
+                                    <div className="w-full h-full bg-[#121212]/90 flex flex-col items-center justify-center text-center p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                                        <h3 className="text-white text-xl md:text-2xl font-bold mb-2 tracking-wide uppercase" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-gray-400 text-sm md:text-base italic" style={{ fontFamily: "Arial, sans-serif" }}>
+                                            {item.category}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
