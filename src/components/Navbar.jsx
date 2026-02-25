@@ -11,7 +11,7 @@ export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1100);
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -19,7 +19,7 @@ export default function Navbar() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Choreographies', href: '/projects' },
+        { name: 'Choreography & Performance', href: '/projects' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -53,7 +53,7 @@ export default function Navbar() {
 
     const contactNavLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Choreographies', href: '/projects' },
+        { name: 'Choreography & Performance', href: '/projects' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -72,7 +72,7 @@ export default function Navbar() {
                         {/* Logo */}
                         <Link href="/" className="flex items-center lg:-ml-10 group cursor-pointer">
                             <span
-                                className={`text-[20px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
+                                className={`text-[20px] sm:text-[24px] md:text-[32px] lg:text-[36px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 LOTTE & CIE.LA
@@ -96,7 +96,7 @@ export default function Navbar() {
                                         }}
                                     >
                                         {link.name}
-                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Choreographies' && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Choreography & Performance' && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
                                     </Link>
                                 ))}
                             </div>
