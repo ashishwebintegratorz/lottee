@@ -25,8 +25,8 @@ export default function UrbanAtmosphere() {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth. Through CIE.LA, she develops multidisciplinary projects that explore the relationship between movement, space, and storytelling.",
-            image: "gallery6.jpeg",
-            hoverImage: "/gallery5.jpeg"
+            image: "IMG_3753.JPG",
+            hoverImage: "/IMG_3754.JPG"
         }
     ];
 

@@ -24,7 +24,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.47.jpeg',
+            src: '/IMG_3006 New (3).jpg',
             alt: 'Artistic details',
             title: 'Artistic details',
             category: 'Experimental',
@@ -64,7 +64,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/gallery5.jpeg',
+            src: '/gallerie1 New.jpg',
             alt: 'Architecture',
             title: 'Urban Lines',
             category: 'Architecture',
@@ -104,7 +104,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/offer4.jpeg',
+            src: '/IMG_3005 New (2).jpg',
             alt: 'Contrast and light',
             title: 'Visual Study',
             category: 'Photography',
@@ -112,7 +112,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.50.jpeg',
+            src: '/IMG_3004 New (1).jpg',
             alt: 'Abstract composition',
             title: 'Composition',
             category: 'Art',

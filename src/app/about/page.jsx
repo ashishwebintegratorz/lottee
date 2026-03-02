@@ -124,11 +124,16 @@ export default function AboutPage() {
                     transition={{ duration: 0.8 }}
                     className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-auto lg:h-[850px] overflow-hidden"
                 >
-                    <img
-                        src="/aboutimg.jpeg"
-                        alt="Classic Art Gallery"
-                        className="w-full h-full object-cover object-top"
-                    />
+                    <div className="w-full h-[700px] overflow-hidden">
+                        <video
+                            src="/My Movie 54.mov"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-cover object-top"
+                        />
+                    </div>
                 </motion.div>
 
                 {/* Right Side - Content */}
