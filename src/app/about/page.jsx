@@ -124,14 +124,13 @@ export default function AboutPage() {
                     transition={{ duration: 0.8 }}
                     className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-auto lg:h-[850px] overflow-hidden"
                 >
-                    <div className="w-full h-[700px] overflow-hidden">
-                        <video
-                            src="/My Movie 54.mov"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
+                    <div className="w-full h-[700px] overflow-hidden relative">
+                        <Image
+                            src="/about new image coloured .jpeg"
+                            alt="Lotte Aimée de Weert"
+                            fill
                             className="w-full h-full object-cover object-top"
+                            priority
                         />
                     </div>
                 </motion.div>
