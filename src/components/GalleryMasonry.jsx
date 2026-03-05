@@ -64,7 +64,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/gallerie1 New.jpg',
+            src: '/gallerynew.jpeg',
             alt: 'Architecture',
             title: 'Urban Lines',
             category: 'Architecture',

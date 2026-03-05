@@ -77,13 +77,11 @@ export default function UrbanAtmosphere() {
                     {slides.map((slide, index) => (
                         <div
                             key={index}
-                            //old property 
-                            className="min-w-full grid grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
-                        //className="min-w-full grid grid-cols-1.9 lg:grid-cols-[60%_60%] gap-10 lg:gap-16 items-center"
+                            className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center"
                         >
                             {/* Left Side - Image */}
-                            <div className="relative group overflow-hidden">
-                                <div className="aspect-[16/9] relative w-full overflow-hidden bg-gray-100 distortion">
+                            <div className="relative group overflow-hidden mb-8 md:mb-0">
+                                <div className="aspect-[4/3] md:aspect-[16/9] relative w-full overflow-hidden bg-gray-100 distortion">
                                     <HoverEffect
                                         image1={slide.image}
                                         image2={slide.hoverImage}
@@ -95,18 +93,18 @@ export default function UrbanAtmosphere() {
                                 </div>
                             </div>
 
-                            {/* Right Side - Content */}
-                            <div className="flex flex-col space-y-5 md:space-y-6 intro">
+                            <div className="flex flex-col space-y-5 md:space-y-6 intro px-2 md:px-0">
                                 <div className="space-y-2 md:space-y-3">
                                     <span className="text-sm font-bold tracking-[0.2em] text-black uppercase mb-3 md:mb-5 block">
                                         {slide.category}
                                     </span>
                                     <h2
+                                        className="text-3xl md:text-[50px]"
                                         style={{
                                             fontFamily: "'Roc Grotesk', sans-serif",
                                             fontWeight: '500',
                                             color: 'rgb(25, 25, 25)',
-                                            lineHeight: '1.1'
+                                            lineHeight: '1.1',
                                         }}
                                     >
                                         {slide.title}
@@ -171,6 +169,17 @@ export default function UrbanAtmosphere() {
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* Mobile-only Slide Indicators */}
+            <div className="flex md:hidden space-x-2 mt-8">
+                {slides.map((_, index) => (
+                    <div
+                        key={index}
+                        className={`h-1.5 transition-all duration-300 rounded-full ${currentSlide === index ? 'w-8 bg-black' : 'w-2 bg-gray-300'
+                            }`}
+                    />
+                ))}
             </div>
 
         </section>
