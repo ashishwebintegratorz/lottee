@@ -4,16 +4,17 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
 
-export default function HoverEffect({
+export default function TripleHoverEffect({
     image1,
     image2,
+    image3,
     displacementImage,
     intensity = 0.1,
-    speedIn = 1.6,
-    speedOut = 1.2,
+    speedIn = 1.2,
+    speedOut = 1.0,
     className = "",
     angle = Math.PI / 4,
-    isHovered = null // New prop for external control
+    isHovered = null
 }) {
     const containerRef = useRef();
     const materialRef = useRef();
@@ -33,9 +34,8 @@ export default function HoverEffect({
         );
         camera.position.z = 1;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setClearColor(0xffffff, 0);
         renderer.setSize(parent.offsetWidth, parent.offsetHeight);
         parent.appendChild(renderer.domElement);
 
@@ -49,11 +49,18 @@ export default function HoverEffect({
         const disp = loader.load(displacementImage, render);
         disp.wrapS = disp.wrapT = THREE.RepeatWrapping;
 
-        const tex1 = loader.load(image1, render);
-        const tex2 = loader.load(image2, render);
-
-        tex1.magFilter = tex2.magFilter = THREE.LinearFilter;
-        tex1.minFilter = tex2.minFilter = THREE.LinearFilter;
+        const tex1 = loader.load(image1, (texture) => {
+            texture.magFilter = texture.minFilter = THREE.LinearFilter;
+            render();
+        });
+        const tex2 = loader.load(image2, (texture) => {
+            texture.magFilter = texture.minFilter = THREE.LinearFilter;
+            render();
+        });
+        const tex3 = loader.load(image3, (texture) => {
+            texture.magFilter = texture.minFilter = THREE.LinearFilter;
+            render();
+        });
 
         const material = new THREE.ShaderMaterial({
             uniforms: {
@@ -64,7 +71,9 @@ export default function HoverEffect({
                 angle2: { type: "f", value: -angle * 3 },
                 texture1: { type: "t", value: tex1 },
                 texture2: { type: "t", value: tex2 },
-                disp: { type: "t", value: disp }
+                texture3: { type: "t", value: tex3 },
+                disp: { type: "t", value: disp },
+                res: { type: "vec2", value: new THREE.Vector2(parent.offsetWidth, parent.offsetHeight) }
             },
             vertexShader: `
                 varying vec2 vUv;
@@ -79,10 +88,12 @@ export default function HoverEffect({
                 uniform sampler2D disp;
                 uniform sampler2D texture1;
                 uniform sampler2D texture2;
+                uniform sampler2D texture3;
                 uniform float angle1;
                 uniform float angle2;
                 uniform float intensity1;
                 uniform float intensity2;
+                uniform vec2 res;
 
                 mat2 getRotM(float angle) {
                     float s = sin(angle);
@@ -93,11 +104,21 @@ export default function HoverEffect({
                 void main() {
                     vec4 disp = texture2D(disp, vUv);
                     vec2 dispVec = vec2(disp.r, disp.g);
-                    vec2 distortedPosition1 = vUv + getRotM(angle1) * dispVec * intensity1 * dispFactor;
-                    vec2 distortedPosition2 = vUv + getRotM(angle2) * dispVec * intensity2 * (1.0 - dispFactor);
-                    vec4 _texture1 = texture2D(texture1, distortedPosition1);
-                    vec4 _texture2 = texture2D(texture2, distortedPosition2);
-                    gl_FragColor = mix(_texture1, _texture2, dispFactor);
+                    
+                    // Cleaner mapping for background split
+                    vec2 uvLeft = vec2(vUv.x * 2.0, vUv.y);
+                    vec2 uvRight = vec2((vUv.x - 0.5) * 2.0, vUv.y);
+
+                    // Distort texture3 for the reveal
+                    vec2 distortedPositionHover = vUv + getRotM(angle1) * dispVec * intensity1 * (1.0 - dispFactor);
+                    
+                    vec4 _texture1 = texture2D(texture1, uvLeft);
+                    vec4 _texture2 = texture2D(texture2, uvRight);
+                    vec4 _texture3 = texture2D(texture3, distortedPositionHover);
+                    
+                    vec4 baseColor = vUv.x < 0.5 ? _texture1 : _texture2;
+                    
+                    gl_FragColor = mix(baseColor, _texture3, dispFactor);
                 }
             `,
             transparent: true,
@@ -147,6 +168,7 @@ export default function HoverEffect({
 
             mesh.geometry.dispose();
             mesh.geometry = new THREE.PlaneGeometry(parent.offsetWidth, parent.offsetHeight, 1);
+            material.uniforms.res.value.set(parent.offsetWidth, parent.offsetHeight);
             render();
         };
 
@@ -165,12 +187,12 @@ export default function HoverEffect({
             material.dispose();
             tex1.dispose();
             tex2.dispose();
+            tex3.dispose();
             disp.dispose();
             renderer.dispose();
         };
-    }, [image1, image2, displacementImage, intensity, speedIn, speedOut, angle, isHovered]);
+    }, [image1, image2, image3, displacementImage, intensity, speedIn, speedOut, angle]);
 
-    // Handle external hover changes
     useEffect(() => {
         if (isHovered !== null && materialRef.current) {
             gsap.to(materialRef.current.uniforms.dispFactor, {
