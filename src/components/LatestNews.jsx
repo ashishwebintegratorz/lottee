@@ -15,39 +15,39 @@ export default function LatestNews() {
 
     const newsItems = [
         {
-            title: "Why using scale in nature photography is so important",
-            image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg",
-            date: "March 30, 2020",
+            title: "Performance at the Dutch National Opera",
+            image: "/Lotte_AlexConu_112.jpg",
+            date: "February 2026",
             comments: "0 Comments"
         },
         {
-            title: "Steps for stunning night landscape photography",
-            image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1000&auto=format&fit=crop",
-            date: "March 30, 2020",
+            title: "CIE.LA New Research Residencies",
+            image: "/IMG_3004 New (1).jpg",
+            date: "January 2026",
             comments: "0 Comments"
         },
         {
-            title: "When to use black & white photography",
-            image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg",
-            date: "March 30, 2020",
+            title: "Collaboration with Valentino Fashion House",
+            image: "/gallerie1 New.jpg",
+            date: "December 2025",
             comments: "0 Comments"
         },
         {
-            title: "How to use focus peaking for maximum sharpness",
-            image: "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?q=80&w=1000&auto=format&fit=crop",
-            date: "March 30, 2020",
+            title: "Movement Workshop in Paris Studio",
+            image: "/IMG_3749.JPG",
+            date: "November 2025",
             comments: "0 Comments"
         },
         {
-            title: "The lost art of shooting black-and-white photos",
-            image: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=1000&auto=format&fit=crop",
-            date: "March 30, 2020",
+            title: "The Impact of Cinematic Language in Dance",
+            image: "/IMG_3006 New (3).jpg",
+            date: "October 2025",
             comments: "0 Comments"
         },
         {
-            title: "Creative landscape photography tips & techniques",
-            image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
-            date: "March 30, 2020",
+            title: "Artistic Presence and Method Acting Study",
+            image: "/IMG_3005 New (2).jpg",
+            date: "September 2025",
             comments: "0 Comments"
         }
     ];
@@ -82,7 +82,7 @@ export default function LatestNews() {
                         fontStyle: 'normal'
                     }}
                 >
-                    Latest News
+                    Work & Latest News
                 </h2>
 
                 <div
@@ -101,14 +101,14 @@ export default function LatestNews() {
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 grayscale"
+                                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                                     />
                                 </div>
 
                                 {/* Content */}
                                 <div className="space-y-2">
                                     <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-gray-800">
-                                        PHOTOGRAPHY
+                                        ART & MOVEMENT
                                     </div>
                                     <h3
                                         className="text-[18px] leading-[1.3] font-bold text-black group-hover:text-gray-600 transition-colors"

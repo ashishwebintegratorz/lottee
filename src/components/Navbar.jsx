@@ -19,7 +19,8 @@ export default function Navbar() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Choreography & Performance', href: '/projects' },
+        { name: 'Choreography & Dancer', href: '/projects' },
+        { name: 'Choreographer', href: '/choreographer' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -50,10 +51,12 @@ export default function Navbar() {
     const isContactPage = pathname === '/contact';
     const isProjectsPage = pathname === '/projects';
     const isSchedulePage = pathname === '/schedule';
+    const isChoreographerPage = pathname === '/choreographer';
 
     const contactNavLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Choreography & Performance', href: '/projects' },
+        { name: 'Choreography   & Dancer', href: '/projects' },
+        { name: 'Choreographer', href: '/choreographer' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -63,7 +66,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className={`absolute top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${(isProjectsPage || isSchedulePage) ? 'bg-[#1a1a1a] border-transparent' :
+            <nav className={`absolute top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${(isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-[#1a1a1a] border-transparent' :
                 (isDarkPage || isContactPage) ? 'bg-[#111111] border-transparent' :
                     'bg-white border-gray-200'
                 }`}>
@@ -72,10 +75,10 @@ export default function Navbar() {
                         {/* Logo */}
                         <Link href="/" className="flex items-center lg:-ml-10 group cursor-pointer">
                             <span
-                                className={`text-[20px] sm:text-[24px] md:text-[32px] lg:text-[36px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'text-white' : 'text-black'}`}
+                                className={`text-[20px] sm:text-[24px] md:text-[32px] lg:text-[36px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'text-white' : 'text-black'}`}
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
-                                LOTTE & CIE.LA
+                                LOTTE AIMÉE
                             </span>
                         </Link>
 
@@ -91,12 +94,12 @@ export default function Navbar() {
                                             fontFamily: "'Roc Grotesk', sans-serif",
                                             fontSize: '19px',
                                             fontWeight: '500',
-                                            color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
+                                            color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
                                             lineHeight: '29px'
                                         }}
                                     >
                                         {link.name}
-                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Choreography & Performance' && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Choreographer' && isChoreographerPage) || ((link.name === 'Choreography & Dancer' || link.name === 'Choreography & Performance') && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
                                     </Link>
                                 ))}
                             </div>
@@ -122,9 +125,9 @@ export default function Navbar() {
                                 className={`${isHomePage ? 'flex' : 'lg:hidden'} flex flex-col gap-[7px] w-10 h-10 justify-center items-center cursor-pointer group`}
                                 aria-label="Open menu"
                             >
-                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
-                                <span className={`w-4 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
-                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-4 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-black'}`}></span>
                             </button>
                         </div>
                     </div>
@@ -165,7 +168,7 @@ export default function Navbar() {
                                     className="text-[20px] md:text-[24px] font-bold tracking-tight text-white"
                                     style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                 >
-                                    LOTTE & CIE.LA
+                                    Lotte Aimée
                                 </span>
                                 <motion.button
                                     initial={{ rotate: -180, opacity: 0, scale: 0.5 }}

@@ -35,6 +35,26 @@ export default function ContactPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
+            // Construct WhatsApp message
+            const phoneNumber = "8989944488";
+            const whatsappText = `Hello Lotte Aimée,
+
+I would like to get in touch regarding: ${formData.subject}
+
+My Details:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Phone: ${formData.phone}
+
+Message:
+${formData.message}`;
+
+            const encodedText = encodeURIComponent(whatsappText);
+            const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${encodedText}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+
             console.log('Form submitted:', formData);
             setShowSuccess(true);
             setShowGlobalError(false);
@@ -125,15 +145,24 @@ export default function ContactPage() {
 
 
 
-                        {/* Social Icons */}
-                        <div className="flex items-center gap-4">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </a>
+                        {/* Social Icons & Email */}
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-4">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div className="space-y-2">
+                                <p className="text-white/40 text-xs font-bold tracking-widest uppercase">Email Us</p>
+                                <a href="mailto:info@lotteaimee.com" className="text-xl md:text-2xl font-medium hover:text-[#7a8208] transition-colors inline-block">
+                                    info@lotteaimee.com
+                                </a>
+                            </div>
                         </div>
                     </div>
 

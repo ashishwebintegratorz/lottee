@@ -143,7 +143,7 @@ export default function GalleryMasonry() {
                             display: "inline-block"
                         }}
                     >
-                        LOTTE & CIE.LA
+                        LOTTE AIMÉE
                     </h2>
                 </div>
 
@@ -152,7 +152,7 @@ export default function GalleryMasonry() {
                     {galleryItems.map((item, index) => (
                         <div
                             key={index}
-                            className={`w-full ${item.span} relative overflow-hidden group cursor-pointer bg-[#121212]`}
+                            className={`w-full ${item.span} relative overflow-hidden bg-[#121212]`}
                             style={{
                                 minHeight: isMobile ? '160px' : (item.span.includes('row-span-2') ? '500px' : '250px'),
                                 height: '100%'
@@ -160,36 +160,21 @@ export default function GalleryMasonry() {
                         >
                             <div className={`${isMobile ? 'aspect-square' : 'md:h-full'} w-full h-full relative`}>
                                 {item.type === 'image' ? (
-                                    <>
-                                        <img
-                                            src={item.src}
-                                            alt={item.alt}
-                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-300"></div>
-                                    </>
+                                    <img
+                                        src={item.src}
+                                        alt={item.alt}
+                                        className="w-full h-full object-cover"
+                                    />
                                 ) : (
                                     <video
                                         src={item.src}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                        className="w-full h-full object-cover"
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
                                     />
                                 )}
-
-                                {/* Hover Overlay */}
-                                <div className="absolute inset-0 p-4 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                                    <div className="w-full h-full bg-[#121212]/90 flex flex-col items-center justify-center text-center p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                        <h3 className="text-white text-xl md:text-2xl font-bold mb-2 tracking-wide uppercase" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-gray-400 text-sm md:text-base italic" style={{ fontFamily: "Arial, sans-serif" }}>
-                                            {item.category}
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     ))}

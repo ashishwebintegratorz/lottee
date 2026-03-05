@@ -85,12 +85,7 @@ export default function EventSchedule() {
                     <button className="text-white/60 text-sm font-medium tracking-wide ">
                         2026
                     </button>
-                    <button className="text-white/60 text-sm font-medium tracking-wide hover:text-white transition-colors">
-                        2025
-                    </button>
-                    <button className="text-white/60 text-sm font-medium tracking-wide hover:text-white transition-colors">
-                        2024
-                    </button>
+
                 </div>
 
                 {/* Events List */}

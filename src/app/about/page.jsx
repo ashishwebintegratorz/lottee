@@ -122,17 +122,13 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative w-full aspect-[3/4] sm:aspect-square lg:aspect-auto lg:h-[850px] overflow-hidden"
+                    className="relative w-full overflow-hidden"
                 >
-                    <div className="w-full h-[700px] overflow-hidden relative">
-                        <Image
-                            src="/about new image coloured .jpeg"
-                            alt="Lotte Aimée de Weert"
-                            fill
-                            className="w-full h-full object-cover object-top"
-                            priority
-                        />
-                    </div>
+                    <img
+                        src="/about new image coloured .jpeg"
+                        alt="Lotte Aimée de Weert"
+                        className="w-full h-auto object-cover flex"
+                    />
                 </motion.div>
 
                 {/* Right Side - Content */}
@@ -154,10 +150,13 @@ export default function AboutPage() {
                     </h2>
 
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">
-                        Born in 1996 in the Netherlands, Lotte Aimée de Weert trained at ArtEZ University of the Arts in Arnhem before moving to Paris to further develop her artistic language. There, she deepened her practice in classical ballet, contemporary dance, and the Graham technique, building a strong and versatile technical foundation.
+                        Lotte Aimée de Weert is a dancer originally from the Netherlands. Trained at the ArtEZ University of the Arts in Arnhem, she later moved to Paris where she further developed her dance practice through various techniques: classical ballet, contemporary dance, and the Graham technique. At the same time, she deepened her approach to performance by studying Method Acting with Jack Waltzer, a long-standing member of the Actors Studio in New York.
+                    </p>
+                    <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">
+                        Her career has led her to perform both on stage and in front of the camera. This dual experience has nurtured her interest in the impact of movement within the image, as well as in the dialogue between dance and other artistic disciplines.
                     </p>
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 lg:mb-14 max-w-lg lg:pl-12 font-light">
-                        Alongside her physical training, she expanded her interpretative range through the study of Method Acting with Jack Waltzer, a long-standing member of the Actors Studio in New York. This dual foundation — rigorous physicality combined with dramatic depth — has shaped her distinctive artistic presence.
+                        Guided by her background in dance yet seeking multidisciplinary exchange, she develops her own projects within her association CIELA, which has received support by the Centre National de la Danse and Ménagerie de Verre in Paris. Alongside this work, she continues to collaborate on various dance projects. She has performed in presentations for fashion houses such as Valentino, Cartier, and Flora Miranda, and regularly works with the Dutch National Opera. In parallel, she also teaches the GYROTONIC® Method, sharing her approach to movement and body awareness.
                     </p>
                     <div className="space-y-4 mb-10 text-gray-400 font-medium tracking-wide lg:pl-12 text-sm md:text-base">
                         <p className="flex items-center gap-4">

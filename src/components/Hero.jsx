@@ -29,7 +29,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight ml-[1vw] sm:ml-[2vw] md:ml-[4%] lg:ml-[5%]"
+                            className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[100px] xl:text-[100px] font-medium leading-[0.88] tracking-tight ml-[1vw] sm:ml-[2vw] md:ml-[4%] lg:ml-[5%]"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
                             Welcome at my
@@ -40,7 +40,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                            className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight ml-[3vw] sm:ml-[4vw] md:ml-[6%] lg:ml-[10%]"
+                            className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[100] xl:text-[100px] font-medium leading-[0.88] tracking-tight ml-[3vw] sm:ml-[4vw] md:ml-[6%] lg:ml-[10%]"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
                             Performances &
@@ -51,7 +51,7 @@ export default function Hero() {
                             {/* Animated Arrows */}
                             <div className="flex flex-col -space-y-2 sm:-space-y-3 md:-space-y-[3vw] lg:-space-y-[26px] leading-none shrink-0 pt-1 text-white">
                                 <motion.span
-                                    className="text-[7vw] sm:text-[6vw] md:text-[8vw] lg:text-[80px] xl:text-[100px] leading-[0.6]"
+                                    className="text-[7vw] sm:text-[6vw] md:text-[8vw] lg:text-[80px] xl:text-[80px] leading-[0.6]"
                                     animate={{ x: [0, 10, 10, 0, 0] }}
                                     transition={{
                                         duration: 4,
@@ -61,7 +61,7 @@ export default function Hero() {
                                     }}
                                 >→</motion.span>
                                 <motion.span
-                                    className="text-[7vw] sm:text-[6vw] md:text-[8vw] lg:text-[80px] xl:text-[100px] leading-[0.6] ml-[1.3vw] md:ml-[5px]"
+                                    className="text-[7vw] sm:text-[6vw] md:text-[8vw] lg:text-[80px] xl:text-[80px] leading-[0.6] ml-[1.3vw] md:ml-[5px]"
                                     animate={{ x: [10, 0, 0, 10, 10] }}
                                     transition={{
                                         duration: 4,
@@ -76,7 +76,7 @@ export default function Hero() {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                                className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight"
+                                className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[120px] xl:text-[100px] font-medium leading-[0.88] tracking-tight"
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 Choreography
@@ -88,7 +88,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                            className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[120px] xl:text-[130px] font-medium leading-[0.88] tracking-tight ml-[10vw] sm:ml-[16vw] md:ml-[12%] lg:ml-[22%] xl:ml-[24%]"
+                            className="text-[11vw] sm:text-[10vw] md:text-[11vw] lg:text-[100px] xl:text-[100px] font-medium leading-[0.88] tracking-tight ml-[10vw] sm:ml-[16vw] md:ml-[12%] lg:ml-[22%] xl:ml-[24%]"
                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                         >
                             Projects
@@ -107,7 +107,7 @@ export default function Hero() {
                             Paris, France
                         </p>
                         <p className="text-[18px] font-bold tracking-[0.2em] text-right uppercase">
-                            Available for 2026
+                            Stay Tuned
                         </p>
                     </motion.div>
                 </div>
@@ -124,7 +124,7 @@ export default function Hero() {
                     Paris, France
                 </p>
                 <p className="text-[18px] font-bold tracking-[0.1em] uppercase">
-                    Available for 2026
+                    Stay Tuned
                 </p>
             </motion.div>
         </section>

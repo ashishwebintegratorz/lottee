@@ -26,8 +26,16 @@ export default function ProjectsPage() {
                         className="text-white text-5xl md:text-6xl font-bold tracking-tight mb-6"
                         style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                     >
-                        Multidisciplinary Projects
+                        Choreography & Dancer
                     </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light"
+                    >
+                        Through her association CIE.LA, supported by the Centre National de la Danse and La Ménagerie de Verre in Paris, Lotte develops her own choreographic projects and long-term artistic research.
+                    </motion.p>
                 </div>
 
                 {/* 2-Column Grid with adjusted spacing */}
