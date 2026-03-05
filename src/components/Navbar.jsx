@@ -55,7 +55,7 @@ export default function Navbar() {
 
     const contactNavLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Choreography   & Dancer', href: '/projects' },
+        { name: 'Choreography & Dancer', href: '/projects' },
         { name: 'Choreographer', href: '/choreographer' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
@@ -109,13 +109,13 @@ export default function Navbar() {
 
                         {/* Right Side Actions */}
                         <div className="flex items-center gap-4">
-                            {/* Let's Talk Button - Hidden on Home */}
-                            {!isHomePage && (
+                            {/* Let's Talk Button - Hidden on Home and Contact */}
+                            {!isHomePage && !isContactPage && (
                                 <Link
                                     href="/contact"
                                     className="hidden lg:flex items-center justify-center bg-[#7a8208] text-white font-bold px-8 py-3 rounded-full hover:bg-[#6b7207] transition-all text-sm tracking-wide"
                                 >
-                                    {isContactPage ? 'Plan a Visit' : "Let's Talk"}
+                                    {"Let's Talk"}
                                 </Link>
                             )}
 

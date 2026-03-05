@@ -31,8 +31,6 @@ export default function UrbanAtmosphere() {
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-    const [showCursor, setShowCursor] = useState(false);
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -40,19 +38,6 @@ export default function UrbanAtmosphere() {
 
     const prevSlide = () => {
         setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
-
-    // Track mouse position for custom cursor
-    const handleMouseMove = (e) => {
-        setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseEnter = () => {
-        setShowCursor(true);
-    };
-
-    const handleMouseLeave = () => {
-        setShowCursor(false);
     };
 
     // Handle click on carousel area
@@ -78,23 +63,8 @@ export default function UrbanAtmosphere() {
 
     return (
         <section className="py-12 md:py-16 px-6 lg:px-12 bg-white flex flex-col items-center justify-center lg:min-h-screen relative overflow-hidden">
-            {/* Custom Cursor */}
-            {showCursor && (
-                <div
-                    className="custom-cursor"
-                    style={{
-                        left: `${cursorPosition.x}px`,
-                        top: `${cursorPosition.y}px`,
-                        opacity: showCursor ? 1 : 0
-                    }}
-                />
-            )}
-
             <div
-                className="max-w-[1400px] mx-auto w-full overflow-hidden custom-cursor-area"
-                onMouseMove={handleMouseMove}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                className="max-w-[1800px] mx-auto w-full overflow-hidden cursor-pointer"
                 onClick={handleCarouselClick}
             >
                 {/* Carousel Track - All slides in a row */}
@@ -107,11 +77,11 @@ export default function UrbanAtmosphere() {
                     {slides.map((slide, index) => (
                         <div
                             key={index}
-                            className="min-w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+                            className="min-w-full grid grid-cols-1.9 lg:grid-cols-[60%_60%] gap-10 lg:gap-16 items-center"
                         >
                             {/* Left Side - Image */}
                             <div className="relative group overflow-hidden">
-                                <div className="aspect-[4/3] relative w-full overflow-hidden bg-gray-100 distortion">
+                                <div className="aspect-[16/9] relative w-full overflow-hidden bg-gray-100 distortion">
                                     <HoverEffect
                                         image1={slide.image}
                                         image2={slide.hoverImage}
