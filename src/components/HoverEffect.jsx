@@ -37,7 +37,13 @@ export default function HoverEffect({
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setClearColor(0xffffff, 0);
         renderer.setSize(parent.offsetWidth, parent.offsetHeight);
-        parent.appendChild(renderer.domElement);
+        const canvas = renderer.domElement;
+        canvas.style.position = 'absolute';
+        canvas.style.inset = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.objectFit = 'cover';
+        parent.appendChild(canvas);
 
         const render = () => {
             renderer.render(scene, camera);
@@ -57,8 +63,22 @@ export default function HoverEffect({
         const disp = loader.load(displacementImage, render);
         disp.wrapS = disp.wrapT = THREE.RepeatWrapping;
 
-        const tex1 = loader.load(image1, render);
-        const tex2 = loader.load(image2, render);
+        const containerAspect = () => parent.offsetWidth / parent.offsetHeight;
+
+        const tex1 = loader.load(image1, (t) => {
+            if (t.image && t.image.width && t.image.height) {
+                material.uniforms.containerAspect.value = containerAspect();
+                material.uniforms.texture1Aspect.value = t.image.width / t.image.height;
+                render();
+            }
+        });
+        const tex2 = loader.load(image2, (t) => {
+            if (t.image && t.image.width && t.image.height) {
+                material.uniforms.containerAspect.value = containerAspect();
+                material.uniforms.texture2Aspect.value = t.image.width / t.image.height;
+                render();
+            }
+        });
 
         tex1.magFilter = tex2.magFilter = THREE.LinearFilter;
         tex1.minFilter = tex2.minFilter = THREE.LinearFilter;
@@ -72,7 +92,10 @@ export default function HoverEffect({
                 angle2: { type: "f", value: -angle * 3 },
                 texture1: { type: "t", value: tex1 },
                 texture2: { type: "t", value: tex2 },
-                disp: { type: "t", value: disp }
+                disp: { type: "t", value: disp },
+                containerAspect: { type: "f", value: 1 },
+                texture1Aspect: { type: "f", value: 1 },
+                texture2Aspect: { type: "f", value: 1 }
             },
             vertexShader: `
                 varying vec2 vUv;
@@ -91,6 +114,9 @@ export default function HoverEffect({
                 uniform float angle2;
                 uniform float intensity1;
                 uniform float intensity2;
+                uniform float containerAspect;
+                uniform float texture1Aspect;
+                uniform float texture2Aspect;
 
                 mat2 getRotM(float angle) {
                     float s = sin(angle);
@@ -98,13 +124,25 @@ export default function HoverEffect({
                     return mat2(c, -s, s, c);
                 }
 
+                vec2 coverUV(vec2 uv, float contAspect, float imgAspect) {
+                    if (imgAspect > contAspect) {
+                        float scale = contAspect / imgAspect;
+                        return vec2((uv.x - 0.5) * scale + 0.5, uv.y);
+                    } else {
+                        float scale = imgAspect / contAspect;
+                        return vec2(uv.x, (uv.y - 0.5) * scale + 0.5);
+                    }
+                }
+
                 void main() {
                     vec4 disp = texture2D(disp, vUv);
                     vec2 dispVec = vec2(disp.r, disp.g);
                     vec2 distortedPosition1 = vUv + getRotM(angle1) * dispVec * intensity1 * dispFactor;
                     vec2 distortedPosition2 = vUv + getRotM(angle2) * dispVec * intensity2 * (1.0 - dispFactor);
-                    vec4 _texture1 = texture2D(texture1, distortedPosition1);
-                    vec4 _texture2 = texture2D(texture2, distortedPosition2);
+                    vec2 uv1 = coverUV(distortedPosition1, containerAspect, texture1Aspect);
+                    vec2 uv2 = coverUV(distortedPosition2, containerAspect, texture2Aspect);
+                    vec4 _texture1 = texture2D(texture1, uv1);
+                    vec4 _texture2 = texture2D(texture2, uv2);
                     gl_FragColor = mix(_texture1, _texture2, dispFactor);
                 }
             `,
@@ -152,7 +190,7 @@ export default function HoverEffect({
             camera.top = parent.offsetHeight / 2;
             camera.bottom = parent.offsetHeight / -2;
             camera.updateProjectionMatrix();
-
+            material.uniforms.containerAspect.value = parent.offsetWidth / parent.offsetHeight;
             mesh.geometry.dispose();
             mesh.geometry = new THREE.PlaneGeometry(parent.offsetWidth, parent.offsetHeight, 1);
             render();
@@ -190,5 +228,5 @@ export default function HoverEffect({
         }
     }, [isHovered, speedIn, speedOut]);
 
-    return <div ref={containerRef} className={`w-full h-full cursor-pointer ${className}`} />;
+    return <div ref={containerRef} className={`relative w-full h-full cursor-pointer overflow-hidden ${className}`} />;
 }

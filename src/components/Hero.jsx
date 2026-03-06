@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion';
 
+const heroText =
+    'leading-[0.92] tracking-[-0.02em] font-medium text-[clamp(2.5rem,8.5vw,6rem)] sm:text-[clamp(2.75rem,9vw,6.5rem)] md:text-[clamp(3rem,8vw,6rem)] lg:text-[clamp(3.5rem,7.5vw,6.25rem)] xl:text-[5.5rem] 2xl:text-[6.25rem]';
+
 export default function Hero() {
     return (
         <section className="relative h-[100dvh] lg:h-[115vh] w-full overflow-hidden bg-black">
@@ -16,108 +19,95 @@ export default function Hero() {
                 >
                     <source src="/expo-new-hero.mp4" type="video/mp4" />
                 </video>
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="absolute inset-0 bg-black/25" aria-hidden />
             </div>
 
-            {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-center pt-52 md:pt-72 lg:pt-80 pb-32 md:pb-48 lg:pb-52">
-                <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
-                    <div className="flex flex-col relative text-white space-y-4 sm:space-y-6 md:space-y-8">
-                        {/* Welcome at my */}
+            {/* Content — neat, clean hierarchy; centered on mobile, nudge on desktop (change lg:ml-[14rem] to adjust) */}
+            <div className="relative z-10 h-full flex flex-col justify-center items-center px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-[5vh] sm:pt-[24vh] md:pt-[20vh] lg:pt-[18vh] pb-24 sm:pb-28 md:pb-32 lg:pb-36">
+                <div className="relative w-full max-w-[1400px] mx-auto flex justify-center">
+                    <div
+                        className={`flex flex-col text-white overflow-hidden w-full max-w-[min(90vw,1100px)] lg:ml-[14rem] ${heroText}`}
+                        style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                    >
                         <motion.h1
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 28 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-[8.5vw] sm:text-[9vw] md:text-[8.5vw] lg:text-[7vw] xl:text-[80px] 2xl:text-[90px] font-medium leading-[0.88] tracking-tight ml-[2vw] sm:ml-[2vw] md:ml-[3%] lg:ml-[4%] xl:ml-[6%]"
-                            style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0 }}
                         >
-                            Welcome at my
+                            Performance
                         </motion.h1>
 
-                        {/* Performances & */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 50 }}
+                        {/* <motion.h1
+                            initial={{ opacity: 0, y: 28 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                            className="text-[8.5vw] sm:text-[9vw] md:text-[8.5vw] lg:text-[7vw] xl:text-[80px] 2xl:text-[90px] font-medium leading-[0.88] tracking-tight ml-[4vw] sm:ml-[4vw] md:ml-[5%] lg:ml-[6%] xl:ml-[8%]"
-                            style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+                            className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 pl-[0.45em] sm:pl-[0.5em] md:pl-[0.55em] lg:pl-[0.6em]"
                         >
-                            Performances &
-                        </motion.h1>
+                            my Performances &
+                        </motion.h1> */}
 
-                        {/* Middle Row: Arrows + Choreography */}
-                        <div className="flex items-center gap-[4vw] sm:gap-[3vw] md:gap-[4vw] lg:gap-[5vw] xl:gap-[60px] ml-[15vw] sm:ml-[20vw] md:ml-[12%] lg:ml-[18%] xl:ml-[320px]">
-                            {/* Animated Arrows */}
-                            <div className="flex flex-col space-y-[0px] leading-none shrink-0 pt-1 text-white">
+                        <motion.div
+                            initial={{ opacity: 0, y: 28 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
+                            className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mt-3 sm:mt-4 md:mt-5 lg:mt-6 min-w-0 pl-[0.9em] sm:pl-[1em] md:pl-[1.1em] lg:pl-[1.2em]"
+                        >
+                            <div className="flex flex-col leading-none shrink-0 text-white select-none items-center justify-center" aria-hidden>
                                 <motion.span
-                                    className="text-[6vw] sm:text-[5vw] md:text-[5vw] lg:text-[6vw] xl:text-[60px] leading-[0.6]"
-                                    animate={{ x: [0, 10, 10, 0, 0] }}
-                                    transition={{
-                                        duration: 4,
-                                        times: [0, 0.3, 0.5, 0.8, 1],
-                                        repeat: Infinity,
-                                        ease: "easeInOut",
-                                    }}
-                                >→</motion.span>
+                                    className="text-[clamp(2rem,5vw,3.75rem)] leading-[0.72]"
+                                    animate={{ x: [0, 6, 6, 0, 0] }}
+                                    transition={{ duration: 3.5, times: [0, 0.28, 0.5, 0.78, 1], repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    →
+                                </motion.span>
                                 <motion.span
-                                    className="text-[6vw] sm:text-[5vw] md:text-[5vw] lg:text-[6vw] xl:text-[60px] leading-[0.6] ml-[1.3vw] md:ml-[5px]"
-                                    animate={{ x: [10, 0, 0, 10, 10] }}
-                                    transition={{
-                                        duration: 4,
-                                        times: [0, 0.3, 0.5, 0.8, 1],
-                                        repeat: Infinity,
-                                        ease: "easeInOut",
-                                    }}
-                                >→</motion.span>
+                                    className="text-[clamp(2rem,5vw,3.75rem)] leading-[0.72] ml-0.5 sm:ml-1"
+                                    animate={{ x: [6, 0, 0, 6, 6] }}
+                                    transition={{ duration: 3.5, times: [0, 0.28, 0.5, 0.78, 1], repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    →
+                                </motion.span>
                             </div>
+                            <h1 className="min-w-0">Choreography</h1>
+                        </motion.div>
 
-                            <motion.h1
-                                initial={{ opacity: 0, y: 50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                                className="text-[8.5vw] sm:text-[9vw] md:text-[8.5vw] lg:text-[7vw] xl:text-[80px] 2xl:text-[90px] font-medium leading-[0.88] tracking-tight"
-                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
-                            >
-                                Choreography
-                            </motion.h1>
-                        </div>
-
-                        {/* Projects */}
                         <motion.h1
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 28 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                            className="text-[8.5vw] sm:text-[9vw] md:text-[8.5vw] lg:text-[7vw] xl:text-[80px] 2xl:text-[90px] font-medium leading-[0.88] tracking-tight ml-[4vw] sm:ml-[4vw] md:ml-[5%] lg:ml-[6%] xl:ml-[8%]"
-                            style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.36 }}
+                            className="mt-3 sm:mt-4 md:mt-5 lg:mt-6"
                         >
-                            Projects
+                            Movement
                         </motion.h1>
                     </div>
 
-                    {/* Desktop Date & Location */}
+                    {/* Top right: two-line block — reference style */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 16 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.8 }}
-                        className="hidden lg:block text-white absolute right-12 top-12 md:top-26"
+                        transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                        className="hidden lg:flex flex-col absolute right-0 top-0 text-right"
                         style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                     >
-                        <p className="text-[18px] font-bold tracking-[0.2em] text-right uppercase mt-12">
+                        <p className="text-[13px] tracking-[0.2em] uppercase text-white/95">
                             Stay Tuned
+                        </p>
+                        <p className="text-[11px] tracking-[0.18em] uppercase text-white/75 mt-1.5">
+                            Coming Soon
                         </p>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Mobile Date & Location */}
+            {/* Mobile: bottom left */}
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                className="lg:hidden absolute bottom-24 left-6 sm:left-12 z-10 text-white"
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="lg:hidden absolute bottom-20 left-5 sm:left-8 z-10 text-white"
+                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
             >
-                <p className="text-[18px] font-bold tracking-[0.1em] uppercase mt-4">
+                <p className="text-sm font-medium tracking-[0.12em] uppercase text-white/90">
                     Stay Tuned
                 </p>
             </motion.div>

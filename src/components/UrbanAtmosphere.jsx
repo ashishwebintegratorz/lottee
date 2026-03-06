@@ -11,14 +11,6 @@ export default function UrbanAtmosphere() {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "/aboutimg.jpeg",
-            image2: "/gallery1.jpeg",
-            hoverImage: "/gallery2.jpeg"
-        },
-        {
-            category: "Lotte & Ciela",
-            title: "About",
-            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
             image1: "/gallery1.jpeg",
             image2: "/gallery4.jpeg",
             hoverImage: "/gallery.3.jpeg"
@@ -30,6 +22,14 @@ export default function UrbanAtmosphere() {
             image1: "/gallery4.jpeg",
             image2: "/gallery5.jpeg",
             hoverImage: "/gallery6.jpeg"
+        },
+        {
+            category: "Lotte & Ciela",
+            title: "About",
+            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
+            image1: "/aboutimg.jpeg",
+            image2: "/gallery1.jpeg",
+            hoverImage: "/gallery2.jpeg"
         }
     ];
 
@@ -65,7 +65,7 @@ export default function UrbanAtmosphere() {
     }, [currentSlide]);
 
     return (
-        <section className="py-8 md:py-12 lg:py-16 px-6 lg:px-12 bg-white flex flex-col items-center justify-center relative overflow-hidden">
+        <section className="py-12 md:py-16 lg:py-20 px-6 lg:px-12 bg-white flex flex-col items-center justify-center relative overflow-hidden">
             <div
                 className="max-w-[1800px] mx-auto w-full overflow-hidden"
                 onClick={handleCarouselClick}
@@ -80,11 +80,11 @@ export default function UrbanAtmosphere() {
                     {slides.map((slide, index) => (
                         <div
                             key={index}
-                            className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center"
+                            className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center min-h-[380px] md:min-h-[420px]"
                         >
-                            {/* Two images with gap and individual hover effects */}
-                            <div className="relative grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 mb-8 md:mb-0 z-20 pointer-events-auto">
-                                <div className="aspect-[3/4] sm:aspect-[4/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
+                            {/* Two images: natural portrait ratio, cover so no stretch */}
+                            <div className="relative grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
+                                <div className="aspect-[2/3] sm:aspect-[3/5] md:aspect-[3/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
                                     <HoverEffect
                                         image1={slide.image1}
                                         image2={slide.hoverImage}
@@ -92,10 +92,10 @@ export default function UrbanAtmosphere() {
                                         isHovered={null}
                                         intensity={0.2}
                                         speedIn={1.2}
-                                        className="w-full h-full"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="aspect-[3/4] sm:aspect-[4/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
+                                <div className="aspect-[2/3] sm:aspect-[3/5] md:aspect-[3/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
                                     <HoverEffect
                                         image1={slide.image2}
                                         image2={slide.hoverImage}
@@ -103,7 +103,7 @@ export default function UrbanAtmosphere() {
                                         isHovered={null}
                                         intensity={0.2}
                                         speedIn={1.2}
-                                        className="w-full h-full"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
                             </div>
