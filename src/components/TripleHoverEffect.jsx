@@ -18,6 +18,7 @@ export default function TripleHoverEffect({
 }) {
     const containerRef = useRef();
     const materialRef = useRef();
+    const renderRef = useRef();
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -42,6 +43,15 @@ export default function TripleHoverEffect({
         const render = () => {
             renderer.render(scene, camera);
         };
+        renderRef.current = render;
+
+        // Continuous animation loop for smooth GSAP transitions
+        let frameId;
+        const animate = () => {
+            render();
+            frameId = requestAnimationFrame(animate);
+        };
+        animate();
 
         const loader = new THREE.TextureLoader();
         loader.crossOrigin = "";
@@ -105,9 +115,11 @@ export default function TripleHoverEffect({
                     vec4 disp = texture2D(disp, vUv);
                     vec2 dispVec = vec2(disp.r, disp.g);
                     
-                    // Cleaner mapping for background split
-                    vec2 uvLeft = vec2(vUv.x * 2.0, vUv.y);
-                    vec2 uvRight = vec2((vUv.x - 0.5) * 2.0, vUv.y);
+                    // Distort base images as they disappear
+                    vec2 distortedBase = vUv + getRotM(angle2) * dispVec * intensity2 * dispFactor;
+                    
+                    vec2 uvLeft = vec2(distortedBase.x * 2.0, distortedBase.y);
+                    vec2 uvRight = vec2((distortedBase.x - 0.5) * 2.0, distortedBase.y);
 
                     // Distort texture3 for the reveal
                     vec2 distortedPositionHover = vUv + getRotM(angle1) * dispVec * intensity1 * (1.0 - dispFactor);
@@ -116,7 +128,7 @@ export default function TripleHoverEffect({
                     vec4 _texture2 = texture2D(texture2, uvRight);
                     vec4 _texture3 = texture2D(texture3, distortedPositionHover);
                     
-                    vec4 baseColor = vUv.x < 0.5 ? _texture1 : _texture2;
+                    vec4 baseColor = distortedBase.x < 0.5 ? _texture1 : _texture2;
                     
                     gl_FragColor = mix(baseColor, _texture3, dispFactor);
                 }

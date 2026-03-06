@@ -11,29 +11,30 @@ export default function UrbanAtmosphere() {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "aboutimg.jpeg",
-            image2: "gallery1.jpeg",
-            hoverImage: "gallery2.jpeg"
+            image1: "/aboutimg.jpeg",
+            image2: "/gallery1.jpeg",
+            hoverImage: "/gallery2.jpeg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "gallery1.jpeg",
-            image2: "gallery4.jpeg",
-            hoverImage: "gallery.3.jpeg"
+            image1: "/gallery1.jpeg",
+            image2: "/gallery4.jpeg",
+            hoverImage: "/gallery.3.jpeg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "gallery4.jpeg",
-            image2: "gallery5.jpeg",
-            hoverImage: "gallery6.jpeg"
+            image1: "/gallery4.jpeg",
+            image2: "/gallery5.jpeg",
+            hoverImage: "/gallery6.jpeg"
         }
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -67,7 +68,7 @@ export default function UrbanAtmosphere() {
     return (
         <section className="py-12 md:py-16 px-6 lg:px-12 bg-white flex flex-col items-center justify-center lg:min-h-screen relative overflow-hidden">
             <div
-                className="max-w-[1800px] mx-auto w-full overflow-hidden cursor-pointer"
+                className="max-w-[1800px] mx-auto w-full overflow-hidden"
                 onClick={handleCarouselClick}
             >
                 {/* Carousel Track - All slides in a row */}
@@ -83,13 +84,18 @@ export default function UrbanAtmosphere() {
                             className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center"
                         >
                             {/* Single Frame - Two images that merge into a third on hover */}
-                            <div className="relative group overflow-hidden mb-8 md:mb-0">
+                            <div
+                                className="relative group overflow-hidden mb-8 md:mb-0 z-20 pointer-events-auto"
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
+                            >
                                 <div className="aspect-[4/3] md:aspect-[16/9] relative w-full overflow-hidden bg-gray-100 distortion">
                                     <TripleHoverEffect
                                         image1={slide.image1}
                                         image2={slide.image2}
                                         image3={slide.hoverImage}
                                         displacementImage="/dis.png/diss.png"
+                                        isHovered={index === currentSlide && hoveredIndex === index}
                                         intensity={0.3}
                                         speedIn={1.2}
                                         className="w-full h-full transition-all duration-700"
