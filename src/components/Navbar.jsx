@@ -186,12 +186,12 @@ export default function Navbar() {
 
                             {/* Menu Content */}
                             <div
-                                className="flex-1 flex flex-col px-8 py-8 items-center justify-center overflow-y-auto scrollbar-hide"
+                                className="flex-1 flex flex-col px-8 py-8 overflow-y-auto scrollbar-hide"
                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                             >
                                 {/* Nav Links */}
                                 <motion.div
-                                    className="space-y-6 flex flex-col text-center"
+                                    className="space-y-4 flex flex-col text-left mt-4"
                                     initial="closed"
                                     animate="open"
                                     exit="closed"
@@ -212,12 +212,12 @@ export default function Navbar() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group flex items-center justify-center gap-4 text-white text-[28px] md:text-[32px] font-bold tracking-tight transition-all hover:scale-105"
+                                                className="group flex items-center justify-start gap-4 text-white text-[28px] md:text-[32px] font-bold tracking-tight transition-all hover:pl-2"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                             >
                                                 <span className="relative">
                                                     {link.name}
-                                                    <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full group-hover:left-0"></span>
+                                                    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full"></span>
                                                 </span>
                                             </Link>
                                         </motion.div>
@@ -229,18 +229,18 @@ export default function Navbar() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
-                                    className="pt-12 mt-auto border-t border-white/10 w-full flex flex-col items-center"
+                                    className="pt-12 mt-auto border-t border-white/10"
                                 >
-                                    <div className="mb-10 text-center">
+                                    <div className="mb-10">
                                         <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-500 block mb-4">
                                             Based in
                                         </span>
                                         <p className="text-white text-lg font-medium">Paris, France</p>
                                     </div>
 
-                                    <div className="flex flex-col space-y-4 items-center">
+                                    <div className="flex flex-col space-y-4">
 
-                                        <div className="flex items-center gap-4 justify-center">
+                                        <div className="flex items-center gap-4">
                                             <a
                                                 href="https://instagram.com"
                                                 target="_blank"

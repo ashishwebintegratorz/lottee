@@ -34,7 +34,6 @@ export default function UrbanAtmosphere() {
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [hoveredIndex, setHoveredIndex] = useState(null);
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -84,9 +83,7 @@ export default function UrbanAtmosphere() {
                             className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center"
                         >
                             {/* Two images with gap and individual hover effects */}
-                            <div
-                                className="relative grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 mb-8 md:mb-0 z-20 pointer-events-auto"
-                            >
+                            <div className="relative grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 mb-8 md:mb-0 z-20 pointer-events-auto">
                                 <div className="aspect-[3/4] sm:aspect-[4/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
                                     <HoverEffect
                                         image1={slide.image1}
@@ -150,7 +147,6 @@ export default function UrbanAtmosphere() {
                                     >
                                         <span className="transition-all">Read More</span>
 
-                                        {/* Clean Arrow with Hover Animation */}
                                         <svg
                                             width="60"
                                             height="20"
@@ -199,7 +195,6 @@ export default function UrbanAtmosphere() {
                     />
                 ))}
             </div>
-
         </section>
     );
 }
