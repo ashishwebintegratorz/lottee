@@ -10,17 +10,10 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Choreography & Dancer', href: '/projects' },
-        { name: 'Choreographer', href: '/choreographer' },
+        { name: 'Choreographer & Dancer', href: '/projects' },
+        { name: 'Photography', href: '/photography' },
         { name: 'Schedule', href: '/schedule' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
@@ -53,14 +46,7 @@ export default function Navbar() {
     const isSchedulePage = pathname === '/schedule';
     const isChoreographerPage = pathname === '/choreographer';
 
-    const contactNavLinks = [
-        { name: 'Home', href: '/' },
-        { name: 'Choreography & Dancer', href: '/projects' },
-        { name: 'Choreographer', href: '/choreographer' },
-        { name: 'Schedule', href: '/schedule' },
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
-    ];
+    const contactNavLinks = [...navLinks];
 
     const currentNavLinks = isContactPage ? contactNavLinks : navLinks;
 
@@ -75,31 +61,30 @@ export default function Navbar() {
                         {/* Logo */}
                         <Link href="/" className="flex items-center lg:-ml-10 group cursor-pointer">
                             <span
-                                className={`text-[20px] sm:text-[24px] md:text-[32px] lg:text-[36px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'text-white' : 'text-black'}`}
+                                className={`text-[20px] sm:text-[22px] md:text-[28px] lg:text-[32px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'text-white' : 'text-black'}`}
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 LOTTE AIMÉE
                             </span>
                         </Link>
 
-                        {/* Centered Navigation */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex items-center gap-8">
-                            <div className="flex items-center gap-8">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex items-center gap-4 xl:gap-8">
+                            <div className="flex items-center gap-4 xl:gap-8">
                                 {currentNavLinks.map((link) => (
                                     <Link
                                         key={link.name}
                                         href={link.href}
-                                        className="relative transition-colors duration-200 group"
+                                        className="relative transition-colors duration-200 group whitespace-nowrap"
                                         style={{
                                             fontFamily: "'Roc Grotesk', sans-serif",
-                                            fontSize: '19px',
+                                            fontSize: '15px',
                                             fontWeight: '500',
                                             color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
                                             lineHeight: '29px'
                                         }}
                                     >
                                         {link.name}
-                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Choreographer' && isChoreographerPage) || ((link.name === 'Choreography & Dancer' || link.name === 'Choreography & Performance') && isProjectsPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Photography' && isProjectsPage) || (link.name === 'Choreographer & Dancer' && isChoreographerPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
                                     </Link>
                                 ))}
                             </div>
@@ -142,7 +127,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 2.0, ease: "easeInOut" }} // Match total exit time
+                        transition={{ duration: 0.8, ease: "easeInOut" }} // Slightly slower for smoother feel
                         className="fixed inset-0 z-[90] bg-black/60"
                     >
                         {/* Transparent Layer for click-outside */}
@@ -157,7 +142,7 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={isMobile ? { y: '-100%', x: 0 } : { x: '100%' }}
                             transition={{
-                                duration: 2.0, // Extremely slow exit
+                                duration: 0.8, // Slightly slower for smoother feel
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             className="absolute right-0 top-0 bottom-0 w-full sm:max-w-[360px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
@@ -201,12 +186,12 @@ export default function Navbar() {
 
                             {/* Menu Content */}
                             <div
-                                className="flex-1 flex flex-col px-8 py-8 overflow-y-auto scrollbar-hide"
+                                className="flex-1 flex flex-col px-8 py-8 items-center justify-center overflow-y-auto scrollbar-hide"
                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                             >
                                 {/* Nav Links */}
                                 <motion.div
-                                    className="space-y-4 flex flex-col text-left mt-4"
+                                    className="space-y-6 flex flex-col text-center"
                                     initial="closed"
                                     animate="open"
                                     exit="closed"
@@ -227,12 +212,12 @@ export default function Navbar() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group flex items-center justify-start gap-4 text-white text-[28px] md:text-[32px] font-bold tracking-tight transition-all hover:pl-2"
+                                                className="group flex items-center justify-center gap-4 text-white text-[28px] md:text-[32px] font-bold tracking-tight transition-all hover:scale-105"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                             >
                                                 <span className="relative">
                                                     {link.name}
-                                                    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full"></span>
+                                                    <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-[#7a8208] transition-all duration-500 group-hover:w-full group-hover:left-0"></span>
                                                 </span>
                                             </Link>
                                         </motion.div>
@@ -244,18 +229,18 @@ export default function Navbar() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
-                                    className="pt-12 mt-auto border-t border-white/10"
+                                    className="pt-12 mt-auto border-t border-white/10 w-full flex flex-col items-center"
                                 >
-                                    <div className="mb-10">
+                                    <div className="mb-10 text-center">
                                         <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-500 block mb-4">
                                             Based in
                                         </span>
                                         <p className="text-white text-lg font-medium">Paris, France</p>
                                     </div>
 
-                                    <div className="flex flex-col space-y-4">
+                                    <div className="flex flex-col space-y-4 items-center">
 
-                                        <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-4 justify-center">
                                             <a
                                                 href="https://instagram.com"
                                                 target="_blank"

@@ -43,6 +43,14 @@ export default function HoverEffect({
             renderer.render(scene, camera);
         };
 
+        // Continuous animation loop for smooth GSAP transitions
+        let frameId;
+        const animate = () => {
+            render();
+            frameId = requestAnimationFrame(animate);
+        };
+        animate();
+
         const loader = new THREE.TextureLoader();
         loader.crossOrigin = "";
 
@@ -153,6 +161,7 @@ export default function HoverEffect({
         window.addEventListener("resize", onResize);
 
         return () => {
+            cancelAnimationFrame(frameId);
             parent.removeEventListener("mouseenter", onMouseEnter);
             parent.removeEventListener("touchstart", onMouseEnter);
             parent.removeEventListener("mouseleave", onMouseLeave);

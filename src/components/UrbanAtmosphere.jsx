@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import TripleHoverEffect from './TripleHoverEffect';
+import HoverEffect from './HoverEffect';
 
 export default function UrbanAtmosphere() {
     const slides = [
@@ -66,7 +66,7 @@ export default function UrbanAtmosphere() {
     }, [currentSlide]);
 
     return (
-        <section className="py-12 md:py-16 px-6 lg:px-12 bg-white flex flex-col items-center justify-center lg:min-h-screen relative overflow-hidden">
+        <section className="py-8 md:py-12 lg:py-16 px-6 lg:px-12 bg-white flex flex-col items-center justify-center relative overflow-hidden">
             <div
                 className="max-w-[1800px] mx-auto w-full overflow-hidden"
                 onClick={handleCarouselClick}
@@ -83,22 +83,30 @@ export default function UrbanAtmosphere() {
                             key={index}
                             className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center"
                         >
-                            {/* Single Frame - Two images that merge into a third on hover */}
+                            {/* Two images with gap and individual hover effects */}
                             <div
-                                className="relative group overflow-hidden mb-8 md:mb-0 z-20 pointer-events-auto"
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
+                                className="relative grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 mb-8 md:mb-0 z-20 pointer-events-auto"
                             >
-                                <div className="aspect-[4/3] md:aspect-[16/9] relative w-full overflow-hidden bg-gray-100 distortion">
-                                    <TripleHoverEffect
+                                <div className="aspect-[3/4] sm:aspect-[4/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
+                                    <HoverEffect
                                         image1={slide.image1}
-                                        image2={slide.image2}
-                                        image3={slide.hoverImage}
+                                        image2={slide.hoverImage}
                                         displacementImage="/dis.png/diss.png"
-                                        isHovered={index === currentSlide && hoveredIndex === index}
-                                        intensity={0.3}
+                                        isHovered={null}
+                                        intensity={0.2}
                                         speedIn={1.2}
-                                        className="w-full h-full transition-all duration-700"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <div className="aspect-[3/4] sm:aspect-[4/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
+                                    <HoverEffect
+                                        image1={slide.image2}
+                                        image2={slide.hoverImage}
+                                        displacementImage="/dis.png/diss.png"
+                                        isHovered={null}
+                                        intensity={0.2}
+                                        speedIn={1.2}
+                                        className="w-full h-full"
                                     />
                                 </div>
                             </div>
