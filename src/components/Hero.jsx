@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 const heroText =
-    'leading-[0.92] tracking-[-0.02em] font-medium text-[clamp(2.5rem,8.5vw,6rem)] sm:text-[clamp(2.75rem,9vw,6.5rem)] md:text-[clamp(3rem,8vw,6rem)] lg:text-[clamp(3.5rem,7.5vw,6.25rem)] xl:text-[5.5rem] 2xl:text-[6.25rem]';
+    'leading-[0.92] tracking-[-0.02em] font-medium text-[clamp(2.15rem,8.5vw,6rem)] sm:text-[clamp(2.75rem,9vw,6.5rem)] md:text-[clamp(2.85rem,7.5vw,5.5rem)] lg:text-[clamp(3.25rem,7vw,6rem)] xl:text-[5.5rem] 2xl:text-[6.25rem]';
 
 export default function Hero() {
     return (
@@ -23,10 +23,10 @@ export default function Hero() {
             </div>
 
             {/* Content — neat, clean hierarchy; centered on mobile, nudge on desktop (change lg:ml-[14rem] to adjust) */}
-            <div className="relative z-10 h-full flex flex-col justify-center items-center px-5 sm:px-8 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-[5vh] sm:pt-[24vh] md:pt-[20vh] lg:pt-[18vh] pb-24 sm:pb-28 md:pb-32 lg:pb-36">
+            <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 sm:px-10 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-[5vh] sm:pt-[22vh] md:pt-[18vh] lg:pt-[16vh] pb-24 sm:pb-28 md:pb-32 lg:pb-36">
                 <div className="relative w-full max-w-[1400px] mx-auto flex justify-center">
                     <div
-                        className={`flex flex-col text-white overflow-hidden w-full max-w-[min(90vw,1100px)] lg:ml-[14rem] ${heroText}`}
+                        className={`flex flex-col text-white overflow-hidden w-full max-w-[min(90vw,1100px)] lg:ml-[6rem] xl:ml-[14rem] ${heroText}`}
                         style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                     >
                         <motion.h1
@@ -50,18 +50,18 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 28 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
-                            className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mt-3 sm:mt-4 md:mt-5 lg:mt-6 min-w-0 pl-[0.9em] sm:pl-[1em] md:pl-[1.1em] lg:pl-[1.2em]"
+                            className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mt-3 sm:mt-4 md:mt-5 lg:mt-6 min-w-0 pl-[0.5rem] sm:pl-[1em] md:pl-[1.1em] lg:pl-[1.2em]"
                         >
                             <div className="flex flex-col leading-none shrink-0 text-white select-none items-center justify-center" aria-hidden>
                                 <motion.span
-                                    className="text-[clamp(2rem,5vw,3.75rem)] leading-[0.72]"
+                                    className="text-[clamp(1.75rem,5vw,3.75rem)] leading-[0.72]"
                                     animate={{ x: [0, 6, 6, 0, 0] }}
                                     transition={{ duration: 3.5, times: [0, 0.28, 0.5, 0.78, 1], repeat: Infinity, ease: "easeInOut" }}
                                 >
                                     →
                                 </motion.span>
                                 <motion.span
-                                    className="text-[clamp(2rem,5vw,3.75rem)] leading-[0.72] ml-0.5 sm:ml-1"
+                                    className="text-[clamp(1.75rem,5vw,3.75rem)] leading-[0.72] ml-0.5 sm:ml-1"
                                     animate={{ x: [6, 0, 0, 6, 6] }}
                                     transition={{ duration: 3.5, times: [0, 0.28, 0.5, 0.78, 1], repeat: Infinity, ease: "easeInOut" }}
                                 >

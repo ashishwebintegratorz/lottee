@@ -104,7 +104,7 @@ export default function UrbanAtmosphere() {
                                         {slide.category}
                                     </span>
                                     <h2
-                                        className="text-3xl md:text-[50px]"
+                                        className="text-3xl md:text-[38px] lg:text-[50px]"
                                         style={{
                                             fontFamily: "'Roc Grotesk', sans-serif",
                                             fontWeight: '500',
@@ -117,12 +117,11 @@ export default function UrbanAtmosphere() {
                                 </div>
 
                                 <p
-                                    className="max-w-lg"
+                                    className="max-w-lg text-[15px] md:text-[16px]"
                                     style={{
                                         fontFamily: "'Kumbh Sans', sans-serif",
                                         fontWeight: '400',
                                         color: 'rgb(121, 124, 127)',
-                                        fontSize: '16px',
                                         lineHeight: '28px'
                                     }}
                                 >
@@ -176,9 +175,8 @@ export default function UrbanAtmosphere() {
                 {slides.map((_, index) => (
                     <div
                         key={index}
-                        className={`h-1.5 transition-all duration-300 rounded-full ${
-                            currentSlide === index ? 'w-8 bg-black' : 'w-2 bg-gray-300'
-                        }`}
+                        className={`h-1.5 transition-all duration-300 rounded-full ${currentSlide === index ? 'w-8 bg-black' : 'w-2 bg-gray-300'
+                            }`}
                     />
                 ))}
             </div>

@@ -45,6 +45,7 @@ export default function Navbar() {
     const isProjectsPage = pathname === '/projects';
     const isSchedulePage = pathname === '/schedule';
     const isChoreographerPage = pathname === '/choreographer';
+    const isPhotographyPage = pathname === '/photography';
 
     const contactNavLinks = [...navLinks];
 
@@ -52,23 +53,23 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className={`absolute top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${(isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-[#1a1a1a] border-transparent' :
+            <nav className={`absolute top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${(isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'bg-[#1a1a1a] border-transparent' :
                 (isDarkPage || isContactPage) ? 'bg-[#111111] border-transparent' :
                     'bg-white border-gray-200'
                 }`}>
-                <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12">
-                    <div className="flex items-center justify-between h-20 md:h-24 lg:h-28">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-10 xl:px-12">
+                    <div className="flex items-center justify-between h-20 md:h-24 lg:h-26">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center lg:-ml-10 group cursor-pointer">
+                        <Link href="/" className="flex items-center xl:-ml-10 group cursor-pointer">
                             <span
-                                className={`text-[20px] sm:text-[22px] md:text-[28px] lg:text-[32px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'text-white' : 'text-black'}`}
+                                className={`text-[20px] sm:text-[22px] md:text-[26px] lg:text-[28px] xl:text-[32px] font-bold tracking-tight transition-all duration-300 group-hover:opacity-70 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'text-white' : 'text-black'}`}
                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                             >
                                 LOTTE AIMÉE
                             </span>
                         </Link>
 
-                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex items-center gap-4 xl:gap-8">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 hidden xl:flex items-center gap-8">
                             <div className="flex items-center gap-4 xl:gap-8">
                                 {currentNavLinks.map((link) => (
                                     <Link
@@ -79,12 +80,19 @@ export default function Navbar() {
                                             fontFamily: "'Roc Grotesk', sans-serif",
                                             fontSize: '15px',
                                             fontWeight: '500',
-                                            color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
+                                            color: (isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? '#FFFFFF' : 'rgb(25, 25, 25)',
                                             lineHeight: '29px'
                                         }}
                                     >
                                         {link.name}
-                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) || (link.name === 'Schedule' && isSchedulePage) || (link.name === 'Photography' && isProjectsPage) || (link.name === 'Choreographer & Dancer' && isChoreographerPage)) ? 'w-full bg-white opacity-100' : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) ||
+                                            (link.name === 'Schedule' && isSchedulePage) ||
+                                            (link.name === 'Photography' && isPhotographyPage) ||
+                                            (link.name === 'Choreographer & Dancer' && isProjectsPage) ||
+                                            (link.name === 'Home' && isHomePage) ||
+                                            (link.name === 'About' && isDarkPage))
+                                            ? 'w-full bg-current opacity-100'
+                                            : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
                                     </Link>
                                 ))}
                             </div>
@@ -104,15 +112,15 @@ export default function Navbar() {
                                 </Link>
                             )}
 
-                            {/* Hamburger Menu Button - Shown on Home Right per image, Mobile only on others */}
+                            {/* Hamburger Menu Button - Shown on Home Right per image, Mobile/Tablet only on others */}
                             <button
                                 onClick={() => setIsMenuOpen(true)}
-                                className={`${isHomePage ? 'flex' : 'lg:hidden'} flex flex-col gap-[7px] w-10 h-10 justify-center items-center cursor-pointer group`}
+                                className={`${isHomePage ? 'flex' : 'xl:hidden'} flex flex-col gap-[7px] w-10 h-10 justify-center items-center cursor-pointer group`}
                                 aria-label="Open menu"
                             >
-                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-black'}`}></span>
-                                <span className={`w-4 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-black'}`}></span>
-                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-4 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'bg-white' : 'bg-black'}`}></span>
+                                <span className={`w-7 h-[2.5px] transition-all duration-300 ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'bg-white' : 'bg-black'}`}></span>
                             </button>
                         </div>
                     </div>
@@ -127,7 +135,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.8, ease: "easeInOut" }} // Slightly slower for smoother feel
+                        transition={{ duration: 2.0, ease: "easeInOut" }} // Match total exit time
                         className="fixed inset-0 z-[90] bg-black/60"
                     >
                         {/* Transparent Layer for click-outside */}
@@ -142,7 +150,7 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={isMobile ? { y: '-100%', x: 0 } : { x: '100%' }}
                             transition={{
-                                duration: 0.8, // Slightly slower for smoother feel
+                                duration: 2.0, // Extremely slow exit
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             className="absolute right-0 top-0 bottom-0 w-full sm:max-w-[360px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"
@@ -212,7 +220,7 @@ export default function Navbar() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className="group flex items-center justify-start gap-4 text-white text-[28px] md:text-[32px] font-bold tracking-tight transition-all hover:pl-2"
+                                                className="group flex items-center justify-start gap-4 text-white text-[24px] md:text-[32px] font-bold tracking-tight transition-all hover:pl-2"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                             >
                                                 <span className="relative">
