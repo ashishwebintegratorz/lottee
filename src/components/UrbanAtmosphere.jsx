@@ -11,26 +11,23 @@ export default function UrbanAtmosphere() {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "/gallery1.jpeg",
-            image2: "/gallery4.jpeg",
-            hoverImage: "/gallery.3.jpeg"
+            image1: "/gallery2.jpeg",
+            image2: "/imggl1.jpeg",
+            hoverImage1: "/aboutimg.jpeg",
+            hoverImage2: "/urben2.jpeg"
         },
         {
             category: "Lotte & Ciela",
             title: "About",
             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "/gallery4.jpeg",
-            image2: "/gallery5.jpeg",
-            hoverImage: "/gallery6.jpeg"
+            image1: "/aboutnew image1.jpeg",
+            image2: "/urben4.jpeg",
+            hoverImage1: "/urben22.jpg",
+            hoverImage2: "/urben5.jpeg"
         },
-        {
-            category: "Lotte & Ciela",
-            title: "About",
-            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "/aboutimg.jpeg",
-            image2: "/gallery1.jpeg",
-            hoverImage: "/gallery2.jpeg"
-        }
+
+
+
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,7 +70,7 @@ export default function UrbanAtmosphere() {
                                 >
                                     <HoverEffect
                                         image1={slide.image1}
-                                        image2={slide.hoverImage}
+                                        image2={slide.hoverImage1}
                                         displacementImage="/dis.png/diss.png"
                                         isHovered={null}
                                         intensity={0.2}
@@ -87,7 +84,7 @@ export default function UrbanAtmosphere() {
                                 >
                                     <HoverEffect
                                         image1={slide.image2}
-                                        image2={slide.hoverImage}
+                                        image2={slide.hoverImage2}
                                         displacementImage="/dis.png/diss.png"
                                         isHovered={null}
                                         intensity={0.2}
@@ -117,11 +114,13 @@ export default function UrbanAtmosphere() {
                                 </div>
 
                                 <p
-                                    className="max-w-lg text-[15px] md:text-[16px]"
+                                    className="max-w-lg"
                                     style={{
                                         fontFamily: "'Kumbh Sans', sans-serif",
+                                        fontStyle: 'normal',
                                         fontWeight: '400',
                                         color: 'rgb(121, 124, 127)',
+                                        fontSize: '16px',
                                         lineHeight: '28px'
                                     }}
                                 >
