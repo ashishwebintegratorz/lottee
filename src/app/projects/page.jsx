@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                         transition={{ delay: 0.2 }}
                         className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light"
                     >
-                        Through her association CIE.LA, supported by the Centre National de la Danse and La Ménagerie de Verre in Paris, Lotte develops her own choreographic projects and long-term artistic research.
+                        Through her association Lotte Aimée, supported by the Centre National de la Danse and La Ménagerie de Verre in Paris, Lotte develops her own choreographic projects and long-term artistic research.
                     </motion.p>
                 </div>
 

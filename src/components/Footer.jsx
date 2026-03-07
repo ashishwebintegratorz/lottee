@@ -34,7 +34,7 @@ export default function Footer() {
                         </h4>
                         <div className="space-y-6 text-gray-400 text-[15px] leading-relaxed">
                             <p>
-                                Through her association <span className="text-white font-medium">CIE.LA</span>, supported by the <span className="text-white font-medium">Centre National de la Danse</span> and <span className="text-white font-medium">La Ménagerie de Verre</span> in Paris.
+                                Through her association <span className="text-white font-medium"> Lotte Aimée</span>, supported by the <span className="text-white font-medium">Centre National de la Danse</span> and <span className="text-white font-medium">La Ménagerie de Verre</span> in Paris.
                             </p>
                             <p className="italic text-sm">
                                 Exploring the dialogue between dance, conceptual research, and cinematic storytelling.

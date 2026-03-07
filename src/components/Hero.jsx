@@ -86,7 +86,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: 16 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="hidden lg:flex flex-col absolute right-0 top-0 text-right"
+                        className="hidden lg:flex flex-col absolute right-0 -top-32 text-right"
                         style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                     >
                         <p className="text-[13px] tracking-[0.2em] uppercase text-white/95">
@@ -104,13 +104,16 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
-                className="lg:hidden absolute bottom-20 left-5 sm:left-8 z-10 text-white"
+                className="lg:hidden absolute bottom-28 left-5 sm:left-8 z-10 text-white"
                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
             >
                 <p className="text-sm font-medium tracking-[0.12em] uppercase text-white/90">
                     Stay Tuned
                 </p>
+                <p className="text-[10px] tracking-[0.15em] uppercase text-white/70 mt-1">
+                    Coming Soon
+                </p>
             </motion.div>
-        </section>
+        </section >
     );
 }
