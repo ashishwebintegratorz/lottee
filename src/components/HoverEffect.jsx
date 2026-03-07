@@ -13,7 +13,7 @@ export default function HoverEffect({
     speedOut = 1.2,
     className = "",
     angle = Math.PI / 4,
-    isHovered = null // New prop for external control
+    isHovered = null
 }) {
     const containerRef = useRef();
     const materialRef = useRef();
@@ -22,34 +22,31 @@ export default function HoverEffect({
         if (!containerRef.current) return;
 
         const parent = containerRef.current;
+        const w = parent.offsetWidth;
+        const h = parent.offsetHeight;
+
         const scene = new THREE.Scene();
         const camera = new THREE.OrthographicCamera(
-            parent.offsetWidth / -2,
-            parent.offsetWidth / 2,
-            parent.offsetHeight / 2,
-            parent.offsetHeight / -2,
-            1,
-            1000
+            w / -2, w / 2, h / 2, h / -2, 1, 1000
         );
         camera.position.z = 1;
 
         const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setClearColor(0xffffff, 0);
-        renderer.setSize(parent.offsetWidth, parent.offsetHeight);
+        renderer.setSize(w, h);
+
+        // Make canvas fill container absolutely
         const canvas = renderer.domElement;
         canvas.style.position = 'absolute';
-        canvas.style.inset = '0';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
         canvas.style.width = '100%';
         canvas.style.height = '100%';
-        canvas.style.objectFit = 'cover';
         parent.appendChild(canvas);
 
-        const render = () => {
-            renderer.render(scene, camera);
-        };
+        const render = () => renderer.render(scene, camera);
 
-        // Continuous animation loop for smooth GSAP transitions
         let frameId;
         const animate = () => {
             render();
@@ -60,48 +57,59 @@ export default function HoverEffect({
         const loader = new THREE.TextureLoader();
         loader.crossOrigin = "";
 
+        // Helper: compute UV scale for "cover" behavior
+        const getCoverUV = (texW, texH, containerW, containerH) => {
+            const texAspect = texW / texH;
+            const containerAspect = containerW / containerH;
+            let scaleX = 1, scaleY = 1, offsetX = 0, offsetY = 0;
+            if (texAspect > containerAspect) {
+                // texture is wider — scale by height, crop sides
+                scaleX = containerAspect / texAspect;
+                offsetX = (1 - scaleX) / 2;
+            } else {
+                // texture is taller — scale by width, crop top/bottom
+                scaleY = texAspect / containerAspect;
+                offsetY = (1 - scaleY) / 2;
+            }
+            return { scaleX, scaleY, offsetX, offsetY };
+        };
+
+        const applyCover = (tex) => {
+            if (!tex.image) return;
+            const { scaleX, scaleY, offsetX, offsetY } = getCoverUV(
+                tex.image.width, tex.image.height,
+                parent.offsetWidth, parent.offsetHeight
+            );
+            tex.repeat.set(scaleX, scaleY);
+            tex.offset.set(offsetX, offsetY);
+            tex.needsUpdate = true;
+        };
+
         const disp = loader.load(displacementImage, render);
         disp.wrapS = disp.wrapT = THREE.RepeatWrapping;
 
-        const containerAspect = () => parent.offsetWidth / parent.offsetHeight;
-
-        const tex1 = loader.load(image1, (t) => {
-            if (t.image && t.image.width && t.image.height) {
-                material.uniforms.containerAspect.value = containerAspect();
-                material.uniforms.texture1Aspect.value = t.image.width / t.image.height;
-                render();
-            }
-        });
-        const tex2 = loader.load(image2, (t) => {
-            if (t.image && t.image.width && t.image.height) {
-                material.uniforms.containerAspect.value = containerAspect();
-                material.uniforms.texture2Aspect.value = t.image.width / t.image.height;
-                render();
-            }
-        });
+        const tex1 = loader.load(image1, (t) => { applyCover(t); render(); });
+        const tex2 = loader.load(image2, (t) => { applyCover(t); render(); });
 
         tex1.magFilter = tex2.magFilter = THREE.LinearFilter;
         tex1.minFilter = tex2.minFilter = THREE.LinearFilter;
 
         const material = new THREE.ShaderMaterial({
             uniforms: {
-                intensity1: { type: "f", value: intensity },
-                intensity2: { type: "f", value: intensity },
-                dispFactor: { type: "f", value: 0 },
-                angle1: { type: "f", value: angle },
-                angle2: { type: "f", value: -angle * 3 },
-                texture1: { type: "t", value: tex1 },
-                texture2: { type: "t", value: tex2 },
-                disp: { type: "t", value: disp },
-                containerAspect: { type: "f", value: 1 },
-                texture1Aspect: { type: "f", value: 1 },
-                texture2Aspect: { type: "f", value: 1 }
+                intensity1: { value: intensity },
+                intensity2: { value: intensity },
+                dispFactor: { value: 0.0 },
+                angle1: { value: angle },
+                angle2: { value: -angle * 3 },
+                texture1: { value: tex1 },
+                texture2: { value: tex2 },
+                disp: { value: disp }
             },
             vertexShader: `
                 varying vec2 vUv;
                 void main() {
                     vUv = uv;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
                 }
             `,
             fragmentShader: `
@@ -114,9 +122,6 @@ export default function HoverEffect({
                 uniform float angle2;
                 uniform float intensity1;
                 uniform float intensity2;
-                uniform float containerAspect;
-                uniform float texture1Aspect;
-                uniform float texture2Aspect;
 
                 mat2 getRotM(float angle) {
                     float s = sin(angle);
@@ -124,25 +129,13 @@ export default function HoverEffect({
                     return mat2(c, -s, s, c);
                 }
 
-                vec2 coverUV(vec2 uv, float contAspect, float imgAspect) {
-                    if (imgAspect > contAspect) {
-                        float scale = contAspect / imgAspect;
-                        return vec2((uv.x - 0.5) * scale + 0.5, uv.y);
-                    } else {
-                        float scale = imgAspect / contAspect;
-                        return vec2(uv.x, (uv.y - 0.5) * scale + 0.5);
-                    }
-                }
-
                 void main() {
-                    vec4 disp = texture2D(disp, vUv);
-                    vec2 dispVec = vec2(disp.r, disp.g);
+                    vec4 dispTex = texture2D(disp, vUv);
+                    vec2 dispVec = vec2(dispTex.r, dispTex.g);
                     vec2 distortedPosition1 = vUv + getRotM(angle1) * dispVec * intensity1 * dispFactor;
                     vec2 distortedPosition2 = vUv + getRotM(angle2) * dispVec * intensity2 * (1.0 - dispFactor);
-                    vec2 uv1 = coverUV(distortedPosition1, containerAspect, texture1Aspect);
-                    vec2 uv2 = coverUV(distortedPosition2, containerAspect, texture2Aspect);
-                    vec4 _texture1 = texture2D(texture1, uv1);
-                    vec4 _texture2 = texture2D(texture2, uv2);
+                    vec4 _texture1 = texture2D(texture1, distortedPosition1);
+                    vec4 _texture2 = texture2D(texture2, distortedPosition2);
                     gl_FragColor = mix(_texture1, _texture2, dispFactor);
                 }
             `,
@@ -152,29 +145,23 @@ export default function HoverEffect({
 
         materialRef.current = material;
 
-        const geometry = new THREE.PlaneGeometry(parent.offsetWidth, parent.offsetHeight, 1);
+        const geometry = new THREE.PlaneGeometry(w, h, 1);
         const mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 
         const onMouseEnter = () => {
             if (isHovered !== null) return;
             gsap.to(material.uniforms.dispFactor, {
-                duration: speedIn,
-                value: 1,
-                ease: "expo.out",
-                onUpdate: render,
-                onComplete: render
+                duration: speedIn, value: 1, ease: "expo.out",
+                onUpdate: render, onComplete: render
             });
         };
 
         const onMouseLeave = () => {
             if (isHovered !== null) return;
             gsap.to(material.uniforms.dispFactor, {
-                duration: speedOut,
-                value: 0,
-                ease: "expo.out",
-                onUpdate: render,
-                onComplete: render
+                duration: speedOut, value: 0, ease: "expo.out",
+                onUpdate: render, onComplete: render
             });
         };
 
@@ -184,15 +171,19 @@ export default function HoverEffect({
         parent.addEventListener("touchend", onMouseLeave);
 
         const onResize = () => {
-            renderer.setSize(parent.offsetWidth, parent.offsetHeight);
-            camera.left = parent.offsetWidth / -2;
-            camera.right = parent.offsetWidth / 2;
-            camera.top = parent.offsetHeight / 2;
-            camera.bottom = parent.offsetHeight / -2;
+            const nw = parent.offsetWidth;
+            const nh = parent.offsetHeight;
+            renderer.setSize(nw, nh);
+            camera.left = nw / -2;
+            camera.right = nw / 2;
+            camera.top = nh / 2;
+            camera.bottom = nh / -2;
             camera.updateProjectionMatrix();
-            material.uniforms.containerAspect.value = parent.offsetWidth / parent.offsetHeight;
             mesh.geometry.dispose();
-            mesh.geometry = new THREE.PlaneGeometry(parent.offsetWidth, parent.offsetHeight, 1);
+            mesh.geometry = new THREE.PlaneGeometry(nw, nh, 1);
+            // Re-apply cover on resize
+            applyCover(tex1);
+            applyCover(tex2);
             render();
         };
 
@@ -205,9 +196,7 @@ export default function HoverEffect({
             parent.removeEventListener("mouseleave", onMouseLeave);
             parent.removeEventListener("touchend", onMouseLeave);
             window.removeEventListener("resize", onResize);
-            if (parent.contains(renderer.domElement)) {
-                parent.removeChild(renderer.domElement);
-            }
+            if (parent.contains(canvas)) parent.removeChild(canvas);
             geometry.dispose();
             material.dispose();
             tex1.dispose();
@@ -217,7 +206,6 @@ export default function HoverEffect({
         };
     }, [image1, image2, displacementImage, intensity, speedIn, speedOut, angle, isHovered]);
 
-    // Handle external hover changes
     useEffect(() => {
         if (isHovered !== null && materialRef.current) {
             gsap.to(materialRef.current.uniforms.dispFactor, {
@@ -228,5 +216,11 @@ export default function HoverEffect({
         }
     }, [isHovered, speedIn, speedOut]);
 
-    return <div ref={containerRef} className={`relative w-full h-full cursor-pointer overflow-hidden ${className}`} />;
+    return (
+        <div
+            ref={containerRef}
+            className={`cursor-pointer ${className}`}
+            style={{ position: 'relative', width: '100%', height: '100%' }}
+        />
+    );
 }

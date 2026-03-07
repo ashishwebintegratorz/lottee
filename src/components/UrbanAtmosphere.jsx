@@ -35,32 +35,18 @@ export default function UrbanAtmosphere() {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
+    const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+    const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
-
-    // Handle click on carousel area
     const handleCarouselClick = (e) => {
         const clickX = e.clientX;
         const windowWidth = window.innerWidth;
-
-        if (clickX < windowWidth / 2) {
-            prevSlide();
-        } else {
-            nextSlide();
-        }
+        if (clickX < windowWidth / 2) prevSlide();
+        else nextSlide();
     };
 
-    // Auto-play slider every 5 seconds
     useEffect(() => {
-        const interval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-
+        const interval = setInterval(nextSlide, 5000);
         return () => clearInterval(interval);
     }, [currentSlide]);
 
@@ -70,21 +56,21 @@ export default function UrbanAtmosphere() {
                 className="max-w-[1800px] mx-auto w-full overflow-hidden"
                 onClick={handleCarouselClick}
             >
-                {/* Carousel Track - All slides in a row */}
                 <div
                     className="flex transition-transform duration-700 ease-in-out"
-                    style={{
-                        transform: `translateX(-${currentSlide * 100}%)`
-                    }}
+                    style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                     {slides.map((slide, index) => (
                         <div
                             key={index}
-                            className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center min-h-[380px] md:min-h-[420px]"
+                            className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center"
                         >
-                            {/* Two images: natural portrait ratio, cover so no stretch */}
-                            <div className="relative grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
-                                <div className="aspect-[2/3] sm:aspect-[3/5] md:aspect-[3/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
+                            {/* Image pair — clamp height is fluid: 300px min, scales with viewport, 540px max */}
+                            <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
+                                <div
+                                    className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10"
+                                    style={{ height: 'clamp(130px, 40vw, 440px)' }}
+                                >
                                     <HoverEffect
                                         image1={slide.image1}
                                         image2={slide.hoverImage}
@@ -95,7 +81,10 @@ export default function UrbanAtmosphere() {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="aspect-[2/3] sm:aspect-[3/5] md:aspect-[3/5] relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10">
+                                <div
+                                    className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10"
+                                    style={{ height: 'clamp(130px, 40vw, 440px)' }}
+                                >
                                     <HoverEffect
                                         image1={slide.image2}
                                         image2={slide.hoverImage}
@@ -108,6 +97,7 @@ export default function UrbanAtmosphere() {
                                 </div>
                             </div>
 
+                            {/* Text */}
                             <div className="flex flex-col space-y-5 md:space-y-6 intro px-2 md:px-0">
                                 <div className="space-y-2 md:space-y-3">
                                     <span className="text-sm font-bold tracking-[0.2em] text-black uppercase mb-3 md:mb-5 block">
@@ -146,7 +136,6 @@ export default function UrbanAtmosphere() {
                                         className="group flex items-center space-x-3 text-black font-bold text-lg transition-colors"
                                     >
                                         <span className="transition-all">Read More</span>
-
                                         <svg
                                             width="60"
                                             height="20"
@@ -162,10 +151,7 @@ export default function UrbanAtmosphere() {
                                                 stroke="currentColor"
                                                 strokeWidth="1.5"
                                                 className="transition-all duration-300 text-black group-hover:text-[#802a2a] group-hover:scale-x-125"
-                                                style={{
-                                                    transformOrigin: 'left center',
-                                                    transition: 'all 0.3s ease'
-                                                }}
+                                                style={{ transformOrigin: 'left center', transition: 'all 0.3s ease' }}
                                             />
                                             <path
                                                 d="M 38 4 L 48 10 L 38 16"
@@ -190,8 +176,9 @@ export default function UrbanAtmosphere() {
                 {slides.map((_, index) => (
                     <div
                         key={index}
-                        className={`h-1.5 transition-all duration-300 rounded-full ${currentSlide === index ? 'w-8 bg-black' : 'w-2 bg-gray-300'
-                            }`}
+                        className={`h-1.5 transition-all duration-300 rounded-full ${
+                            currentSlide === index ? 'w-8 bg-black' : 'w-2 bg-gray-300'
+                        }`}
                     />
                 ))}
             </div>

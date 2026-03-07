@@ -38,7 +38,7 @@ export default function ProjectsPage() {
                     </motion.p>
                 </div>
 
-                {/* 2-Column Grid with adjusted spacing */}
+                {/* 2-Column Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
                     {projects.map((project, index) => (
                         <motion.div
@@ -49,21 +49,27 @@ export default function ProjectsPage() {
                             transition={{ delay: index * 0.1, duration: 0.6 }}
                             className="group cursor-pointer"
                         >
-                            {/* Image Card - Increased width / Decreased length */}
-                            <div className="relative aspect-[1.15/1] overflow-hidden rounded-sm bg-[#1a1a1a] mb-8">
+                            {/* Image Card — portrait ratio, no stretching */}
+                            <div
+                                className="relative w-full overflow-hidden rounded-sm bg-[#111]"
+                                style={{ aspectRatio: '3 / 4' }}
+                            >
                                 <HoverEffect
                                     image1={project.image}
                                     image2={project.hoverImage}
                                     displacementImage="/dis.png/diss.png"
                                     intensity={0.3}
                                     speedIn={1.2}
-                                    className="w-full h-full object-cover transition-all duration-700"
+                                    className="w-full h-full"
                                 />
                             </div>
 
                             {/* Centered Details below image */}
-                            <div className="text-center space-y-2">
-                                <h3 className="text-white text-2xl font-bold tracking-tight transition-colors" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
+                            <div className="text-center space-y-2 mt-8">
+                                <h3
+                                    className="text-white text-2xl font-bold tracking-tight"
+                                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                                >
                                     {project.title}
                                 </h3>
                                 <p className="text-gray-500 text-sm font-medium">
