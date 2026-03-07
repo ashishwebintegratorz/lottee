@@ -7,7 +7,7 @@ const heroText =
 
 export default function Hero() {
     return (
-        <section className="relative h-[100dvh] lg:h-[115vh] w-full overflow-hidden bg-black antialiased" style={{ textRendering: 'optimizeLegibility' }}>
+        <section className="hero-section relative h-[100dvh] lg:h-[115vh] w-full overflow-hidden bg-black antialiased" style={{ textRendering: 'optimizeLegibility' }}>
             {/* Video Background */}
             <div className="absolute inset-0 w-full h-full">
                 <video
@@ -23,7 +23,7 @@ export default function Hero() {
             </div>
 
             {/* Content — neat, clean hierarchy; centered on mobile, nudge on desktop (change lg:ml-[14rem] to adjust) */}
-            <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 sm:px-10 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-[5vh] sm:pt-[22vh] md:pt-[18vh] lg:pt-[16vh] pb-24 sm:pb-28 md:pb-32 lg:pb-36">
+            <div className="hero-content relative z-10 h-full flex flex-col justify-center items-center px-4 sm:px-10 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-20 sm:pt-24 pb-8 sm:pb-10 lg:pb-12">
                 <div className="relative w-full max-w-[1400px] mx-auto flex justify-center">
                     <div
                         className={`flex flex-col text-white overflow-hidden w-full max-w-[min(90vw,1100px)] lg:ml-[6rem] xl:ml-[14rem] ${heroText}`}
@@ -86,7 +86,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: 16 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="hidden lg:flex flex-col absolute right-0 -top-32 text-right"
+                        className="stay-tuned-desktop hidden lg:flex flex-col absolute right-0 -top-32 text-right"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
                             WebkitFontSmoothing: 'antialiased',
@@ -94,10 +94,10 @@ export default function Hero() {
                             willChange: 'transform',
                         }}
                     >
-                        <p style={{ fontSize: '13.5px', letterSpacing: '0.2em' }} className="uppercase text-white/95">
+                        <p className="stay-tuned-title uppercase text-white/95" style={{ fontSize: '13.5px', letterSpacing: '0.2em' }}>
                             Stay Tuned
                         </p>
-                        <p style={{ fontSize: '12px', letterSpacing: '0.18em' }} className="uppercase text-white/75 mt-1.5">
+                        <p className="stay-tuned-sub uppercase text-white/75 mt-1.5" style={{ fontSize: '12px', letterSpacing: '0.18em' }}>
                             Coming Soon
                         </p>
                     </motion.div>

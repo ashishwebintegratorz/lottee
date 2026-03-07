@@ -132,3 +132,76 @@ body {
 .intro p {
   font-size: 25px;
 }
+
+/* ============================= */
+/* MACBOOK RETINA DISPLAY FIXES  */
+/* Targets: high-DPI screens,    */
+/* 1280px – 1800px wide          */
+/* ============================= */
+
+/* MacBook Air 13" / MacBook Pro 13" — 1280px @ 2x */
+@media screen and (min-width: 1200px) and (max-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-width: 1200px) and (max-width: 1440px) and (min-resolution: 192dpi) {
+
+  /* Lock section to viewport height — no overflow */
+  .hero-section {
+    height: 100dvh !important;
+  }
+
+  /* Tighten top/bottom on this narrower Mac viewport */
+  .hero-content {
+    padding-top: 5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* Reposition Stay Tuned — -top-32 clips on smaller Mac screens */
+  .stay-tuned-desktop {
+    top: -6rem;
+    /* Less aggressive than -8rem (-top-32) */
+    right: 0;
+  }
+
+  /* Bump text sizes slightly — clears sub-pixel rendering artifacts */
+  .stay-tuned-title {
+    font-size: 14px !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  .stay-tuned-sub {
+    font-size: 12.5px !important;
+    letter-spacing: 0.2em !important;
+  }
+}
+
+/* MacBook Pro 14" — ~1512px @2x and MacBook Pro 16" — ~1728px @2x */
+@media screen and (min-width: 1440px) and (max-width: 1800px) and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-width: 1440px) and (max-width: 1800px) and (min-resolution: 192dpi) {
+
+  /* Lock section height */
+  .hero-section {
+    height: 100dvh !important;
+  }
+
+  /* Good vertical centering on larger Mac screens */
+  .hero-content {
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Repositioned Stay Tuned block — sits cleanly top-right */
+  .stay-tuned-desktop {
+    top: -7rem;
+    right: 0;
+  }
+
+  /* Sharper, slightly larger text for HiDPI */
+  .stay-tuned-title {
+    font-size: 14.5px !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  .stay-tuned-sub {
+    font-size: 13px !important;
+    letter-spacing: 0.2em !important;
+  }
+}
