@@ -143,21 +143,15 @@ body {
 @media screen and (min-width: 1200px) and (max-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
 screen and (min-width: 1200px) and (max-width: 1440px) and (min-resolution: 192dpi) {
 
-  /* Lock section to viewport height — no overflow */
-  .hero-section {
-    height: 100dvh !important;
-  }
-
   /* Tighten top/bottom on this narrower Mac viewport */
   .hero-content {
     padding-top: 5rem;
     padding-bottom: 1.5rem;
   }
 
-  /* Reposition Stay Tuned — -top-32 clips on smaller Mac screens */
+  /* Stay Tuned — nudged down a little */
   .stay-tuned-desktop {
-    top: -6rem;
-    /* Less aggressive than -8rem (-top-32) */
+    top: -4.5rem;
     right: 0;
   }
 
@@ -177,20 +171,15 @@ screen and (min-width: 1200px) and (max-width: 1440px) and (min-resolution: 192d
 @media screen and (min-width: 1440px) and (max-width: 1800px) and (-webkit-min-device-pixel-ratio: 2),
 screen and (min-width: 1440px) and (max-width: 1800px) and (min-resolution: 192dpi) {
 
-  /* Lock section height */
-  .hero-section {
-    height: 100dvh !important;
-  }
-
   /* Good vertical centering on larger Mac screens */
   .hero-content {
     padding-top: 5.5rem;
     padding-bottom: 2rem;
   }
 
-  /* Repositioned Stay Tuned block — sits cleanly top-right */
+  /* Stay Tuned — nudged down a little */
   .stay-tuned-desktop {
-    top: -7rem;
+    top: -5.5rem;
     right: 0;
   }
 
