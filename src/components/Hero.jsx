@@ -3,11 +3,11 @@
 import { motion } from 'framer-motion';
 
 const heroText =
-    'leading-[0.92] tracking-[-0.02em] font-medium text-[clamp(2.15rem,8.5vw,6rem)] sm:text-[clamp(2.75rem,9vw,6.5rem)] md:text-[clamp(2.85rem,7.5vw,5.5rem)] lg:text-[clamp(3.25rem,7vw,6rem)] xl:text-[5.5rem] 2xl:text-[6.25rem]';
+    'antialiased leading-[0.92] tracking-[-0.02em] font-medium text-[clamp(2.15rem,8.5vw,6rem)] sm:text-[clamp(2.75rem,9vw,6.5rem)] md:text-[clamp(2.85rem,7.5vw,5.5rem)] lg:text-[clamp(3.25rem,7vw,6rem)] xl:text-[5.5rem] 2xl:text-[6.25rem]';
 
 export default function Hero() {
     return (
-        <section className="relative h-[100dvh] lg:h-[115vh] w-full overflow-hidden bg-black">
+        <section className="relative h-[100dvh] lg:h-[115vh] w-full overflow-hidden bg-black antialiased" style={{ textRendering: 'optimizeLegibility' }}>
             {/* Video Background */}
             <div className="absolute inset-0 w-full h-full">
                 <video
@@ -34,7 +34,7 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0 }}
                         >
-                            Performance
+                            Lotte Aimee
                         </motion.h1>
 
                         {/* <motion.h1
@@ -77,7 +77,7 @@ export default function Hero() {
                             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.36 }}
                             className="mt-3 sm:mt-4 md:mt-5 lg:mt-6"
                         >
-                            Movement
+                            & Dancer
                         </motion.h1>
                     </div>
 
@@ -87,12 +87,17 @@ export default function Hero() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
                         className="hidden lg:flex flex-col absolute right-0 -top-32 text-right"
-                        style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                        style={{
+                            fontFamily: "'Roc Grotesk', sans-serif",
+                            WebkitFontSmoothing: 'antialiased',
+                            MozOsxFontSmoothing: 'grayscale',
+                            willChange: 'transform',
+                        }}
                     >
-                        <p className="text-[13px] tracking-[0.2em] uppercase text-white/95">
+                        <p style={{ fontSize: '13.5px', letterSpacing: '0.2em' }} className="uppercase text-white/95">
                             Stay Tuned
                         </p>
-                        <p className="text-[11px] tracking-[0.18em] uppercase text-white/75 mt-1.5">
+                        <p style={{ fontSize: '12px', letterSpacing: '0.18em' }} className="uppercase text-white/75 mt-1.5">
                             Coming Soon
                         </p>
                     </motion.div>
@@ -105,12 +110,17 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
                 className="lg:hidden absolute bottom-28 left-5 sm:left-8 z-10 text-white"
-                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                style={{
+                    fontFamily: "'Roc Grotesk', sans-serif",
+                    WebkitFontSmoothing: 'antialiased',
+                    MozOsxFontSmoothing: 'grayscale',
+                    willChange: 'transform',
+                }}
             >
-                <p className="text-sm font-medium tracking-[0.12em] uppercase text-white/90">
+                <p style={{ fontSize: '14px', letterSpacing: '0.12em', fontWeight: 500 }} className="uppercase text-white/90">
                     Stay Tuned
                 </p>
-                <p className="text-[10px] tracking-[0.15em] uppercase text-white/70 mt-1">
+                <p style={{ fontSize: '11px', letterSpacing: '0.15em' }} className="uppercase text-white/70 mt-1">
                     Coming Soon
                 </p>
             </motion.div>
