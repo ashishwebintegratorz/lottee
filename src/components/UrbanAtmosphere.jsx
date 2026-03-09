@@ -16,17 +16,17 @@ export default function UrbanAtmosphere() {
             hoverImage1: "/aboutimg.jpeg",
             hoverImage2: "/urben2.jpeg"
         },
-        {
-            category: "Lotte & Aimée",
-            title: "About",
-            description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
-            image1: "/aboutnew image1.jpeg",
-            image2: "/urben4.jpeg",
-            hoverImage1: "/urben22.jpg",
-            hoverImage2: "/urben5.jpeg"
-        },
-
-
+        /* {
+             category: "Lotte & Aimée",
+             title: "About",
+             description: "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
+             image1: "/aboutnew image1.jpeg",
+             image2: "/urben4.jpeg",
+             hoverImage1: "/urben22.jpg",
+             hoverImage2: "/urben5.jpeg"
+         },
+ 
+ */
 
     ];
 

@@ -16,13 +16,13 @@ export default function LatestNews() {
     const newsItems = [
         {
             title: "Performance at the Dutch National Opera",
-            image: "/Lotte_AlexConu_112.jpg",
+            image: "/softgravitymain.jpeg",
             date: "February 2026",
             comments: "0 Comments"
         },
         {
             title: "CIE.LA New Research Residencies",
-            image: "/IMG_3004 New (1).jpg",
+            image: "/ioffer1.jpeg",
             date: "January 2026",
             comments: "0 Comments"
         },
@@ -34,19 +34,19 @@ export default function LatestNews() {
         },
         {
             title: "Movement Workshop in Paris Studio",
-            image: "/IMG_3749.JPG",
+            image: "/gallery1.jpeg",
             date: "November 2025",
             comments: "0 Comments"
         },
         {
             title: "The Impact of Cinematic Language in Dance",
-            image: "/IMG_3006 New (3).jpg",
+            image: "/gallery.3.jpeg",
             date: "October 2025",
             comments: "0 Comments"
         },
         {
             title: "Artistic Presence and Method Acting Study",
-            image: "/IMG_3005 New (2).jpg",
+            image: "/ioffer1.jpeg",
             date: "September 2025",
             comments: "0 Comments"
         }

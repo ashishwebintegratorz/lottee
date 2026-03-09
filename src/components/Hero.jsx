@@ -77,7 +77,7 @@ export default function Hero() {
                             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.36 }}
                             className="mt-3 sm:mt-4 md:mt-5 lg:mt-6"
                         >
-                            & Dancer
+                            & Dance
                         </motion.h1>
                     </div>
 

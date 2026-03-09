@@ -15,22 +15,22 @@ export default function EventSchedule() {
 
     const events = [
         {
-            time: '10:00 - 12:00',
-            period: 'am',
-            title: 'Reflection on Colour and Form',
-            guide: 'Ashton Panton',
+            time: '7:00 PM',
+            period: 'PM',
+            title: 'MA VALSE D\'\'AUJOURD\'HUI',
+            guide: 'LOTTE AIMÉE',
             guideRole: 'Guide',
-            location: 'New York',
-            venue: 'Manhattan Club'
+            location: 'PARIS-LOCATION TBC',
+            venue: 'PARIS-LOCATION TBC'
         },
         {
-            time: '12:00 - 14:00',
-            period: 'pm',
-            title: 'Reflection on Colour and Form',
-            guide: 'Ben Gartler',
+            time: '7:00 PM',
+            period: 'PM',
+            title: 'MA VALSE D\'\'AUJOURD\'HUI',
+            guide: 'LOTTE AIMÉE',
             guideRole: 'Guide',
-            location: 'New York',
-            venue: 'Manhattan Club'
+            location: 'PARIS-LOCATION TBC',
+            venue: 'Museum Maison Claudel-Villeneuve-sur-F`ere, France'
         }
         /* {
             time: '15:00 - 17:00',

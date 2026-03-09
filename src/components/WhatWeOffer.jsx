@@ -11,7 +11,7 @@ export default function WhatWeOffer() {
         if (!typedElement.current) return;
 
         const typed = new Typed(typedElement.current, {
-            strings: ['atmosphere', 'Air', 'Sky'],
+            strings: ['Unique', 'Outstanding', 'Excellent'],
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 2000,

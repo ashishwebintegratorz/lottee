@@ -16,7 +16,7 @@ export default function GalleryMasonry() {
     const galleryItems = [
         {
             type: 'image',
-            src: '/gallery1.jpeg',
+            src: '/urben2.jpeg',
             alt: 'Studio session',
             title: 'Studio session',
             category: 'Performance',
@@ -40,7 +40,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/gallery.3.jpeg',
+            src: '/gallery99.JPG',
             alt: 'Abstract texture',
             title: 'Modern Abstract',
             category: 'Experimental',

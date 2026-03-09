@@ -19,7 +19,7 @@ const cards = [
     },
     {
         title: "Choreographic Research",
-        description: "Her research explores the relationship between body, space, and storytelling — moving fluidly from intimate solos to collaborative stage works — always guided by a search for authenticity, tension, and embodied truth.",
+        description: "My research explores the relationship between body, space, and storytelling — moving fluidly from intimate solos to collaborative stage works — always guided by a search for authenticity, tension, and embodied truth.",
         image: "/urben22.jpg"
     },
     {
@@ -140,13 +140,13 @@ export default function AboutPage() {
                     className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 bg-[#111111] relative z-10"
                 >
                     <h2
-                        className="text-white mb-8 lg:mb-14 z-10 lg:-ml-43 text-4xl md:text-5xl lg:text-[57px] font-medium"
+                        className="text-white mb-8 lg:mb-14 z-10 lg:-ml-5 text-4xl md:text-5xl lg:text-[57px] font-medium"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
                             lineHeight: '1.1',
                         }}
                     >
-                        Lotte Aimée de Weert
+                        LOTTE AIMÉE de Weert
                     </h2>
 
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">

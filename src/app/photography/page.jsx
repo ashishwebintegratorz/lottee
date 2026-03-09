@@ -139,7 +139,7 @@ export default function PhotographyPage() {
                             lineHeight: '60px'
                         }}
                     >
-                        Photography
+                        Gallery
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}
