@@ -48,7 +48,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-03-07 at 15.02.11.jpeg',
+            src: '/gallery202.jpg',
             alt: 'Studio movement',
             title: 'Physical Language',
             category: 'Movement',
@@ -56,7 +56,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.50.jpeg',
+            src: '/gallery.jpg',
             alt: 'Urban shot',
             title: 'Urban Silhouette',
             category: 'Architecture',
@@ -64,7 +64,7 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.48 (1).jpeg',
+            src: '/imggl1.jpeg',
             alt: 'Performance space',
             title: 'Stage Presence',
             category: 'Dance',

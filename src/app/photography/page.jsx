@@ -91,23 +91,24 @@ const photographyItems = [
             '/Lotte_AlexConu_125.jpg'
         ]
     },
-    {
-        id: 6,
-        title: 'Human Form',
-        category: 'Portraiture',
-        image: '/lastphoto.jpg',
-        gallery: [
-            '/Lotte_AlexConu_112.jpg',
-            '/Lotte_AlexConu_125.jpg',
-            '/WhatsApp Image 2026-02-15 at 18.08.48.jpeg',
-            '/WhatsApp Image 2026-02-15 at 18.08.49.jpeg',
-            '/WhatsApp Image 2026-02-15 at 18.08.47.jpeg',
-            '/WhatsApp Image 2026-03-07 at 15.02.11 (1).jpeg',
-            '/gallery1.jpeg',
-            '/gallery2.jpeg',
-            '/photographyshoot1.jpeg'
-        ]
-    }
+    /* {
+         id: 6,
+         title: 'Human Form',
+         category: 'Portraiture',
+         image: '/lastphoto.jpg',
+         gallery: [
+             '/Lotte_AlexConu_112.jpg',
+             '/Lotte_AlexConu_125.jpg',
+             '/WhatsApp Image 2026-02-15 at 18.08.48.jpeg',
+             '/WhatsApp Image 2026-02-15 at 18.08.49.jpeg',
+             '/WhatsApp Image 2026-02-15 at 18.08.47.jpeg',
+             '/WhatsApp Image 2026-03-07 at 15.02.11 (1).jpeg',
+             '/gallery1.jpeg',
+             '/gallery2.jpeg',
+             '/photographyshoot1.jpeg'
+         ]
+     }
+         */
 ];
 
 export default function PhotographyPage() {
