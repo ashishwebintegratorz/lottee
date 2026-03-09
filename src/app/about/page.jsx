@@ -10,22 +10,22 @@ const cards = [
     {
         title: "Her Choreographic Language",
         description: "Rooted in her Dutch origins and artistically shaped by Paris, Lotte desenvolves a movement language that bridges physical intensity with emotional precision. My work is informed by theatrical depth, cinematic awareness, and a refined technical clarity.",
-        image: "/WhatsApp Image 2026-02-15 at 18.08.48.jpeg"
+        image: "/gallery2.jpeg"
     },
     {
         title: "Fashion & Narrative",
         description: "A versatile performer, she moves seamlessly between dance, theatre, and fashion. I have performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment.",
-        image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg"
+        image: "/imggl1.jpeg"
     },
     {
         title: "Choreographic Research",
         description: "Her research explores the relationship between body, space, and storytelling — moving fluidly from intimate solos to collaborative stage works — always guided by a search for authenticity, tension, and embodied truth.",
-        image: "/WhatsApp Image 2026-02-15 at 18.08.50.jpeg"
+        image: "/urben22.jpg"
     },
     {
         title: "Artistic Presence",
         description: "The dual foundation of rigorous physicality combined with dramatic depth has shaped her distinctive artistic presence, cultivation a refined sensitivity to the impact of movement within the frame.",
-        image: "/WhatsApp Image 2026-02-15 at 18.08.48 (1).jpeg"
+        image: "/urben5.jpeg"
     }
 ];
 

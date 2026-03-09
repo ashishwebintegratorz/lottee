@@ -25,7 +25,7 @@ export default function ProjectsPage() {
     const projects = [
         { id: 1, title: 'Sleeping Woman', category: 'Classic Gallery', image: '/IMG_3749.JPG', hoverImage: '/IMG_3750.JPG' },
         { id: 2, title: 'Portrait of a Man in a Turban', category: 'Classic Gallery', image: '/utrshootl.jpg', hoverImage: '/utsurioshoot3.jpg' },
-        { id: 3, title: 'The Travelling Companions', category: 'Classic Gallery', image: '/lastphoto.jpg', hoverImage: '/travelling.jpg' },
+        { id: 3, title: 'The Travelling Companions', category: 'Classic Gallery', image: '/lastphoto.JPG', hoverImage: '/travelling.jpg' },
         { id: 4, title: 'Still Life with a Copy of De Waere Mercurius', category: 'Classic Gallery', image: '/gallery2.jpeg', hoverImage: '/WhatsApp Image 2026-02-15 at 18.08.48.jpeg' },
         { id: 5, title: 'Summer Evening', category: 'Classic Gallery', image: '/gallery4.jpeg', hoverImage: '/gallery5.jpeg' },
         { id: 6, title: 'The Champion', category: 'Classic Gallery', image: '/gallery6.jpeg', hoverImage: '/WhatsApp Image 2026-02-15 at 18.08.49 (2).jpeg' },
