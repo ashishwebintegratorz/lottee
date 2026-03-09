@@ -116,7 +116,7 @@ export default function UrbanAtmosphere() {
                                 <p
                                     className="max-w-lg"
                                     style={{
-                                        fontFamily: "'Kumbh Sans', sans-serif",
+                                        fontFamily: "'sans-serif ', Kumbh Sans",
                                         fontStyle: 'normal',
                                         fontWeight: '400',
                                         color: 'rgb(121, 124, 127)',

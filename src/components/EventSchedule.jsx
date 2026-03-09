@@ -31,8 +31,8 @@ export default function EventSchedule() {
             guideRole: 'Guide',
             location: 'New York',
             venue: 'Manhattan Club'
-        },
-        {
+        }
+        /* {
             time: '15:00 - 17:00',
             period: 'pm',
             title: 'Reflection on Colour and Form',
@@ -49,7 +49,7 @@ export default function EventSchedule() {
             guideRole: 'Guide',
             location: 'New York',
             venue: 'Manhattan Club'
-        }
+        } */
     ];
 
     return (

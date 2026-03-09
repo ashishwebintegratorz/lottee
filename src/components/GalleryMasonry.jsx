@@ -48,82 +48,26 @@ export default function GalleryMasonry() {
         },
         {
             type: 'image',
+            src: '/WhatsApp Image 2026-03-07 at 15.02.11.jpeg',
+            alt: 'Studio movement',
+            title: 'Physical Language',
+            category: 'Movement',
+            span: 'col-span-1 row-span-1'
+        },
+        {
+            type: 'image',
+            src: '/WhatsApp Image 2026-02-15 at 18.08.50.jpeg',
+            alt: 'Urban shot',
+            title: 'Urban Silhouette',
+            category: 'Architecture',
+            span: 'col-span-1 row-span-1'
+        },
+        {
+            type: 'image',
             src: '/WhatsApp Image 2026-02-15 at 18.08.48 (1).jpeg',
             alt: 'Performance space',
             title: 'Stage Presence',
             category: 'Dance',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/gallery4.jpeg',
-            alt: 'Atmospheric shot',
-            title: 'Light and Shadow',
-            category: 'Atmosphere',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/gallerynew.jpeg',
-            alt: 'Architecture',
-            title: 'Urban Lines',
-            category: 'Architecture',
-            span: 'col-span-1 row-span-2'
-        },
-        {
-            type: 'image',
-            src: '/gallery6.jpeg',
-            alt: 'Nature in motion',
-            title: 'Movement',
-            category: 'Art',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.49 (1).jpeg',
-            alt: 'Behind the scenes',
-            title: 'Process',
-            category: 'Choreography',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/offer2.jpeg',
-            alt: 'Gallery context',
-            title: 'Exhibition',
-            category: 'Space',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/offer3.jpeg',
-            alt: 'Textured art',
-            title: 'Deep Textures',
-            category: 'Experimental',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/IMG_3005 New (2).jpg',
-            alt: 'Contrast and light',
-            title: 'Visual Study',
-            category: 'Photography',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/IMG_3004 New (1).jpg',
-            alt: 'Abstract composition',
-            title: 'Composition',
-            category: 'Art',
-            span: 'col-span-1 row-span-1'
-        },
-        {
-            type: 'image',
-            src: '/WhatsApp Image 2026-02-15 at 18.08.49.jpeg',
-            alt: 'Shadow and form',
-            title: 'Contrast',
-            category: 'Study',
             span: 'col-span-1 row-span-1'
         }
     ];
@@ -163,7 +107,7 @@ export default function GalleryMasonry() {
                                     <img
                                         src={item.src}
                                         alt={item.alt}
-                                        className="w-full h-full object-cover"
+                                        className={`w-full h-full ${item.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
                                     />
                                 ) : (
                                     <video

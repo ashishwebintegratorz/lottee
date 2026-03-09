@@ -9,12 +9,12 @@ import Typed from 'typed.js';
 const cards = [
     {
         title: "Her Choreographic Language",
-        description: "Rooted in her Dutch origins and artistically shaped by Paris, Lotte desenvolves a movement language that bridges physical intensity with emotional precision. Her work is informed by theatrical depth, cinematic awareness, and a refined technical clarity.",
+        description: "Rooted in her Dutch origins and artistically shaped by Paris, Lotte desenvolves a movement language that bridges physical intensity with emotional precision. My work is informed by theatrical depth, cinematic awareness, and a refined technical clarity.",
         image: "/WhatsApp Image 2026-02-15 at 18.08.48.jpeg"
     },
     {
         title: "Fashion & Narrative",
-        description: "A versatile performer, she moves seamlessly between dance, theatre, and fashion. She has performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment.",
+        description: "A versatile performer, she moves seamlessly between dance, theatre, and fashion. I have performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment.",
         image: "/WhatsApp Image 2026-02-15 at 18.08.49.jpeg"
     },
     {
@@ -158,16 +158,7 @@ export default function AboutPage() {
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 lg:mb-14 max-w-lg lg:pl-12 font-light">
                         Guided by her background in dance yet seeking multidisciplinary exchange, she develops her own projects within her association CIELA, which has received support by the Centre National de la Danse and Ménagerie de Verre in Paris. Alongside this work, she continues to collaborate on various dance projects. She has performed in presentations for fashion houses such as Valentino, Cartier, and Flora Miranda, and regularly works with the Dutch National Opera. In parallel, she also teaches the GYROTONIC® Method, sharing her approach to movement and body awareness.
                     </p>
-                    <div className="space-y-4 mb-10 text-gray-400 font-medium tracking-wide lg:pl-12 text-sm md:text-base">
-                        <p className="flex items-center gap-4">
-                            <span className="w-12 h-[1px] bg-white/10 block"></span>
-                            MON-FRI: 9 AM – 22 PM
-                        </p>
-                        <p className="flex items-center gap-4">
-                            <span className="w-12 h-[1px] bg-white/10 block"></span>
-                            SATURDAY: 9 AM – 20 PM
-                        </p>
-                    </div>
+
 
                     <div className="lg:pl-12">
                         <Link
@@ -244,7 +235,7 @@ export default function AboutPage() {
                                         className="min-w-[85%] md:min-w-[420px] flex-shrink-0 flex flex-col group select-none"
                                     >
                                         {/* Text Content */}
-                                        <div className="mb-8">
+                                        <div className="flex-1 mb-4">
                                             <h3
                                                 className="text-2xl font-semibold mb-4 tracking-tight"
                                                 style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
@@ -279,12 +270,12 @@ export default function AboutPage() {
                                         </div>
 
                                         {/* Image */}
-                                        <div className="aspect-[3/2] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                                        <div className="aspect-[4/5] w-full overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out bg-[#111111]">
                                             <Image
                                                 src={card.image}
                                                 alt={card.title}
                                                 fill
-                                                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                                                className="object-contain object-bottom transition-transform duration-700 group-hover:scale-105"
                                                 sizes="(max-width: 768px) 85vw, 360px"
                                             />
                                         </div>
@@ -300,17 +291,17 @@ export default function AboutPage() {
             <section className="relative bg-[#121212] pt-10 pb-32 w-full text-white">
                 <div className="max-w-[1000px] mx-auto text-center px-6">
                     <span className="text-xs font-bold tracking-[0.3em] text-white uppercase block mb-8">
-                        Her Creations
+                        My Creations
                     </span>
 
                     <h2
-                        className="mb-10 text-white text-3xl md:text-5xl lg:text-[57px] font-medium"
+                        className="mb-10 text-white text-3xl md:text-5xl lg:text-[50px] font-medium"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
-                            lineHeight: '1.1',
+                            lineHeight: '1.2',
                         }}
                     >
-                        Multidisciplinary Projects through her association CIE.LA,
+                        Multidisciplinary Projects through my association CIE.LA,
                         where choreography meets conceptual research and{" "}
                         <span
                             className="underline decoration-1 underline-offset-[12px]"
@@ -330,105 +321,125 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Our Staff Section */}
-            <section className="w-full bg-[#0f0f0f] py-32 px-6 lg:px-12 text-white">
-                <div className="max-w-[1240px] mx-auto">
-                    {/* Section Header */}
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 md:gap-12 items-end mb-20">
-                        <div className="lg:col-span-1">
-                            <h2
-                                className="text-4xl md:text-6xl font-semibold tracking-tight"
-                                style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
-                            >
-                                Our Staff
-                            </h2>
-                        </div>
-                        <div className="lg:col-span-2 lg:pl-12">
-                            <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl font-light">
-                                Today, she works as a freelance artist, collaborating on dance and theatre productions while continuing to choreograph and develop her own original pieces.
-                            </p>
-                        </div>
-                        <div className="lg:col-span-1 flex justify-end items-center">
-                            <div className="flex items-center group cursor-pointer">
-                                <span className="text-sm font-bold tracking-widest uppercase mr-3">View More</span>
-                                <div className="relative overflow-hidden w-6 h-4">
-                                    {/* Primary Arrow */}
-                                    <svg
-                                        width="24"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        className="absolute left-0 transition-transform duration-500 ease-in-out group-hover:translate-x-8 text-white"
-                                    >
-                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                    {/* New Incoming Arrow */}
-                                    <svg
-                                        width="24"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        className="absolute -left-8 transition-transform duration-500 ease-in-out group-hover:translate-x-8 text-white"
-                                    >
-                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            {/*  {/* Our Staff Section */}
+            {/*
+<section className="w-full bg-[#0f0f0f] py-32 px-6 lg:px-12 text-white">
+    <div className="max-w-[1240px] mx-auto">
 
-                    {/* Staff Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        {staff.map((member, index) => (
-                            <motion.div
-                                key={index}
-                                className="flex flex-col group w-full cursor-pointer"
-                                initial="initial"
-                                whileHover="hover"
-                            >
-                                {/* Image Container */}
-                                <div className="aspect-[4/5] md:aspect-[3.8/4.6] overflow-hidden relative mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
-                                    <Image
-                                        src={member.image}
-                                        alt={member.name}
-                                        fill
-                                        className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                                        sizes="(max-width: 768px) 100vw, 380px"
-                                    />
-                                </div>
-                                {/* Text Info */}
-                                <h3
-                                    className="text-2xl font-semibold mb-2"
-                                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
-                                >
-                                    {member.name}
-                                </h3>
-                                <p className="text-gray-400 uppercase tracking-widest text-xs font-medium mb-6">
-                                    {member.position}
-                                </p>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 md:gap-12 items-end mb-20">
+            <div className="lg:col-span-1">
+                <h2
+                    className="text-4xl md:text-6xl font-semibold tracking-tight"
+                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                >
+                    Our Staff
+                </h2>
+            </div>
 
-                                {/* Social Icons - Staggered Motion */}
-                                <a
-                                    href="https://instagram.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-white hover:text-gray-400 transition-colors"
-                                >
-                                    <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        className="text-white hover:text-gray-300 transition-colors"
-                                    >
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                    </svg>
-                                </a>
-                            </motion.div>
-                        ))}
+            <div className="lg:col-span-2 lg:pl-12">
+                <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl font-light">
+                    Today, she works as a freelance artist, collaborating on dance and theatre productions while continuing to choreograph and develop her own original pieces.
+                </p>
+            </div>
+
+            <div className="lg:col-span-1 flex justify-end items-center">
+                <div className="flex items-center group cursor-pointer">
+                    <span className="text-sm font-bold tracking-widest uppercase mr-3">
+                        View More
+                    </span>
+
+                    <div className="relative overflow-hidden w-6 h-4">
+
+                        <svg
+                            width="24"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            className="absolute left-0 transition-transform duration-500 ease-in-out group-hover:translate-x-8 text-white"
+                        >
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+
+                        <svg
+                            width="24"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            className="absolute -left-8 transition-transform duration-500 ease-in-out group-hover:translate-x-8 text-white"
+                        >
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {staff.map((member, index) => (
+                <motion.div
+                    key={index}
+                    className="flex flex-col group w-full cursor-pointer"
+                    initial="initial"
+                    whileHover="hover"
+                >
+
+                    <div className="aspect-[4/5] md:aspect-[3.8/4.6] overflow-hidden relative mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                            sizes="(max-width: 768px) 100vw, 380px"
+                        />
+                    </div>
+
+                    <h3
+                        className="text-2xl font-semibold mb-2"
+                        style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                    >
+                        {member.name}
+                    </h3>
+
+                    <p className="text-gray-400 uppercase tracking-widest text-xs font-medium mb-6">
+                        {member.position}
+                    </p>
+
+                    <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-gray-400 transition-colors"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="text-white hover:text-gray-300 transition-colors"
+                        >
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                        </svg>
+                    </a>
+
+                </motion.div>
+            ))}
+        </div>
+
+    </div>
+</section>
+*/}
+
         </main>
     );
 }
