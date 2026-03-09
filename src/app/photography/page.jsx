@@ -74,41 +74,41 @@ const photographyItems = [
             '/softgravitymain.jpeg'
         ]
     },
-    {
-        id: 5,
-        title: 'The Performance',
-        category: 'Stage Presence',
-        image: '/urben22.jpg',
-        gallery: [
-            '/gallerie1 New.jpg',
-            '/gallery6.jpeg',
-            '/offer4.jpeg',
-            '/imggl1.jpeg',
-            '/ioffer1.jpeg',
-            '/WhatsApp Image 2026-03-07 at 15.02.11.jpeg',
-            '/WhatsApp Image 2026-03-07 at 15.02.11 (1).jpeg',
-            '/Lotte_AlexConu_112.jpg',
-            '/Lotte_AlexConu_125.jpg'
-        ]
-    },
     /* {
-         id: 6,
-         title: 'Human Form',
-         category: 'Portraiture',
-         image: '/lastphoto.jpg',
+         id: 5,
+         title: 'The Performance',
+         category: 'Stage Presence',
+         image: '/urben22.jpg',
          gallery: [
-             '/Lotte_AlexConu_112.jpg',
-             '/Lotte_AlexConu_125.jpg',
-             '/WhatsApp Image 2026-02-15 at 18.08.48.jpeg',
-             '/WhatsApp Image 2026-02-15 at 18.08.49.jpeg',
-             '/WhatsApp Image 2026-02-15 at 18.08.47.jpeg',
+             '/gallerie1 New.jpg',
+             '/gallery6.jpeg',
+             '/offer4.jpeg',
+             '/imggl1.jpeg',
+             '/ioffer1.jpeg',
+             '/WhatsApp Image 2026-03-07 at 15.02.11.jpeg',
              '/WhatsApp Image 2026-03-07 at 15.02.11 (1).jpeg',
-             '/gallery1.jpeg',
-             '/gallery2.jpeg',
-             '/photographyshoot1.jpeg'
+             '/Lotte_AlexConu_112.jpg',
+             '/Lotte_AlexConu_125.jpg'
          ]
-     }
-         */
+     },
+     /* {
+          id: 6,
+          title: 'Human Form',
+          category: 'Portraiture',
+          image: '/lastphoto.jpg',
+          gallery: [
+              '/Lotte_AlexConu_112.jpg',
+              '/Lotte_AlexConu_125.jpg',
+              '/WhatsApp Image 2026-02-15 at 18.08.48.jpeg',
+              '/WhatsApp Image 2026-02-15 at 18.08.49.jpeg',
+              '/WhatsApp Image 2026-02-15 at 18.08.47.jpeg',
+              '/WhatsApp Image 2026-03-07 at 15.02.11 (1).jpeg',
+              '/gallery1.jpeg',
+              '/gallery2.jpeg',
+              '/photographyshoot1.jpeg'
+          ]
+      }
+          */
 ];
 
 export default function PhotographyPage() {
