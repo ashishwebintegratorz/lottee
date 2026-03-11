@@ -58,7 +58,7 @@ export default function WhatWeOffer() {
                 </span>
 
                 <h2
-                    className="mb-6 md:mb-8 text-[26px] leading-[30px] md:text-[40px] md:leading-[44px] lg:text-[57px] lg:leading-[61px]"
+                    className="mb-6 md:mb-8 text-[26px] leading-[30px] md:text-[40px] md:leading-[44px] lg:text-[40px] lg:leading-[61px]"
                     style={{
                         fontFamily: "'Roc Grotesk', sans-serif",
                         fontWeight: '500',

@@ -58,7 +58,7 @@ export default function UrbanAtmosphere() {
             >
 
               {/* Images */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
+              <div className="hidden md:grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
 
                 <div className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10 h-[50vw] md:h-[430px]">
                   <HoverEffect
@@ -173,7 +173,7 @@ export default function UrbanAtmosphere() {
       </div>
 
       {/* Mobile slide indicator */}
-      <div className="flex md:hidden space-x-2 mt-8">
+      {/* <div className="flex md:hidden space-x-2 mt-8">
 
         {slides.map((_, index) => (
 
@@ -186,7 +186,7 @@ export default function UrbanAtmosphere() {
 
         ))}
 
-      </div>
+      </div> */}
 
     </section>
   );
