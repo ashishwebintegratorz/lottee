@@ -8,6 +8,7 @@ const photographyItems = [
 id: 1,
 title: 'The Quiet Body',
 category: 'Name of the shoot',
+description: 'Insert the sub text you want for The Quiet Body here.',
 image: '/photographyshoot1.jpeg',
 span: 'md:col-span-2',
 gallery: [
@@ -26,52 +27,46 @@ gallery: [
 id: 2,
 title: 'Utsuroi',
 category: 'Name of the shoot',
-image: '/utsuroishootmain.jpeg',
+description: 'Insert the sub text describing the Utsuroi photography series.',
+image: '/Utsuroi 1.jpeg',
 span: 'md:col-span-1',
 gallery: [
-'/utsurioshoot7.jpeg',
-'/gallery2.jpeg',
-'/urben2.jpeg',
-'/utsurioshoot3.jpg',
-'/aboutimg.jpeg',
-'/imggl1.jpeg',
-'/utsurioshoot4.jpeg',
-'/utsurioshoot5.jpeg',
-'/utsurioshoot6.jpeg'
+'/Utsuroi 2.jpeg',
+'/Utsuroi 3.jpeg',
+'/Utsuroi 4.jpeg',
+'/Utsuroi 5.jpeg',
+'/Utsuroi 6.jpeg',
 ]
 },
 {
 id: 3,
 title: 'Kinetic Form',
 category: 'Name of the shoot',
+description: 'Insert the sub text describing the Kinetic Form photographic exploration.',
 image: '/gallery6.jpeg',
 gallery: [
 '/ioffer1.jpeg',
 '/offer2.jpeg',
-'/offer3.jpeg',
 '/offer4.jpeg',
 '/contact img.jpeg',
-'/gallery4.jpeg',
 '/gallery5.jpeg',
 '/gallery6.jpeg',
-'/gallery4.jpeg'
 ]
 },
 {
 id: 4,
 title: 'Soft Gravity',
 category: 'Name of the shoot',
+description: 'Insert the sub text describing the Soft Gravity visual series.',
 image: '/utsurioshoot5.jpeg',
 gallery: [
+    '/imggl1.jpeg',
 '/softgravitymain.jpeg',
 '/utsurioshoot5.jpeg',
 '/utsurioshoot4.jpeg',
 '/utsurioshoot3.jpg',
 '/urben2.jpeg',
 '/utrshootl.jpg',
-'/imggl1.jpeg',
-'/utrshootl.jpg',
-'/softgravitymain.jpeg'
 ]
 }
 ];
@@ -143,7 +138,6 @@ style={{ aspectRatio:'1/1' }}
 onClick={()=>setSelectedProject(item)}
 >
 
-{/* overlay */}
 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-700 z-10"></div>
 
 <img
@@ -151,8 +145,6 @@ src={item.image}
 alt={item.title}
 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.05]"
 />
-
-{/* hover text */}
 
 <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
 
@@ -214,13 +206,11 @@ viewBox="0 0 40 16"
 fill="none"
 className="transition-transform duration-300 group-hover:translate-x-3"
 >
-
 <path
 d="M0 8H38M38 8L31 1M38 8L31 15"
 stroke="currentColor"
 strokeWidth="2"
 />
-
 </svg>
 
 </a>
@@ -242,22 +232,16 @@ exit={{ opacity:0 }}
 className="fixed inset-0 z-50 bg-[#121212] flex flex-col overflow-y-auto"
 >
 
-{/* back */}
-
 <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-6 md:px-12 bg-gradient-to-b from-[#121212] to-transparent">
 
 <button
 onClick={()=>setSelectedProject(null)}
 className="text-white flex items-center gap-2 hover:text-[#7a8208] transition-colors"
 >
-
 ← Back to Gallery
-
 </button>
 
 </div>
-
-{/* modal content */}
 
 <div className="max-w-[1500px] w-full mx-auto px-6 lg:px-12 py-10">
 
@@ -273,6 +257,12 @@ style={{ fontFamily:"'Roc Grotesk', sans-serif" }}
 >
 {selectedProject.title}
 </h2>
+
+{selectedProject.description && (
+<p className="text-white/70 text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-light">
+{selectedProject.description}
+</p>
+)}
 
 </div>
 

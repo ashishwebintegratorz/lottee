@@ -34,33 +34,33 @@ export default function SchedulePage() {
             type: 'Performance',
             time: '7:00 PM'
         },
-        {
-            id: 3,
-            date: '10 MAY',
-            title: 'Fashion Movement Collaboration',
-            location: 'Paris Fashion Week',
-            description: 'Live performance collaboration integrating choreographic presence within a couture runway presentation.',
-            type: 'Collaboration',
-            time: 'Private Event'
-        },
-        {
-            id: 4,
-            date: '18 JUN',
-            title: 'Intimate Duet Study',
-            location: 'Studio Micadanses, Paris',
-            description: 'A new duet work examining proximity, emotional restraint, and embodied narrative.',
-            type: 'Work in Progress',
-            time: '7:30 PM'
-        },
-        {
-            id: 5,
-            date: '02 - 05 OCT',
-            title: 'CIE.LA Annual Creation',
-            location: 'Paris',
-            description: 'Premiere of the company’s latest multidisciplinary production blending dance, theatre, and visual storytelling.',
-            type: 'Premiere',
-            time: 'To Be Announced'
-        }
+        // {
+        //     id: 3,
+        //     date: '10 MAY',
+        //     title: 'Fashion Movement Collaboration',
+        //     location: 'Paris Fashion Week',
+        //     description: 'Live performance collaboration integrating choreographic presence within a couture runway presentation.',
+        //     type: 'Collaboration',
+        //     time: 'Private Event'
+        // },
+        // {
+        //     id: 4,
+        //     date: '18 JUN',
+        //     title: 'Intimate Duet Study',
+        //     location: 'Studio Micadanses, Paris',
+        //     description: 'A new duet work examining proximity, emotional restraint, and embodied narrative.',
+        //     type: 'Work in Progress',
+        //     time: '7:30 PM'
+        // },
+        // {
+        //     id: 5,
+        //     date: '02 - 05 OCT',
+        //     title: 'CIE.LA Annual Creation',
+        //     location: 'Paris',
+        //     description: 'Premiere of the company’s latest multidisciplinary production blending dance, theatre, and visual storytelling.',
+        //     type: 'Premiere',
+        //     time: 'To Be Announced'
+        // }
     ];
 
     return (
