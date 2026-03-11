@@ -117,10 +117,7 @@ body {
 /* User-provided Distortion Styles */
 .distortion {
   width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
 }
-
 .intro {
   align-self: center;
 }
