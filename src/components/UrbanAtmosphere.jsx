@@ -66,7 +66,7 @@ export default function UrbanAtmosphere() {
                             <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
                                 <div
                                     className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10"
-                                    style={{ height: 'clamp(130px, 40vw, 440px)' }}
+                                    style={{ height: 'clamp(120px, 28vw, 430px)' }}
                                 >
                                     <HoverEffect
                                         image1={slide.image1}
@@ -80,7 +80,7 @@ export default function UrbanAtmosphere() {
                                 </div>
                                 <div
                                     className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10"
-                                    style={{ height: 'clamp(130px, 40vw, 440px)' }}
+                                    style={{ height: 'clamp(120px, 28vw, 430px)' }}
                                 >
                                     <HoverEffect
                                         image1={slide.image2}
