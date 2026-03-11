@@ -135,7 +135,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 2.0, ease: "easeInOut" }} // Match total exit time
+                        transition={{ duration: 0.1, ease: "easeInOut" }} // Match total exit time
                         className="fixed inset-0 z-[90] bg-black/60"
                     >
                         {/* Transparent Layer for click-outside */}
@@ -150,7 +150,7 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={isMobile ? { y: '-100%', x: 0 } : { x: '100%' }}
                             transition={{
-                                duration: 2.0, // Extremely slow exit
+                                duration: 0.2, // Extremely slow exit
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             className="absolute right-0 top-0 bottom-0 w-full sm:max-w-[360px] bg-[#111111] flex flex-col shadow-2xl overflow-hidden"

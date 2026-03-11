@@ -14,18 +14,18 @@ export default function ProjectsPage() {
         { id: 'v1', title: 'Danza y Costura', category:  (
     <>
       Danza y Costura <br />
-      Filmmaker: @marianfilmmaker <br />
-      Designer: @emiliosalinasatelier <br />
-      MUA: @jose_sande_makeup
+      Filmmaker: Marianfilmmaker <br />
+      Designer: Emiliosalinasatelier <br />
+      MUA: Jose Sande Makeup
     </>
   ), src: '/dancervedio1.mp4' },
 
         { id: 'v2', title: 'Dutch National Opera ', category: 'Königskinder', src: '/dancervedio2.mp4' },
-        { id: 'v3', title: 'Name not given', category: 'Give the name please', src: '/dancervedio3.mp4' }
+        { id: 'v3', title: 'The bane is the CAVE', category: 'By Mariekedeweert', src: '/dancervedio3.mp4' }
     ];
 
     const bottomVideos = [
-        { id: 'v4', title: 'Casting and Movement Direction by', category: '@oneness_entertainment for Cartier', src: '/dancervedio4.mp4' },
+        { id: 'v4', title: 'Cartier', category: 'casting and movement direction oneness entertainment', src: '/dancervedio4.mp4' },
         { id: 'v5', title: 'Notion of Time', category:  (
     <>
       by Golgota Productions <br />
@@ -34,13 +34,13 @@ export default function ProjectsPage() {
   ), src: '/dancervedio5.mp4' },
         { id: 'v6', title: 'Danza y Costura', category: (
     <>
-      Filmmaker: @marianfilmmaker <br />
-      Designer: @emiliosalinasatelier <br />
-      MUA: @jose_sande_makeup <br />
+      Filmmaker: Marianfilmmaker <br />
+      Designer: Emiliosalinasatelier <br />
+      MUA: Jose Sande Makeup <br />
       Collaboration with OCCO Art Gallery
     </>
   ), src: '/dancervedio6.mp4' },
-        { id: 'v7', title: 'Between Joy and Fear', category: 'In Between is an experimental film shot in Jerusalem during my stay in Israel, where I was constantly questioned about the joys of daily life and the fears that often remain unspoken.', src: '/dancervedio7.mp4' }
+        { id: 'v7', title: 'In between', category: 'In Between is an experimental film shot in Jerusalem during my stay in Israel, where I was constantly questioned about the joys of daily life and the fears that often remain unspoken.', src: '/dancervedio7.mp4' }
     ];
 
     const projects = [
