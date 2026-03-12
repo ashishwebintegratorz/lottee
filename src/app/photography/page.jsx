@@ -24,6 +24,7 @@ gallery: [
 ]
 },
 {
+    
 id: 2,
 title: 'Utsuroi',
 category: 'Name of the shoot',
