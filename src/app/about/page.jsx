@@ -189,7 +189,7 @@ export default function AboutPage() {
                         <div className="overflow-hidden w-full">
 
                             <motion.div
-                                className="flex gap-16 cursor-grab active:cursor-grabbing"
+                                className="flex gap-10 md:gap-16 cursor-grab active:cursor-grabbing px-6 md:px-0"
                                 drag="x"
                                 dragConstraints={{
                                     right: 0,
@@ -207,13 +207,13 @@ export default function AboutPage() {
                                     >
 
                                         <h3
-                                            className="text-2xl font-semibold mb-4 tracking-tight"
+                                            className="text-xl md:text-2xl font-semibold mb-4 tracking-tight"
                                             style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                         >
                                             {card.title}
                                         </h3>
 
-                                        <p className="text-gray-400 leading-relaxed mb-6 text-base font-light max-w-[360px]">
+                                        <p className="text-gray-400 leading-relaxed mb-6 text-sm md:text-base font-light max-w-[360px]">
                                             {card.description}
                                         </p>
 

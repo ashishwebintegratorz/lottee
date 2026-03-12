@@ -76,14 +76,17 @@ export default function GalleryMasonry() {
         <section className="bg-transparent py-32 px-0 relative">
             <div className="max-w-[1600px] mx-auto relative">
                 {/* Expo Header */}
-                <div className="px-6 lg:px-12 mb-20 md:mb-40 flex flex-col md:flex-row items-start md:items-end justify-between">
+                <div className="px-6 lg:px-12 mb-4 flex flex-col md:flex-row items-start md:items-end justify-between">
                     <h2
-                        className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] font-bold text-black leading-tight md:leading-none mb-4 md:mb-0"
+                        className="text-black"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
+                            fontSize: "32px",
+                            fontWeight: "700",
+                            lineHeight: "40px",
+                            color: "rgb(0, 0, 0)",
+                            fontStyle: "normal",
                             letterSpacing: "0.02em",
-                            transform: isMobile ? "none" : "scaleY(1.3)",
-                            transformOrigin: "bottom",
                             display: "inline-block"
                         }}
                     >
