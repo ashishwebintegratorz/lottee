@@ -45,7 +45,12 @@ const photographyItems = [
         id: 3,
         title: 'Kinetic Form',
         category: 'Name of the shoot',
-        description: ' @emma_leforestier  styling: @emma_leforestier  Leather pieces : @ichor_creation  assistant : juliensq5.',
+        description: <p>
+            Photographer : Emma Leforestier <br />
+            Styling : @emma_leforestier <br />
+            Leather pieces : @ichor_creation <br />
+            Assistant : juliensq5 <br />
+        </p>,
         image: '/gallery6.jpeg',
         gallery: [
             '/ioffer1.jpeg',
@@ -92,7 +97,13 @@ const photographyItems = [
         id: 6,
         title: 'Damien Testu / Totem Fashion ',
         category: 'Name of the shoot',
-        description: 'LaLaLand for couture week in Paris for @floramirandaofficial  Concept and Production: Flora Miranda  Hair and Makeup: Marcello Costa @bymarcellocosta @teammarcellocosta  Pr agen',
+        description: <p>
+            LaLaLand for couture week in Paris for @floramirandaofficial <br />
+            Concept and Production: Flora Miranda <br />
+            Hair and Makeup: Marcello Costa @bymarcellocosta @teammarcellocosta <br />
+            Pr agent: Damien Testu / Totem Fashion <br />
+            totemfashion.com / @totem_fashion
+        </p>,
         image: '/lastphoto.JPG',
         gallery: [
             '/lastphoto.JPG',
@@ -120,74 +131,74 @@ const photographyItems = [
                   '/urben2.jpeg',
                   '/utrshootl.jpg', */
             ]
-    },
-
-    {
-        id: 1,
-        title: 'The Quiet Body',
-        category: 'Name of the shoot',
-        description: 'Insert the sub text you want for The Quiet Body here.',
-        image: '/photographyshoot1.jpeg',
-        span: 'md:col-span-2',
-        gallery: [
-            '/photographyshoot2.jpeg',
-            '/photographyshoot3.jpeg',
-            '/photographyshoot4.jpeg',
-            '/photographyshoot5.jpeg',
-            '/photographyshoot6.jpeg',
-            '/photographyshoot7.jpeg',
-            '/photographyshoot8.jpeg',
-            '/photographyshoot9.jpeg',
-            '/photographyshoot1.jpeg'
-        ]
-    },
-    {
-
-        id: 2,
-        title: 'Utsuroi',
-        category: 'Name of the shoot',
-        description: 'Insert the sub text describing the Utsuroi photography series.',
-        image: '/Utsuroi 1.jpeg',
-        span: 'md:col-span-1',
-        gallery: [
-            '/Utsuroi 2.jpeg',
-            '/Utsuroi 3.jpeg',
-            '/Utsuroi 4.jpeg',
-            '/Utsuroi 5.jpeg',
-            '/Utsuroi 6.jpeg',
-        ]
-    },
-    {
-        id: 3,
-        title: 'Kinetic Form',
-        category: 'Name of the shoot',
-        description: 'Insert the sub text describing the Kinetic Form photographic exploration.',
-        image: '/gallery6.jpeg',
-        gallery: [
-            '/ioffer1.jpeg',
-            '/offer2.jpeg',
-            '/offer4.jpeg',
-            '/contact img.jpeg',
-            '/gallery5.jpeg',
-            '/gallery6.jpeg',
-        ]
-    },
-    {
-        id: 4,
-        title: 'Soft Gravity',
-        category: 'Name of the shoot',
-        description: 'Insert the sub text describing the Soft Gravity visual series.',
-        image: '/utsurioshoot5.jpeg',
-        gallery: [
-            '/imggl1.jpeg',
-            '/softgravitymain.jpeg',
-            '/utsurioshoot5.jpeg',
-            '/utsurioshoot4.jpeg',
-            '/utsurioshoot3.jpg',
-            '/urben2.jpeg',
-            '/utrshootl.jpg',
-        ]
     }
+
+    /*  {
+          id: 1,
+          title: 'The Quiet Body',
+          category: 'Name of the shoot',
+          description: 'Insert the sub text you want for The Quiet Body here.',
+          image: '/photographyshoot1.jpeg',
+          span: 'md:col-span-2',
+          gallery: [
+              '/photographyshoot2.jpeg',
+              '/photographyshoot3.jpeg',
+              '/photographyshoot4.jpeg',
+              '/photographyshoot5.jpeg',
+              '/photographyshoot6.jpeg',
+              '/photographyshoot7.jpeg',
+              '/photographyshoot8.jpeg',
+              '/photographyshoot9.jpeg',
+              '/photographyshoot1.jpeg'
+          ]
+      },
+      {
+  
+          id: 2,
+          title: 'Utsuroi',
+          category: 'Name of the shoot',
+          description: 'Insert the sub text describing the Utsuroi photography series.',
+          image: '/Utsuroi 1.jpeg',
+          span: 'md:col-span-1',
+          gallery: [
+              '/Utsuroi 2.jpeg',
+              '/Utsuroi 3.jpeg',
+              '/Utsuroi 4.jpeg',
+              '/Utsuroi 5.jpeg',
+              '/Utsuroi 6.jpeg',
+          ]
+      },
+      {
+          id: 3,
+          title: 'Kinetic Form',
+          category: 'Name of the shoot',
+          description: 'Insert the sub text describing the Kinetic Form photographic exploration.',
+          image: '/gallery6.jpeg',
+          gallery: [
+              '/ioffer1.jpeg',
+              '/offer2.jpeg',
+              '/offer4.jpeg',
+              '/contact img.jpeg',
+              '/gallery5.jpeg',
+              '/gallery6.jpeg',
+          ]
+      },
+      {
+          id: 4,
+          title: 'Soft Gravity',
+          category: 'Name of the shoot',
+          description: 'Insert the sub text describing the Soft Gravity visual series.',
+          image: '/utsurioshoot5.jpeg',
+          gallery: [
+              '/imggl1.jpeg',
+              '/softgravitymain.jpeg',
+              '/utsurioshoot5.jpeg',
+              '/utsurioshoot4.jpeg',
+              '/utsurioshoot3.jpg',
+              '/urben2.jpeg',
+              '/utrshootl.jpg',
+          ]
+      }*/
 ];
 
 export default function PhotographyPage() {
