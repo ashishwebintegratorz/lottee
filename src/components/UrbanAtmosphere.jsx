@@ -38,7 +38,7 @@ export default function UrbanAtmosphere() {
   }, [currentSlide]);
 
   return (
-    <section className="pt-12 pb-[68px] md:pt-16 md:pb-[84px] lg:pt-20 lg:pb-[100px] px-6 lg:px-12 bg-white flex flex-col items-center justify-center relative overflow-hidden">
+    <section className="pt-12 pb-24 md:pt-16 md:pb-[84px] lg:pt-20 lg:pb-[100px] px-6 lg:px-12 bg-white flex flex-col items-center justify-center relative overflow-hidden">
 
       <div
         className="max-w-[1800px] mx-auto w-full overflow-hidden"
@@ -60,7 +60,7 @@ export default function UrbanAtmosphere() {
               {/* Images */}
               <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
 
-                <div className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10 h-[50vw] md:h-[430px]">
+                <div className="relative w-full overflow-hidden bg-gray-100 distortion h-[50vw] md:h-[430px]">
                   <HoverEffect
                     image1={slide.image1}
                     image2={slide.hoverImage1}
@@ -72,7 +72,7 @@ export default function UrbanAtmosphere() {
                   />
                 </div>
 
-                <div className="relative w-full overflow-hidden bg-gray-100 distortion border-[0.5px] border-black/10 h-[50vw] md:h-[430px]">
+                <div className="relative w-full overflow-hidden bg-gray-100 distortion h-[50vw] md:h-[430px]">
                   <HoverEffect
                     image1={slide.image2}
                     image2={slide.hoverImage2}

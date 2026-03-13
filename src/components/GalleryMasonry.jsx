@@ -20,7 +20,8 @@ export default function GalleryMasonry() {
             alt: 'Studio session',
             title: 'Studio session',
             category: 'Performance',
-            span: 'col-span-1 row-span-1'
+            span: 'col-span-1 row-span-1',
+            mobileAspect: 'aspect-[2/3]'
         },
         {
             type: 'image',
@@ -28,7 +29,8 @@ export default function GalleryMasonry() {
             alt: 'Artistic details',
             title: 'Artistic details',
             category: 'Experimental',
-            span: 'col-span-1 row-span-1'
+            span: 'col-span-1 row-span-1',
+            mobileAspect: 'aspect-[3/4]'
         },
         {
             type: 'image',
@@ -36,7 +38,8 @@ export default function GalleryMasonry() {
             alt: 'Portrait',
             title: 'Portrait of a Girl',
             category: 'Art of Photography',
-            span: 'col-span-1 row-span-2'
+            span: 'col-span-1 row-span-2',
+            mobileAspect: 'aspect-[2/3]'
         },
         {
             type: 'image',
@@ -44,7 +47,8 @@ export default function GalleryMasonry() {
             alt: 'Abstract texture',
             title: 'Modern Abstract',
             category: 'Experimental',
-            span: 'col-span-1 row-span-1'
+            span: 'col-span-1 row-span-1',
+            mobileAspect: 'aspect-[2/3]'
         },
         {
             type: 'image',
@@ -52,7 +56,8 @@ export default function GalleryMasonry() {
             alt: 'Studio movement',
             title: 'Physical Language',
             category: 'Movement',
-            span: 'col-span-1 row-span-1'
+            span: 'col-span-1 row-span-1',
+            mobileAspect: 'aspect-[3/4]'
         },
         {
             type: 'image',
@@ -60,7 +65,8 @@ export default function GalleryMasonry() {
             alt: 'Urban shot',
             title: 'Urban Silhouette',
             category: 'Architecture',
-            span: 'col-span-1 row-span-1'
+            span: 'col-span-1 row-span-1',
+            mobileAspect: 'aspect-[3/4]'
         },
         {
             type: 'image',
@@ -68,7 +74,8 @@ export default function GalleryMasonry() {
             alt: 'Performance space',
             title: 'Stage Presence',
             category: 'Dance',
-            span: 'col-span-1 row-span-1'
+            span: 'col-span-1 row-span-1',
+            mobileAspect: 'aspect-[2/3]'
         }
     ];
 
@@ -76,14 +83,14 @@ export default function GalleryMasonry() {
         <section className="bg-transparent py-32 px-0 relative">
             <div className="max-w-[1600px] mx-auto relative">
                 {/* Expo Header */}
-                <div className="px-6 lg:px-12 mb-4 flex flex-col md:flex-row items-start md:items-end justify-between">
+                <div className="px-2 md:px-6 lg:px-12 mb-4 flex flex-col md:flex-row items-start md:items-end justify-between">
                     <h2
                         className="text-black"
                         style={{
                             fontFamily: "'Roc Grotesk', sans-serif",
-                            fontSize: "32px",
+                            fontSize: isMobile ? "24px" : "32px",
                             fontWeight: "700",
-                            lineHeight: "40px",
+                            lineHeight: isMobile ? "32px" : "40px",
                             color: "rgb(0, 0, 0)",
                             fontStyle: "normal",
                             letterSpacing: "0.02em",
@@ -95,7 +102,7 @@ export default function GalleryMasonry() {
                 </div>
 
                 {/* Masonry Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense gap-1 px-1 lg:px-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense gap-2 px-2 lg:px-12">
                     {galleryItems.map((item, index) => (
                         <div
                             key={index}
@@ -105,12 +112,12 @@ export default function GalleryMasonry() {
                                 height: '100%'
                             }}
                         >
-                            <div className={`${isMobile ? 'aspect-square' : 'md:h-full'} w-full h-full relative`}>
+                            <div className={`${isMobile ? (item.mobileAspect || 'aspect-square') : 'md:h-full'} w-full h-full relative`}>
                                 {item.type === 'image' ? (
                                     <img
                                         src={item.src}
                                         alt={item.alt}
-                                        className={`w-full h-full ${item.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                                        className={`w-full h-full ${item.fit === 'contain' ? 'object-contain' : 'object-cover'} ${item.position || 'object-center'}`}
                                     />
                                 ) : (
                                     <video

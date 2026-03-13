@@ -6,55 +6,34 @@ import Link from 'next/link';
 export default function BiographyPage() {
     const sections = [
         {
-            title: "ABOUT Lotte Aimée de Weert",
+            title: "ABOUT",
             content: [
-                "Born in 1996 in the Netherlands, Lotte Aimée de Weert is a contemporary dancer and choreographer whose work bridges physical intensity with emotional precision. She began her formal training at ArtEZ University of the Arts in Arnhem, where she developed a rigorous technical foundation rooted in classical ballet and contemporary dance.",
-                "Driven by a desire to expand her artistic language, she later moved to Paris — a city that would profoundly shape her creative identity. There, she deepened her practice in classical ballet, contemporary technique, and the Graham method, refining strength, articulation, and expressive clarity. This technical grounding forms the structural backbone of her movement vocabulary.",
-                "Alongside her physical training, Lotte expanded her interpretative depth through the study of Method Acting with Jack Waltzer, a long-standing member of the Actors Studio in New York. This immersion into dramatic craft introduced a new dimension to her practice — one that integrates psychological presence, emotional authenticity, and narrative embodiment.",
-                "The convergence of rigorous physical discipline and dramatic exploration has shaped her distinctive artistic presence — one that is both controlled and vulnerable, structured yet instinctive."
+                "Lotte Aimée de Weert is a dancer originally from the Netherlands. I’m at the ArtEZ University of the Arts in Arnhem, I later moved to Paris where I further developed my dance practice through various techniques: classical ballet, contemporary dance, and the Graham technique. At the same time, I deepened my approach to performance by studying Method Acting with Jack Waltzer, a long-standing member of the Actors Studio in New York.",
+                "My career has led me to perform both on stage and in front of the camera. This dual experience has nurtured my interest in the impact of movement within the image, as well as in the dialogue between dance and other artistic disciplines.",
+                "Guided by my background in dance yet seeking multidisciplinary exchange, I develop my own projects within the association CIELA, which has received support by the Centre National de la Danse and Ménagerie de Verre in Paris. Alongside this work, I continue to collaborate on various dance projects. I performed in presentations for fashion houses such as Valentino, Cartier, and Flora Miranda, and regularly work with the Dutch National Opera. In parallel, I teaches the GYROTONIC® Method, sharing my approach to movement and body awareness."
             ]
         },
         {
-            title: "Artistic Identity & Choreographic Language",
+            title: "CIE LA — Creative Company",
             content: [
-                "Rooted in her Dutch origins and artistically shaped by Paris, Lotte develops a movement language that navigates the space between tension and stillness, intimacy and projection. Her choreographic writing is informed by theatrical depth, cinematic awareness, and refined technical precision.",
-                "Her work investigates the relationship between body, space, and storytelling. Whether in intimate solos or collaborative stage works, her creations explore how presence transforms within architectural environments and within the frame of the camera.",
-                "A versatile performer, she moves fluidly between dance, theatre, and fashion. She has performed in shows, presentations, and interdisciplinary projects for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda. These experiences sharpened her understanding of image construction, timing, visual rhythm, and the embodied translation of narrative within high aesthetic environments."
-            ],
-            questions: [
-                "How does movement shift when observed through the camera lens?",
-                "What tension emerges between vulnerability and control?",
-                "How can the body become both narrator and landscape?"
-            ],
-            footer: "Each project is guided by a search for authenticity, tension, and embodied truth."
+                "CIE LA is a non-profit association (association loi 1901) founded in 2017 by Lotte Aimée de Weert. It was born from a desire to develop choreographic research in collaboration with other artists, through exploratory sessions supported by the Centre National de la Danse (CND) in Pantin and La Ménagerie de Verre in Paris.",
+                "In 2019, the association took a pause due Lotte Aimée’s commitments as a performer in other artistic projects. It was revived in 2025 with renewed energy.",
+                "Today, the company develops choreographic pieces for the stage as well as site-specific works designed for heritage sites, museums, exhibition spaces, and gallery's.",
+                "Sculpture and cultural heritage are essential sources of inspiration and deeply inform my creative process. I explore forms both in movement and in the visual arts. The legacy of women artists and art history are an integral part of my life and artistic sensibility, which led to my first creation, Ma Valse d’aujourd’hui."
+            ]
         },
         {
-            title: "CIE.LA — The Artistic Platform",
+            title: "ARTISTIC IDENTITY",
             content: [
-                "Through her association CIE.LA, Lotte develops long-term choreographic research and multidisciplinary productions. Supported by institutions such as the Centre National de la Danse and La Ménagerie de Verre in Paris, CIE.LA serves as a space for experimentation, collaboration, and artistic development.",
-                "CIE.LA reflects her commitment to expanding the boundaries of dance by integrating theatre, cinematic language, and visual composition into choreographic form."
+                "Arriving in Paris at a young age profoundly shaped my artistic journey. Being exposed to such a wide range of arts and cultures greatly broadened my interests and sources of inspiration.",
+                "As a dancer, I always felt the need for a second discipline. My encounter with theatre opened an essential space in my work as a performer and naturally led me toward multidisciplinary projects. Physical endurance has always held a central place in my relationship to the body and to the stage, ever since a young age.",
+                "Today, I am fortunate to evolve within different artistic worlds, where each creation and each encounter continues to nourish my practice and refine my sensitivity, both artistically and personally."
             ],
-            listTitle: "Within this framework, she creates works that move between:",
+            listTitle: "Within this framework, her work moves between:",
             list: [
-                "Stage productions",
-                "Short films",
-                "Site-specific performances",
-                "Video installations",
+                "dance and performance",
+                "movement and image",
                 "Interdisciplinary collaborations"
-            ]
-        },
-        {
-            title: "Multidisciplinary Practice",
-            content: [
-                "As a multifaceted creator, Lotte works interchangeably as: Choreographer, Performer, Dramaturgical collaborator, and Conceptual contributor.",
-                "Her practice embraces different formats and contexts — from institutional theatres to alternative performance spaces and fashion environments. She approaches each project with sensitivity to spatial architecture, light, rhythm, and the invisible dialogue between performer and audience."
-            ]
-        },
-        {
-            title: "Current Practice",
-            content: [
-                "Today, Lotte works as a freelance artist based in Paris. She collaborates on dance and theatre productions internationally while continuing to choreograph and develop her own original pieces through CIE.LA.",
-                "Her work remains anchored in exploration — a constant dialogue between body and narrative, structure and instinct, movement and meaning."
             ]
         }
     ];

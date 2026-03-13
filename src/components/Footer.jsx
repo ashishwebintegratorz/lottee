@@ -18,7 +18,7 @@ export default function Footer() {
                             Lotte Aimée de Weert
                         </h4>
                         <p className="text-gray-400 leading-relaxed text-[15px] max-w-sm">
-                            A Dutch-born choreographer and performer based in Paris, merging physical intensity with emotional precision. Her work bridges dance, theatre, and fashion through a refined and cinematic movement language.
+                            I'AM merging physical intensity with emotional precision. my work bridges dance, theatre, and fashion through a refined and cinematic movement language.
                         </p>
                         <div className="flex items-center gap-4">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all group">
@@ -34,7 +34,7 @@ export default function Footer() {
                         </h4>
                         <div className="space-y-6 text-gray-400 text-[15px] leading-relaxed">
                             <p>
-                                Through her association <span className="text-white font-medium"> Lotte Aimée</span>, supported by the <span className="text-white font-medium">Centre National de la Danse</span> and <span className="text-white font-medium">La Ménagerie de Verre</span> in Paris.
+                                Through my association <span className="text-white font-medium"> Lotte Aimée</span>, supported by the <span className="text-white font-medium">Centre National de la Danse</span> and <span className="text-white font-medium">La Ménagerie de Verre</span> in Paris.
                             </p>
                             <p className="italic text-sm">
                                 Exploring the dialogue between dance, conceptual research, and cinematic storytelling.
@@ -50,10 +50,12 @@ export default function Footer() {
                         <ul className="grid grid-cols-2 gap-y-4 gap-x-8 text-[15px]">
                             {[
                                 { name: 'Home', href: '/' },
-                                { name: 'Choreographies', href: '/projects' },
-                                { name: 'About', href: '/about' },
+                                { name: 'Choreographies & Dancer', href: '/projects' },
+                                { name: 'Gallery', href: '/gallery' },
                                 { name: 'Schedule', href: '/schedule' },
-                                { name: 'Contacts', href: '/contact' }
+                                { name: 'About', href: '/about' },
+                                { name: 'Social Media', href: '/socialmedia' },
+                                { name: 'Blogs', href: '/blogs' }
                             ].map((link) => (
                                 <li key={link.name}>
                                     <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">

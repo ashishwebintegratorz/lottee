@@ -70,8 +70,47 @@ export default function ProjectsPage() {
             title: 'Valentino Fall-winter 25/2',
             category: 'Subtext not given',
             src: '/dancervedio8.mp4'
+        },
+        {
+            id: 'v9',
+            title: 'LaLaLand',
+            category: (
+                <>
+                    for couture week in Paris for @floramirandaofficial <br />
+                    Concept and Production: Flora Miranda <br />
+                    Hair and Makeup: Marcello Costa @bymarcellocosta @teammarcellocosta <br />
+                    Pr agent: Damien Testu / Totem Fashion <br />
+                    totemfashion.com / @totem_fashion
+                </>
+            ),
+            src: '/lastphoto.JPG',
+            fit: 'contain'
         }
     ]
+
+    const renderMedia = (video) => {
+        const isImage = video.src.toLowerCase().endsWith('.jpg') || video.src.toLowerCase().endsWith('.jpeg') || video.src.toLowerCase().endsWith('.png') || video.src.toLowerCase().endsWith('.webp');
+        if (isImage) {
+            return (
+                <img
+                    src={video.src}
+                    alt={video.title}
+                    className={`w-full h-full ${video.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                />
+            );
+        } else {
+            return (
+                <video
+                    src={video.src}
+                    className={`w-full h-full ${video.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                    autoPlay
+                    loop
+                    playsInline
+                    muted={activeVideo !== video.id}
+                />
+            );
+        }
+    };
 
     return (
 
@@ -118,18 +157,11 @@ export default function ProjectsPage() {
                         >
 
                             <div
-                                className="relative w-full overflow-hidden rounded-sm cursor-pointer"
+                                className="relative w-full aspect-[4/3] overflow-hidden rounded-sm cursor-pointer bg-[#121212]"
                                 onClick={() => setActiveVideo(activeVideo === video.id ? null : video.id)}
                             >
 
-                                <video
-                                    src={video.src}
-                                    className="w-full h-auto"
-                                    autoPlay
-                                    loop
-                                    playsInline
-                                    muted={activeVideo !== video.id}
-                                />
+                                {renderMedia(video)}
 
                             </div>
 
@@ -142,9 +174,9 @@ export default function ProjectsPage() {
                                     {video.title}
                                 </h3>
 
-                                <p className="text-gray-500 text-sm font-medium">
+                                <div className="text-gray-500 text-sm font-medium flex flex-col items-center justify-center text-center">
                                     {video.category}
-                                </p>
+                                </div>
 
                             </div>
 
@@ -162,18 +194,11 @@ export default function ProjectsPage() {
                         >
 
                             <div
-                                className="relative w-full overflow-hidden rounded-sm cursor-pointer"
+                                className="relative w-full aspect-[4/3] overflow-hidden rounded-sm cursor-pointer bg-[#121212]"
                                 onClick={() => setActiveVideo(activeVideo === video.id ? null : video.id)}
                             >
 
-                                <video
-                                    src={video.src}
-                                    className="w-full h-auto"
-                                    autoPlay
-                                    loop
-                                    playsInline
-                                    muted={activeVideo !== video.id}
-                                />
+                                {renderMedia(video)}
 
                             </div>
 
@@ -186,9 +211,9 @@ export default function ProjectsPage() {
                                     {video.title}
                                 </h3>
 
-                                <p className="text-gray-500 text-sm font-medium">
+                                <div className="text-gray-500 text-sm font-medium flex flex-col items-center justify-center text-center">
                                     {video.category}
-                                </p>
+                                </div>
 
                             </div>
 

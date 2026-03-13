@@ -9,11 +9,11 @@ import Typed from 'typed.js';
 const cards = [
     {
         title: "Her Choreographic Language",
-        description: "Rooted in her Dutch origins and artistically shaped by Paris, Lotte desenvolves a movement language that bridges physical intensity with emotional precision. My work is informed by theatrical depth, cinematic awareness, and a refined technical clarity."
+        description: "I desenvolves a movement language that bridges physical intensity with emotional precision. My work is informed by theatrical depth, cinematic awareness, and a refined technical clarity."
     },
     {
         title: "Fashion & Narrative",
-        description: "A versatile performer, she moves seamlessly between dance, theatre, and fashion. I have performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment."
+        description: "I have performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment."
     },
     {
         title: "Choreographic Research",
@@ -135,7 +135,7 @@ export default function AboutPage() {
                         className="text-white mb-8 lg:mb-14 z-10 lg:-ml-5 text-4xl md:text-5xl lg:text-[57px] font-medium"
                         style={{ fontFamily: "'Roc Grotesk', sans-serif", lineHeight: '1.1' }}
                     >
-                        LOTTE AIMÉE de Weert
+                        LOTTE AIMÉE de
                     </h2>
 
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">
@@ -156,7 +156,7 @@ export default function AboutPage() {
                             href="/about/biography"
                             className="inline-block bg-[#7a8208] hover:bg-[#6b7207] text-white font-semibold py-4 px-10 rounded-full transition-colors duration-300 shadow-lg"
                         >
-                            About Us
+                            Read More
                         </Link>
                     </div>
                 </motion.div>

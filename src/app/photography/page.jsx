@@ -7,7 +7,6 @@ const photographyItems = [
     {
         id: 1,
         title: 'The Quiet Body',
-        category: 'Name of the shoot',
         description: <p>
             poetry of form photo by Malmarstudio <br />
             Designer : Jotaro Saito.
@@ -29,7 +28,6 @@ const photographyItems = [
     {
         id: 2,
         title: 'Utsuroi',
-        category: 'Name of the shoot',
         description: 'DBmotion prod  videographer: damien bourletsis.',
         image: '/Utsuroi 1.jpeg',
         span: 'md:col-span-1',
@@ -44,7 +42,6 @@ const photographyItems = [
     {
         id: 3,
         title: 'Kinetic Form',
-        category: 'Name of the shoot',
         description: <p>
             Photographer : Emma Leforestier <br />
             Styling : @emma_leforestier <br />
@@ -64,7 +61,6 @@ const photographyItems = [
     {
         id: 4,
         title: 'Soft Gravity',
-        category: 'Name of the shoot',
         description: ' Untamed Motion photo by @Alexconustudio.',
         image: '/utsurioshoot5.jpeg',
         gallery: [
@@ -80,7 +76,6 @@ const photographyItems = [
     {
         id: 5,
         title: 'La danseuse de Degas',
-        category: 'Name of the shoot',
         description: 'Dani Remiao photography @museeorsay.',
         image: '/IMG_3749.JPG',
         gallery: [
@@ -93,37 +88,15 @@ const photographyItems = [
              '/utrshootl.jpg', */
         ]
     },
-    {
-        id: 6,
-        title: 'Damien Testu / Totem Fashion ',
-        category: 'Name of the shoot',
-        description: <p>
-            LaLaLand for couture week in Paris for @floramirandaofficial <br />
-            Concept and Production: Flora Miranda <br />
-            Hair and Makeup: Marcello Costa @bymarcellocosta @teammarcellocosta <br />
-            Pr agent: Damien Testu / Totem Fashion <br />
-            totemfashion.com / @totem_fashion
-        </p>,
-        image: '/lastphoto.JPG',
-        gallery: [
-            '/lastphoto.JPG',
-            /* '/IMG_3750.JPG',
-            '/IMG_3749.JPG',
-            '/utsurioshoot4.jpeg',
-             '/utsurioshoot3.jpg',
-             '/urben2.jpeg',
-             '/utrshootl.jpg', */
-        ]
-    },
+
     {
         id: 7,
-        title: ' Title Not Given ',
-        category: 'Name of the shoot',
+        title: ' Anitjer ',
         description: 'photoshoot with Alexconustudio',
         image: '/gallery2.jpeg',
         gallery:
             [
-                '/aboutimg.jpeg',
+                //'/aboutimg.jpeg',
                 '/gallery2.jpeg',
                 /* '/IMG_3749.JPG',
                  '/utsurioshoot4.jpeg',
@@ -274,28 +247,12 @@ export default function PhotographyPage() {
                             />
 
                             <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:translate-y-4 md:group-hover:translate-y-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500">
-
-                                <div className="space-y-2">
-
-                                    <div className="flex items-center gap-2">
-
-                                        <span className="w-6 h-[1px] bg-white/60"></span>
-
-                                        <span className="text-white/80 text-[9px] font-bold tracking-[0.2em] uppercase">
-                                            {item.category}
-                                        </span>
-
-                                    </div>
-
-                                    <h3
-                                        className="text-white text-2xl font-bold tracking-tight"
-                                        style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
-                                    >
-                                        {item.title}
-                                    </h3>
-
-                                </div>
-
+                                <h3
+                                    className="text-white text-2xl font-bold tracking-tight"
+                                    style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
+                                >
+                                    {item.title}
+                                </h3>
                             </div>
 
                         </motion.div>

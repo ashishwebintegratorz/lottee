@@ -21,46 +21,46 @@ export default function SchedulePage() {
             date: ' OCT 2026',
             title: 'MA VALSE D\'AUJOURD\'HUI',
             location: 'PARIS-LOCATION TBC',
-            description: 'This project a choreographic exploration inspired by Camille Claudel\'s\'work\'La Vaise. it translates the emotional movements of the sculpture into a living physical language. Through two performers, the piece explores themes of connection, memory, and desire. the body becomes a space where pastand present meet.   ',
+            description: 'Ma Valse d\'aujourd\'hui is a choreographic duet. The project is inspired by the sculpture of Camille Claudel\'s Waltz, not to offer a transposition, but to explore its meaning. We question the intentions behind her gestures and the emotional force, The Waltz embodies both fragility and strength— remaining alive beyond the material form through two bodies in today\'s context. ',
             type: 'Performance',
             time: '7:00 PM'
         },
-        {
-            id: 2,
-            date: 'March 2027',
-            title: 'MA VALSE D\'AUJOURD\'HUI',
-            location: 'Museum Maison Claudel-Villeneuve-sur-F`ere, France',
-            description: 'This project a choreographic exploration inspired by Camille Claudel\'s\'work\'La Vaise. it translates the emotional movements of the sculpture into a living physical language. Through two performers, the piece explores themes of connection, memory, and desire. the body becomes a space where pastand present meet.   ',
-            type: 'Performance',
-            time: '7:00 PM'
-        },
-        // {
-        //     id: 3,
-        //     date: '10 MAY',
-        //     title: 'Fashion Movement Collaboration',
-        //     location: 'Paris Fashion Week',
-        //     description: 'Live performance collaboration integrating choreographic presence within a couture runway presentation.',
-        //     type: 'Collaboration',
-        //     time: 'Private Event'
-        // },
-        // {
-        //     id: 4,
-        //     date: '18 JUN',
-        //     title: 'Intimate Duet Study',
-        //     location: 'Studio Micadanses, Paris',
-        //     description: 'A new duet work examining proximity, emotional restraint, and embodied narrative.',
-        //     type: 'Work in Progress',
-        //     time: '7:30 PM'
-        // },
-        // {
-        //     id: 5,
-        //     date: '02 - 05 OCT',
-        //     title: 'CIE.LA Annual Creation',
-        //     location: 'Paris',
-        //     description: 'Premiere of the company’s latest multidisciplinary production blending dance, theatre, and visual storytelling.',
-        //     type: 'Premiere',
-        //     time: 'To Be Announced'
-        // }
+        /* {
+             id: 2,
+             date: 'March 2027',
+             title: 'MA VALSE D\'AUJOURD\'HUI',
+             location: 'Museum Maison Claudel-Villeneuve-sur-F`ere, France',
+             description: 'This project a choreographic exploration inspired by Camille Claudel\'s\'work\'La Vaise. it translates the emotional movements of the sculpture into a living physical language. Through two performers, the piece explores themes of connection, memory, and desire. the body becomes a space where pastand present meet.   ',
+             type: 'Performance',
+             time: '7:00 PM'
+         },
+         // {
+         //     id: 3,
+         //     date: '10 MAY',
+         //     title: 'Fashion Movement Collaboration',
+         //     location: 'Paris Fashion Week',
+         //     description: 'Live performance collaboration integrating choreographic presence within a couture runway presentation.',
+         //     type: 'Collaboration',
+         //     time: 'Private Event'
+         // },
+         // {
+         //     id: 4,
+         //     date: '18 JUN',
+         //     title: 'Intimate Duet Study',
+         //     location: 'Studio Micadanses, Paris',
+         //     description: 'A new duet work examining proximity, emotional restraint, and embodied narrative.',
+         //     type: 'Work in Progress',
+         //     time: '7:30 PM'
+         // },
+         // {
+         //     id: 5,
+         //     date: '02 - 05 OCT',
+         //     title: 'CIE.LA Annual Creation',
+         //     location: 'Paris',
+         //     description: 'Premiere of the company’s latest multidisciplinary production blending dance, theatre, and visual storytelling.',
+         //     type: 'Premiere',
+         //     time: 'To Be Announced'
+         // }*/
     ];
 
     return (

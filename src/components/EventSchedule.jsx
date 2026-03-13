@@ -15,41 +15,42 @@ export default function EventSchedule() {
 
     const events = [
         {
-            time: '7:00 PM',
-            period: 'PM',
             title: 'MA VALSE D\'\'AUJOURD\'HUI',
             guide: 'LOTTE AIMÉE',
-            guideRole: 'Guide',
-            location: 'PARIS-LOCATION TBC',
-            venue: 'PARIS-LOCATION TBC'
+            guideRole: 'Choreographer',
+            location: 'PARIS',
+            // venue: 'PARIS-LOCATION TBC',
+            venue: <>LOCATION TBC <br /> Museum Maison Claudel-Villeneuve-sur-F`ere, France</>,
+            time: '7:00 PM',
+            period: 'PM'
         },
-        {
-            time: '7:00 PM',
-            period: 'PM',
-            title: 'MA VALSE D\'\'AUJOURD\'HUI',
-            guide: 'LOTTE AIMÉE',
-            guideRole: 'Guide',
-            location: 'PARIS-LOCATION TBC',
-            venue: 'Museum Maison Claudel-Villeneuve-sur-F`ere, France'
-        }
         /* {
-            time: '15:00 - 17:00',
-            period: 'pm',
-            title: 'Reflection on Colour and Form',
-            guide: 'Dylan Byrne',
-            guideRole: 'Guide',
-            location: 'New York',
-            venue: 'Manhattan Club'
-        },
-        {
-            time: '17:00 - 19:00',
-            period: 'pm',
-            title: 'Reflection on Colour and Form',
-            guide: 'Kate Sykes',
-            guideRole: 'Guide',
-            location: 'New York',
-            venue: 'Manhattan Club'
-        } */
+             time: '7:00 PM',
+             period: 'PM',
+             title: 'MA VALSE D\'\'AUJOURD\'HUI',
+             guide: 'LOTTE AIMÉE',
+             guideRole: 'Guide',
+             location: 'PARIS-LOCATION TBC',
+             venue: 'Museum Maison Claudel-Villeneuve-sur-F`ere, France'
+         }
+         /* {
+             time: '15:00 - 17:00',
+             period: 'pm',
+             title: 'Reflection on Colour and Form',
+             guide: 'Dylan Byrne',
+             guideRole: 'Guide',
+             location: 'New York',
+             venue: 'Manhattan Club'
+         },
+         {
+             time: '17:00 - 19:00',
+             period: 'pm',
+             title: 'Reflection on Colour and Form',
+             guide: 'Kate Sykes',
+             guideRole: 'Guide',
+             location: 'New York',
+             venue: 'Manhattan Club'
+         } */
     ];
 
     return (
@@ -70,7 +71,7 @@ export default function EventSchedule() {
                         Agenda
                     </h2>
                     <Link
-                        href="#"
+                        href="/schedule"
                         className="text-white text-sm font-medium tracking-wide flex items-center gap-2 hover:gap-4 transition-all mt-4"
                     >
                         View More
@@ -91,12 +92,13 @@ export default function EventSchedule() {
                 {/* Events List */}
                 <div className="space-y-0">
                     {events.map((event, index) => (
-                        <div
+                        <Link
                             key={index}
-                            className="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-b border-white/20 group hover:bg-white/10 transition-all cursor-pointer px-4 -mx-4"
+                            href="/schedule"
+                            className="grid grid-cols-2 md:grid-cols-12 gap-y-2 md:gap-4 py-6 border-b border-white/20 group hover:bg-white/10 transition-all cursor-pointer px-4 -mx-4 block"
                         >
                             {/* Time */}
-                            <div className="md:col-span-2 flex items-start">
+                            <div className="order-4 col-span-1 md:order-none md:col-span-2 flex items-start">
                                 <div>
                                     <div className="text-white text-lg font-medium">{event.time}</div>
                                     <div className="text-white/60 text-xs">{event.period}</div>
@@ -104,12 +106,12 @@ export default function EventSchedule() {
                             </div>
 
                             {/* Event Title */}
-                            <div className="md:col-span-4 flex items-center">
+                            <div className="order-1 col-span-2 md:order-none md:col-span-4 flex items-center">
                                 <h3 className="text-white text-lg font-medium">{event.title}</h3>
                             </div>
 
                             {/* Guide */}
-                            <div className="md:col-span-2 flex items-start">
+                            <div className="order-2 col-span-2 md:order-none md:col-span-2 flex items-start">
                                 <div>
                                     <div className="text-white text-base font-medium">{event.guide}</div>
                                     <div className="text-white/60 text-xs uppercase tracking-wider">{event.guideRole}</div>
@@ -117,7 +119,7 @@ export default function EventSchedule() {
                             </div>
 
                             {/* Location */}
-                            <div className="md:col-span-3 flex items-start">
+                            <div className="order-3 col-span-2 md:order-none md:col-span-3 flex items-start">
                                 <div>
                                     <div className="text-white text-base font-medium">{event.location}</div>
                                     <div className="text-white/60 text-xs">{event.venue}</div>
@@ -125,7 +127,7 @@ export default function EventSchedule() {
                             </div>
 
                             {/* Arrow */}
-                            <div className="md:col-span-1 flex items-center justify-end">
+                            <div className="order-5 col-span-1 md:order-none md:col-span-1 flex items-center justify-end">
                                 <svg
                                     width="24"
                                     height="24"
@@ -138,7 +140,7 @@ export default function EventSchedule() {
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

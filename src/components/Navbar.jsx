@@ -15,6 +15,8 @@ export default function Navbar() {
         { name: 'Choreographer & Dancer', href: '/projects' },
         { name: 'Gallery', href: '/photography' },
         { name: 'Schedule', href: '/schedule' },
+        { name: 'Social Media', href: '/social-media' },
+        { name: 'Blogs', href: '/blogs' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
     ];
@@ -85,12 +87,10 @@ export default function Navbar() {
                                         }}
                                     >
                                         {link.name}
-                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${((link.name === 'Contact' && isContactPage) ||
-                                            (link.name === 'Schedule' && isSchedulePage) ||
-                                            (link.name === 'Photography' && isPhotographyPage) ||
-                                            (link.name === 'Choreographer & Dancer' && isProjectsPage) ||
-                                            (link.name === 'Home' && isHomePage) ||
-                                            (link.name === 'About' && isDarkPage))
+                                        <span className={`absolute left-0 bottom-[-4px] h-[2px] transition-all duration-300 ${(
+                                            (link.href === '/' && pathname === '/') ||
+                                            (link.href !== '/' && pathname.startsWith(link.href))
+                                        )
                                             ? 'w-full bg-current opacity-100'
                                             : `w-0 group-hover:w-full ${(isDarkPage || isContactPage || isProjectsPage || isSchedulePage || isChoreographerPage || isPhotographyPage) ? 'bg-white' : 'bg-[#191919]'}`}`}></span>
                                     </Link>
@@ -253,7 +253,7 @@ export default function Navbar() {
                                                 href="https://instagram.com"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all group"
+                                                className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white transition-all group"
                                             >
                                                 <svg
                                                     width="18"

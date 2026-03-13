@@ -5,7 +5,8 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function LatestNews() {
     const [isMobile, setIsMobile] = useState(false);
-    const scrollRef = useRef(null);
+    const [expandedItems, setExpandedItems] = useState({});
+
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
         checkMobile();
@@ -13,66 +14,47 @@ export default function LatestNews() {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
+    const toggleExpand = (e, index) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setExpandedItems(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
+    };
+
     const newsItems = [
         {
-            title: "Performance at the Dutch National Opera",
-            image: "/softgravitymain.jpeg",
-            date: "February 2026",
-            comments: "0 Comments"
+            category: "Creation",
+            title: "Creation - Ma Valse d’aujourdhui",
+            description: "Menagerie de Verre - April 2026 - Accueil studio",
+            image: "/photographyshoot4.jpeg",
+            date: "April 2026",
+            href: "/schedule"
         },
         {
-            title: "CIE.LA New Research Residencies",
-            image: "/ioffer1.jpeg",
-            date: "January 2026",
-            comments: "0 Comments"
-        },
-        {
-            title: "Collaboration with Valentino Fashion House",
-            image: "/gallerie1 New.jpg",
-            date: "December 2025",
-            comments: "0 Comments"
-        },
-        {
-            title: "Movement Workshop in Paris Studio",
+            category: "GYROTONIC®",
+            title: "GYROTONIC® CLASSES",
+            description: "I Help My Clients Build Healthy Movement Habits, Feel Better In Their Bodies, And Discover What Truly Works For Them Through The Gyrotonic®️ Method. As a professional dancer, I discovered the GYROTONIC® Method and found a truly transformative way of working with my body. It taught me to move with greater intelligence, efficiency, and sustainability — preventing injuries while allowing me to explore and expand my physical potential. I completed my Level 1 Foundation Course in February 2025 at Centre Uma in Paris, and I’m now offering GYROTONIC® sessions in Paris. I work with clients from diverse backgrounds — but also performers — helping them enhance their physical condition, refine their movement quality, and deepen their body awareness. The GYROTONIC EXPANSION SYSTEM® is a holistic approach to wellness, using spiraling, circular movements to create balance, efficiency, and flexibility. It is a system designed to re-educate the body’s movement patterns, decompress the skeletal structure, and create a state of balanced, functional strength.",
             image: "/gallery1.jpeg",
-            date: "November 2025",
-            comments: "0 Comments"
+            date: "February 2025",
+            href: "/contact"
         },
         {
-            title: "The Impact of Cinematic Language in Dance",
-            image: "/gallery.3.jpeg",
-            date: "October 2025",
-            comments: "0 Comments"
-        },
-        {
-            title: "Artistic Presence and Method Acting Study",
-            image: "/ioffer1.jpeg",
-            date: "September 2025",
-            comments: "0 Comments"
+            category: "Research",
+            title: "Dance research",
+            description: "Since 2019 I exchange with Christine Kono-Pohlmann and Dimitris Kraniotis, and joining them regularly in their dance research.",
+            image: "/softgravitymain.jpeg",
+            date: "Ongoing",
+            href: "/projects"
         }
     ];
 
-    useEffect(() => {
-        const scrollContainer = scrollRef.current;
-        if (!scrollContainer) return;
-
-        const scroll = () => {
-            if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
-                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                scrollContainer.scrollBy({ left: 350, behavior: 'smooth' });
-            }
-        };
-
-        const intervalId = setInterval(scroll, 5000);
-        return () => clearInterval(intervalId);
-    }, []);
-
     return (
-        <section className="py-20 bg-white overflow-hidden">
+        <section className="py-24 bg-white overflow-hidden">
             <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
                 <h2
-                    className="text-center mb-12 md:mb-20 tracking-tight"
+                    className="text-center mb-16 md:mb-24 tracking-tight"
                     style={{
                         fontFamily: "'Roc Grotesk', sans-serif",
                         fontWeight: 500,
@@ -85,41 +67,63 @@ export default function LatestNews() {
                     Work & Latest News
                 </h2>
 
-                <div
-                    ref={scrollRef}
-                    className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 lg:-mx-12 lg:px-12 hover:cursor-grab active:cursor-grabbing"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
+                <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                     {newsItems.map((item, index) => (
                         <div
                             key={index}
-                            className="min-w-[300px] max-w-[300px] md:min-w-[350px] md:max-w-[350px] snap-start group flex-shrink-0"
+                            className="w-full sm:w-[calc(50%-1rem)] lg:w-[400px] group flex-shrink-0"
                         >
-                            <Link href="#" className="block">
+                            <Link href={item.href || "#"} className="block h-full group">
                                 {/* Image Container */}
-                                <div className="aspect-[3/2] w-full overflow-hidden mb-4 relative bg-gray-100">
+                                <div className="aspect-[4/3] w-full overflow-hidden mb-5 relative bg-gray-50 rounded-sm">
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                                     />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="space-y-2">
-                                    <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-gray-800">
-                                        ART & MOVEMENT
+                                <div className="space-y-4">
+                                    <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#7a8208]">
+                                        {item.category}
                                     </div>
                                     <h3
-                                        className="text-[18px] leading-[1.3] font-bold text-black group-hover:text-gray-600 transition-colors"
+                                        className="text-[20px] leading-[1.2] font-bold text-black group-hover:text-[#7a8208] transition-colors"
                                         style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                     >
                                         {item.title}
                                     </h3>
-                                    <div className="flex items-center gap-2 text-[11px] text-gray-500 pt-1">
+                                    
+                                    <div className="relative">
+                                        <p className={`text-[14px] leading-relaxed text-gray-600 transition-all duration-500 ${expandedItems[index] ? '' : 'line-clamp-5'}`}>
+                                            {item.description}
+                                        </p>
+                                        
+                                        {item.description.length > 200 && (
+                                            <button 
+                                                onClick={(e) => toggleExpand(e, index)}
+                                                className="mt-2 flex items-center gap-1 text-[#7a8208] text-[12px] font-bold uppercase tracking-wider hover:translate-y-0.5 transition-transform"
+                                            >
+                                                {expandedItems[index] ? 'Show Less' : 'Read More'}
+                                                <svg 
+                                                    width="12" 
+                                                    height="12" 
+                                                    viewBox="0 0 24 24" 
+                                                    fill="none" 
+                                                    stroke="currentColor" 
+                                                    strokeWidth="3"
+                                                    className={`transition-transform duration-300 ${expandedItems[index] ? 'rotate-180' : ''}`}
+                                                >
+                                                    <path d="M6 9l6 6 6-6" />
+                                                </svg>
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    <div className="flex items-center gap-2 text-[11px] text-gray-400 pt-2 font-medium italic border-t border-gray-100 w-fit">
                                         <span>{item.date}</span>
-                                        <span>•</span>
-                                        <span>{item.comments}</span>
                                     </div>
                                 </div>
                             </Link>

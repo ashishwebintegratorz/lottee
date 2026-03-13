@@ -24,7 +24,7 @@ export default function WhatWeOffer() {
 
     const services = [
         {
-            title: "Choreographies",
+            title: "Choreographies & Dancer",
             href: "/projects",
             description: "Multidisciplinary Performances",
             image: "ioffer1.jpeg"
@@ -50,7 +50,7 @@ export default function WhatWeOffer() {
     ];
 
     return (
-        <section className="relative z-10 -mt-[1px] bg-white pt-12 md:pt-16 pb-0">
+        <section className="relative z-10 -mt-[1px] bg-white pt-24 md:pt-16 pb-0">
             {/* Top Content */}
             <div className="max-w-[1000px] mx-auto text-center px-6 mb-10 md:mb-12">
                 <span className="text-xs font-bold tracking-[0.3em] text-black uppercase block mb-4 md:mb-6">
@@ -83,7 +83,7 @@ export default function WhatWeOffer() {
                     <Link
                         key={service.title}
                         href={service.href}
-                        className="relative h-[480px] overflow-hidden group cursor-pointer border-r border-white/20 last:border-r-0 block"
+                        className="relative h-[480px] overflow-hidden group cursor-pointer md:border-r border-white/20 last:border-r-0 block"
                     >
                         <img
                             src={service.image}
