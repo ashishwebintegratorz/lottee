@@ -261,7 +261,7 @@ export default function PhotographyPage() {
 
                             <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:translate-y-4 md:group-hover:translate-y-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500">
                                 <h3
-                                    className="text-white text-2xl font-bold tracking-tight"
+                                    className="text-white text-xl md:text-2xl font-bold tracking-tight break-words"
                                     style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                 >
                                     {item.title}
@@ -350,14 +350,14 @@ export default function PhotographyPage() {
                             <div className="mb-16 text-center">
 
                                 <span className="text-[#7a8208] text-sm font-bold tracking-[0.3em] uppercase mb-4 block">
-                                    {selectedProject.category}
+                                    {selectedProject.title}
                                 </span>
 
                                 <h2
-                                    className="text-white text-5xl md:text-7xl font-bold tracking-tight"
+                                    className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight break-words"
                                     style={{ fontFamily: "'Roc Grotesk', sans-serif" }}
                                 >
-                                    {selectedProject.title}
+                                    {selectedProject.subtitle}
                                 </h2>
 
                                 {selectedProject.description && (
