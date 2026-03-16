@@ -13,10 +13,8 @@ export default function Navbar() {
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'Choreographer & Dancer', href: '/projects' },
-        { name: 'Gallery', href: '/photography' },
+        { name: 'Photography', href: '/photography' },
         { name: 'Schedule', href: '/schedule' },
-        { name: 'Social Media', href: '/social-media' },
-        { name: 'Blogs', href: '/blogs' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
     ];

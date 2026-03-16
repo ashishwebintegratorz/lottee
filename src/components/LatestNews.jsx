@@ -26,9 +26,9 @@ export default function LatestNews() {
     const newsItems = [
         {
             category: "Creation",
-            title: "Creation - Ma Valse d’aujourdhui",
+            title: "Creation - Ma Valse d’aujourd’hui",
             description: "Menagerie de Verre - April 2026 - Accueil studio",
-            image: "/photographyshoot4.jpeg",
+            image: "/latest1.jpeg",
             date: "April 2026",
             href: "/schedule"
         },
@@ -36,7 +36,7 @@ export default function LatestNews() {
             category: "GYROTONIC®",
             title: "GYROTONIC® CLASSES",
             description: "I Help My Clients Build Healthy Movement Habits, Feel Better In Their Bodies, And Discover What Truly Works For Them Through The Gyrotonic®️ Method. As a professional dancer, I discovered the GYROTONIC® Method and found a truly transformative way of working with my body. It taught me to move with greater intelligence, efficiency, and sustainability — preventing injuries while allowing me to explore and expand my physical potential. I completed my Level 1 Foundation Course in February 2025 at Centre Uma in Paris, and I’m now offering GYROTONIC® sessions in Paris. I work with clients from diverse backgrounds — but also performers — helping them enhance their physical condition, refine their movement quality, and deepen their body awareness. The GYROTONIC EXPANSION SYSTEM® is a holistic approach to wellness, using spiraling, circular movements to create balance, efficiency, and flexibility. It is a system designed to re-educate the body’s movement patterns, decompress the skeletal structure, and create a state of balanced, functional strength.",
-            image: "/gallery1.jpeg",
+            image: "/latest2.jpeg",
             date: "February 2025",
             href: "/contact"
         },
@@ -44,7 +44,7 @@ export default function LatestNews() {
             category: "Research",
             title: "Dance research",
             description: "Since 2019 I exchange with Christine Kono-Pohlmann and Dimitris Kraniotis, and joining them regularly in their dance research.",
-            image: "/softgravitymain.jpeg",
+            image: "/latest3.jpeg",
             date: "Ongoing",
             href: "/projects"
         }
@@ -71,15 +71,15 @@ export default function LatestNews() {
                     {newsItems.map((item, index) => (
                         <div
                             key={index}
-                            className="w-full sm:w-[calc(50%-1rem)] lg:w-[400px] group flex-shrink-0"
+                            className="w-full sm:w-[calc(50%-1rem)] lg:w-[320px] group flex-shrink-0"
                         >
                             <Link href={item.href || "#"} className="block h-full group">
                                 {/* Image Container */}
-                                <div className="aspect-[4/3] w-full overflow-hidden mb-5 relative bg-gray-50 rounded-sm">
+                                <div className="w-full overflow-hidden mb-5 relative bg-[#121212] rounded-sm">
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                        className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
                                 </div>
@@ -95,24 +95,24 @@ export default function LatestNews() {
                                     >
                                         {item.title}
                                     </h3>
-                                    
+
                                     <div className="relative">
                                         <p className={`text-[14px] leading-relaxed text-gray-600 transition-all duration-500 ${expandedItems[index] ? '' : 'line-clamp-5'}`}>
                                             {item.description}
                                         </p>
-                                        
+
                                         {item.description.length > 200 && (
-                                            <button 
+                                            <button
                                                 onClick={(e) => toggleExpand(e, index)}
                                                 className="mt-2 flex items-center gap-1 text-[#7a8208] text-[12px] font-bold uppercase tracking-wider hover:translate-y-0.5 transition-transform"
                                             >
                                                 {expandedItems[index] ? 'Show Less' : 'Read More'}
-                                                <svg 
-                                                    width="12" 
-                                                    height="12" 
-                                                    viewBox="0 0 24 24" 
-                                                    fill="none" 
-                                                    stroke="currentColor" 
+                                                <svg
+                                                    width="12"
+                                                    height="12"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
                                                     strokeWidth="3"
                                                     className={`transition-transform duration-300 ${expandedItems[index] ? 'rotate-180' : ''}`}
                                                 >

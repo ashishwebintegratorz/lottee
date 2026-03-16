@@ -83,8 +83,7 @@ export default function ProjectsPage() {
                     totemfashion.com / @totem_fashion
                 </>
             ),
-            src: '/lastphoto.JPG',
-            fit: 'contain'
+            src: '/dance9.mp4'
         }
     ]
 
@@ -137,7 +136,7 @@ export default function ProjectsPage() {
                         transition={{ delay: 0.2 }}
                         className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light"
                     >
-                        Through her association CIELA, Lotte Aimée develops her own choreographic projects and long-term artistic research, with the support of the Centre National de la Danse and La Ménagerie de Verre in Paris. Alongside these projects, she also performs as a dancer in other artistic collaborations.
+                        Guided by my background in dance, I develop my choreographic work. I also continue to perform and collaborate on various projects, often crossing into multidisciplinary disciplines.
                     </motion.p>
 
                 </div>

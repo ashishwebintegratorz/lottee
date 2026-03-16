@@ -9,12 +9,12 @@ import Typed from 'typed.js';
 const cards = [
     {
         title: "Her Choreographic Language",
-        description: "I desenvolves a movement language that bridges physical intensity with emotional precision. My work is informed by theatrical depth, cinematic awareness, and a refined technical clarity."
+        description: "Guided by my background in dance, I develop my choreographic work. I also continue to perform and collaborate on various projects, often crossing into multidisciplinary disciplines."
     },
-    {
-        title: "Fashion & Narrative",
-        description: "I have performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment."
-    },
+    /* {
+         title: "Fashion & Narrative",
+         description: "I have performed in shows and presentations for major fashion houses including Valentino, Cartier, Hermès, and Flora Miranda — sharpening her understanding of narrative embodiment."
+     },*/
     {
         title: "Choreographic Research",
         description: "My research explores the relationship between body, space, and storytelling — moving fluidly from intimate solos to collaborative stage works — always guided by a search for authenticity, tension, and embodied truth."
@@ -138,16 +138,8 @@ export default function AboutPage() {
                         LOTTE AIMÉE de
                     </h2>
 
-                    <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">
-                        Lotte Aimée de Weert is a dancer originally from the Netherlands...
-                    </p>
-
-                    <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 lg:mb-10 max-w-lg lg:pl-12 font-light">
-                        Her career has led her to perform both on stage and in front of the camera...
-                    </p>
-
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 lg:mb-14 max-w-lg lg:pl-12 font-light">
-                        Guided by her background in dance yet seeking multidisciplinary exchange...
+                        Lotte Aimée de Weert is a dancer originally from the Netherlands. Trained at the ArtEZ University of the Arts in Arnhem, I later moved to Paris where I further developed my dance practice through various techniques: classical ballet, contemporary dance, and the Graham technique. At the same time, I deepened my approach to performance by studying Method Acting with Jack Waltzer, a long-standing member of the Actors Studio in New York.
                     </p>
 
                     {/* BUTTON UNCHANGED */}

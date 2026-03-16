@@ -216,25 +216,10 @@ export default function SchedulePage() {
                                                         fontSize: "18px",
                                                         lineHeight: "29px"
                                                     }} className="space-y-6">
-                                                        <p>
-                                                            This project arises from a deep impulse: to pay tribute to the women who have inspired and nourished me throughout my life as a female artist. Camille Claudel holds an essential place in my research and creative process. Her work has led me to question the intentions that guided her gestures, particularly in the sculpture La Valse.
-                                                        </p>
-                                                        <p>
-                                                            This work carries within it both fragility and strength, an eternal movement. The emotion it holds reveals itself to those who look at it, without ever imposing itself or becoming fixed within the material.
-                                                        </p>
-                                                        <p>
-                                                            It inspired me to physically explore the continuity of this work, allowing my body to be crossed by what she sought to express beyond the material.
-                                                        </p>
-                                                        <p>
-                                                            My waltz today does not illustrate Claudel’s work directly; rather, it reflects on connection, power, desire, surrender, and memory in relation to the other. These notions nourish the research of movement, in direct dialogue with the universe of Camille Claudel, which serves as the anchoring point of the piece. Two performers embody this exploration through different choreographic structures.
-                                                        </p>
-                                                        <p>
-                                                            The stage becomes a space of resonance where the body waltzes between past and present, like an inner dance that constantly reinvents itself.
-                                                        </p>
-                                                        <p>
-                                                            In this project, I seek to use the body as a place of memory, a sensitive material marked by shared stories. It is an important exploration within my path as a creator—one that leads toward a collective understanding and meaningful dialogue, where I aim to create a language that exists beyond time.
-                                                        </p>
+
+
                                                     </div>
+
 
                                                     <Link
                                                         href="/contact"
@@ -260,13 +245,13 @@ export default function SchedulePage() {
                     className="mt-40 pt-20 border-t border-white/5 text-center"
                 >
                     <h3 className="text-2xl md:text-3xl font-bold mb-10 tracking-tight" style={{ fontFamily: "'Roc Grotesk', sans-serif" }}>
-                        Need a custom shooting schedule?
+                        Do you like to connect with me ?
                     </h3>
                     <Link
                         href="/contact"
                         className="bg-[#7a8208] text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-[#6b7207] transition-all inline-block hover:scale-105 active:scale-95 shadow-xl"
                     >
-                        Inquire & Collaborate
+                        Email me
 
                     </Link>
                 </motion.div>

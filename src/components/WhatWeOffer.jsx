@@ -7,20 +7,20 @@ import Typed from 'typed.js';
 export default function WhatWeOffer() {
     const typedElement = useRef(null);
 
-    useEffect(() => {
-        if (!typedElement.current) return;
+    /*useEffect(() => {
+            if (!typedElement.current) return;
+    
+            const typed = new Typed(typedElement.current, {
+                strings: ['Unique', 'Outstanding', 'Excellent'],
+                typeSpeed: 60,
+                backSpeed: 40,
+                backDelay: 2000,
+                loop: true,
+                showCursor: false
+            });*/
 
-        const typed = new Typed(typedElement.current, {
-            strings: ['Unique', 'Outstanding', 'Excellent'],
-            typeSpeed: 60,
-            backSpeed: 40,
-            backDelay: 2000,
-            loop: true,
-            showCursor: false
-        });
-
-        return () => typed.destroy();
-    }, []);
+    //return () => typed.destroy();
+    //}, []);
 
     const services = [
         {
@@ -65,13 +65,11 @@ export default function WhatWeOffer() {
                         color: 'rgb(25, 25, 25)'
                     }}
                 >
-                    I offer movement as language —
-                    where precision meets emotion,
-                    and each performance becomes{" "}
+                    I explore and create through dance and choreographic research, seeking to touch audiences through movement and its extension, creating a personal connection we can all relate to.
                     <span
                         className="underline decoration-1 underline-offset-8"
                         ref={typedElement}
-                    ></span>.
+                    ></span>
                 </h2>
 
 

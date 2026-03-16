@@ -7,6 +7,7 @@ const photographyItems = [
     {
         id: 1,
         title: 'The Quiet Body',
+        subtitle: 'by Malmarstudio',
         description: <p>
             poetry of form photo by Malmarstudio <br />
             Designer : Jotaro Saito.
@@ -20,15 +21,19 @@ const photographyItems = [
             '/photographyshoot5.jpeg',
             '/photographyshoot6.jpeg',
             '/photographyshoot7.jpeg',
-            '/photographyshoot8.jpeg',
-            '/photographyshoot9.jpeg',
-            '/photographyshoot1.jpeg'
+            // '/photographyshoot8.jpeg',
+            // '/photographyshoot9.jpeg',
+            // '/photographyshoot1.jpeg'
         ]
     },
     {
         id: 2,
         title: 'Utsuroi',
-        description: 'DBmotion prod  videographer: damien bourletsis.',
+        subtitle: 'by damien bourletsis',
+        description: <p>
+            DBmotion prod  videographer: damien bourletsis. <br />
+            Designer : jotaro saito <br />
+        </p>,
         image: '/Utsuroi 1.jpeg',
         span: 'md:col-span-1',
         gallery: [
@@ -42,6 +47,7 @@ const photographyItems = [
     {
         id: 3,
         title: 'Kinetic Form',
+        subtitle: 'by Emma Leforestier',
         description: <p>
             Photographer : Emma Leforestier <br />
             Styling : @emma_leforestier <br />
@@ -61,6 +67,7 @@ const photographyItems = [
     {
         id: 4,
         title: 'Soft Gravity',
+        subtitle: 'by Alexconustudio',
         description: ' Untamed Motion photo by @Alexconustudio.',
         image: '/utsurioshoot5.jpeg',
         gallery: [
@@ -76,6 +83,7 @@ const photographyItems = [
     {
         id: 5,
         title: 'La danseuse de Degas',
+        subtitle: 'by museeorsay',
         description: 'Dani Remiao photography @museeorsay.',
         image: '/IMG_3749.JPG',
         gallery: [
@@ -90,13 +98,14 @@ const photographyItems = [
     },
 
     {
-        id: 7,
+        id: 6,
         title: ' Anitjer ',
+        subtitle: 'by Alexconustudio',
         description: 'photoshoot with Alexconustudio',
         image: '/gallery2.jpeg',
         gallery:
             [
-                //'/aboutimg.jpeg',
+                '/aboutimg.jpeg',
                 '/gallery2.jpeg',
                 /* '/IMG_3749.JPG',
                  '/utsurioshoot4.jpeg',
@@ -104,74 +113,79 @@ const photographyItems = [
                   '/urben2.jpeg',
                   '/utrshootl.jpg', */
             ]
-    }
+    },
 
-    /*  {
-          id: 1,
-          title: 'The Quiet Body',
-          category: 'Name of the shoot',
-          description: 'Insert the sub text you want for The Quiet Body here.',
-          image: '/photographyshoot1.jpeg',
-          span: 'md:col-span-2',
-          gallery: [
-              '/photographyshoot2.jpeg',
-              '/photographyshoot3.jpeg',
-              '/photographyshoot4.jpeg',
-              '/photographyshoot5.jpeg',
-              '/photographyshoot6.jpeg',
-              '/photographyshoot7.jpeg',
-              '/photographyshoot8.jpeg',
-              '/photographyshoot9.jpeg',
-              '/photographyshoot1.jpeg'
-          ]
-      },
-      {
-  
-          id: 2,
-          title: 'Utsuroi',
-          category: 'Name of the shoot',
-          description: 'Insert the sub text describing the Utsuroi photography series.',
-          image: '/Utsuroi 1.jpeg',
-          span: 'md:col-span-1',
-          gallery: [
-              '/Utsuroi 2.jpeg',
-              '/Utsuroi 3.jpeg',
-              '/Utsuroi 4.jpeg',
-              '/Utsuroi 5.jpeg',
-              '/Utsuroi 6.jpeg',
-          ]
-      },
-      {
-          id: 3,
-          title: 'Kinetic Form',
-          category: 'Name of the shoot',
-          description: 'Insert the sub text describing the Kinetic Form photographic exploration.',
-          image: '/gallery6.jpeg',
-          gallery: [
-              '/ioffer1.jpeg',
-              '/offer2.jpeg',
-              '/offer4.jpeg',
-              '/contact img.jpeg',
-              '/gallery5.jpeg',
-              '/gallery6.jpeg',
-          ]
-      },
-      {
-          id: 4,
-          title: 'Soft Gravity',
-          category: 'Name of the shoot',
-          description: 'Insert the sub text describing the Soft Gravity visual series.',
-          image: '/utsurioshoot5.jpeg',
-          gallery: [
-              '/imggl1.jpeg',
-              '/softgravitymain.jpeg',
-              '/utsurioshoot5.jpeg',
-              '/utsurioshoot4.jpeg',
-              '/utsurioshoot3.jpg',
-              '/urben2.jpeg',
-              '/utrshootl.jpg',
-          ]
-      }*/
+    {
+        id: 7,
+        title: 'OCCO Art gallery',
+        subtitle: 'by marianfilmmaker',
+        description: <p>
+            Designer: @emiliosalinasatelier  <br />
+            MUA :jose_sande_makeup <br />
+            in collaboration with OCCO art gallery <br />
+        </p>,
+        image: '/occo1.jpeg',
+        span: 'md:col-span-2',
+        gallery: [
+            '/occo2.jpeg',
+            '/occo3.jpeg',
+            '/occo1.jpeg',
+            // '/photographyshoot6.jpeg',
+            // '/photographyshoot7.jpeg',
+            // '/photographyshoot8.jpeg',
+            // '/photographyshoot9.jpeg',
+            // '/photographyshoot1.jpeg'
+        ]
+    },
+
+    {
+
+        id: 8,
+        title: 'Fred',
+        subtitle: 'by Fred Smink',
+        description: 'Fred Smink photography.',
+        image: '/gallery.jpg',
+        span: 'md:col-span-1',
+        gallery: [
+            '/gallery81.jpeg',
+            '/gallery.jpg',
+            '/urben22.jpg',
+            '/gallery82.jpeg',
+            '/gallery83.jpeg',
+        ]
+    }
+    /*
+    {
+        id: 3,
+        title: 'Kinetic Form',
+        category: 'Name of the shoot',
+        description: 'Insert the sub text describing the Kinetic Form photographic exploration.',
+        image: '/gallery6.jpeg',
+        gallery: [
+            '/ioffer1.jpeg',
+            '/offer2.jpeg',
+            '/offer4.jpeg',
+            '/contact img.jpeg',
+            '/gallery5.jpeg',
+            '/gallery6.jpeg',
+        ]
+    },
+    {
+        id: 4,
+        title: 'Soft Gravity',
+        category: 'Name of the shoot',
+        description: 'Insert the sub text describing the Soft Gravity visual series.',
+        image: '/utsurioshoot5.jpeg',
+        gallery: [
+            '/imggl1.jpeg',
+            '/softgravitymain.jpeg',
+            '/utsurioshoot5.jpeg',
+            '/utsurioshoot4.jpeg',
+            '/utsurioshoot3.jpg',
+            '/urben2.jpeg',
+            '/utrshootl.jpg',
+        ]
+    }*/
 ];
 
 export default function PhotographyPage() {
@@ -214,8 +228,7 @@ export default function PhotographyPage() {
                         transition={{ delay: 0.2 }}
                         className="text-white/70 text-base md:text-xl max-w-3xl mx-auto leading-relaxed font-light"
                     >
-                        As a contemporary dancer and choreographer developing my own research-driven work, I collaborate with photographers, visual artists, cultural institutions and brands. I am always interested in new artistic collaborations that explore movement, space and image.
-                    </motion.p>
+                        Guided by my background in dance, I develop my choreographic work. I also continue to perform and collaborate on various projects, often crossing into multidisciplinary disciplines.                    </motion.p>
 
                 </div>
 
@@ -243,7 +256,7 @@ export default function PhotographyPage() {
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className={`w-full h-full transition-transform duration-1000 md:group-hover:scale-[1.05] ${item.id === 5 ? 'object-contain bg-[#111]' : 'object-cover object-top'}`}
+                                className={`w-full h-full transition-transform duration-1000 md:group-hover:scale-[1.05] ${item.id === 5 || item.id === 7 ? 'object-contain bg-[#111]' : 'object-cover object-top'}`}
                             />
 
                             <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:translate-y-4 md:group-hover:translate-y-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500">
@@ -253,6 +266,11 @@ export default function PhotographyPage() {
                                 >
                                     {item.title}
                                 </h3>
+                                {item.subtitle && (
+                                    <p className="text-white/80 text-sm mt-1 font-medium tracking-wide">
+                                        {item.subtitle}
+                                    </p>
+                                )}
                             </div>
 
                         </motion.div>
@@ -365,7 +383,7 @@ export default function PhotographyPage() {
                                         <img
                                             src={imgSrc}
                                             alt={`${selectedProject.title} image ${idx + 1}`}
-                                            className={`w-full h-full ${selectedProject.id === 5 ? 'object-contain bg-[#111]' : 'object-cover object-top'}`}
+                                            className={`w-full h-full ${selectedProject.id === 5 || selectedProject.id === 7 ? 'object-contain bg-[#111]' : 'object-cover object-top'}`}
                                         />
 
                                     </motion.div>

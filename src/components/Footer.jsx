@@ -18,7 +18,7 @@ export default function Footer() {
                             Lotte Aimée de Weert
                         </h4>
                         <p className="text-gray-400 leading-relaxed text-[15px] max-w-sm">
-                            I'AM merging physical intensity with emotional precision. my work bridges dance, theatre, and fashion through a refined and cinematic movement language.
+                            Lotte Aimée de Weert is a dancer and choreographer from the Netherlands, based in Paris. Her experience extends to performance and choreography in theatre, dance, and fashion, both on stage and in front of the camera. This dual experience has shaped her interest in the impact of movement within the image and in the dialogue between dance and other artistic disciplines
                         </p>
                         <div className="flex items-center gap-4">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition-all group">
@@ -34,10 +34,10 @@ export default function Footer() {
                         </h4>
                         <div className="space-y-6 text-gray-400 text-[15px] leading-relaxed">
                             <p>
-                                Through my association <span className="text-white font-medium"> Lotte Aimée</span>, supported by the <span className="text-white font-medium">Centre National de la Danse</span> and <span className="text-white font-medium">La Ménagerie de Verre</span> in Paris.
+                                Guided by my background in <span className="text-white font-medium">dance</span>,  I develop my <span className="text-white font-medium">choreographic work.</span>
                             </p>
                             <p className="italic text-sm">
-                                Exploring the dialogue between dance, conceptual research, and cinematic storytelling.
+                                I also continue to perform and collaborate on various projects, often crossing into multidisciplinary disciplines.
                             </p>
                         </div>
                     </div>

@@ -8,10 +8,10 @@ export default function UrbanAtmosphere() {
 
   const slides = [
     {
-      category: "Lotte & Aimée",
+      category: "Lotte Aimée et",
       title: "About",
       description:
-        "Lotte Aimée de Weert is a Dutch choreographer and performer based in Paris. Trained in ballet, contemporary dance, and Method Acting, she creates work that blends physical intensity with emotional depth.",
+        "Lotte Aimée de Weert is a dancer and choreographer from the Netherlands, based in Paris. Her experience extends to performance and choreography in theatre, dance, and fashion, both on stage and in front of the camera. This dual experience has shaped her interest in the impact of movement within the image and in the dialogue between dance and other artistic disciplines.",
       image1: "/gallery2.jpeg",
       image2: "/imggl1.jpeg",
       hoverImage1: "/aboutimg.jpeg",
@@ -60,7 +60,7 @@ export default function UrbanAtmosphere() {
               {/* Images */}
               <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-3 mb-8 md:mb-0 z-20 pointer-events-auto">
 
-                <div className="relative w-full overflow-hidden bg-gray-100 distortion h-[50vw] md:h-[430px]">
+                <div className="relative w-full overflow-hidden bg-gray-100 distortion h-[40vw] md:h-[350px]">
                   <HoverEffect
                     image1={slide.image1}
                     image2={slide.hoverImage1}
@@ -72,7 +72,7 @@ export default function UrbanAtmosphere() {
                   />
                 </div>
 
-                <div className="relative w-full overflow-hidden bg-gray-100 distortion h-[50vw] md:h-[430px]">
+                <div className="relative w-full overflow-hidden bg-gray-100 distortion h-[40vw] md:h-[350px]">
                   <HoverEffect
                     image1={slide.image2}
                     image2={slide.hoverImage2}

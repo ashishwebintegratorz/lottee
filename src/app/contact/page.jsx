@@ -160,7 +160,7 @@ ${formData.message}`;
                             <div className="space-y-2">
                                 <p className="text-white/40 text-xs font-bold tracking-widest uppercase">Email Us</p>
                                 <a href="mailto:info@lotteaimee.com" className="text-xl md:text-2xl font-medium hover:text-[#7a8208] transition-colors inline-block">
-                                    info@lotteaimee.com
+                                    lottedeweert3@gmail.com
                                 </a>
                             </div>
                         </div>
