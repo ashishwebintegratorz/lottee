@@ -50,8 +50,8 @@ export default function Footer() {
                         <ul className="grid grid-cols-2 gap-y-4 gap-x-8 text-[15px]">
                             {[
                                 { name: 'Home', href: '/' },
-                                { name: 'Choreographies & Dancer', href: '/projects' },
-                                { name: 'Gallery', href: '/gallery' },
+                                { name: 'Choreographer & Dancer', href: '/projects' },
+                                { name: 'Photography', href: '/photography' },
                                 { name: 'Schedule', href: '/schedule' },
                                 { name: 'About', href: '/about' },
                                 { name: 'Social Media', href: '/socialmedia' },

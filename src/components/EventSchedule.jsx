@@ -20,7 +20,9 @@ export default function EventSchedule() {
             guideRole: 'Choreographer',
             location: 'PARIS',
             // venue: 'PARIS-LOCATION TBC',
-            venue: <>LOCATION TBC <br /> Museum Maison Claudel-Villeneuve-sur-F`ere, France</>,
+            venue: <>LOCATION TBC <br /> Villeneuve sur f’ere
+                Museum Maison Claudel
+                2027, France</>,
             time: '7:00 PM',
             period: 'PM'
         },

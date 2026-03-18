@@ -75,11 +75,11 @@ export default function LatestNews() {
                         >
                             <Link href={item.href || "#"} className="block h-full group">
                                 {/* Image Container */}
-                                <div className="w-full overflow-hidden mb-5 relative bg-[#121212] rounded-sm">
+                                <div className="w-full aspect-square overflow-hidden mb-5 relative bg-white rounded-sm">
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-105"
+                                        className="w-full h-full object-contain block transition-transform duration-700 ease-out group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
                                 </div>

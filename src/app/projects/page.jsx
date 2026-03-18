@@ -30,7 +30,14 @@ export default function ProjectsPage() {
 
     const bottomVideos = [
 
-        { id: 'v4', title: 'Cartier', category: 'casting and movement direction oneness entertainment', src: '/dancervedio4.mp4' },
+        {
+            id: 'v4', title: 'Cartier', category: (
+                <>
+                    Casting and movement direction<br />
+                    Oneness entertainment
+                </>
+            ), src: '/dancervedio4.mp4'
+        },
 
         {
             id: 'v5',
