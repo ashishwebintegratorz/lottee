@@ -24,7 +24,7 @@ export default function WhatWeOffer() {
 
     const services = [
         {
-            title: "Choreographies & Dancer",
+            title: "Choreographer & Dancer",
             href: "/projects",
             description: "Multidisciplinary Performances",
             image: "ioffer1.jpeg"
