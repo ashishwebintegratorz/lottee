@@ -235,4 +235,8 @@ export default function ProjectsPage() {
     )
 
 
+<<<<<<< HEAD
+=======
+)
+>>>>>>> 9b5d4a1 (update)
 }
